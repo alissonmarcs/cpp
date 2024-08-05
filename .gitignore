@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Unignore directories (so we can unignore specific files within them)
+!*/
+
+# Unignore Makefiles
+!Makefile
+
+# Unignore files with .cpp extension
+!*.cpp
+
+# Unignore files with .hpp extension
+!*.hpp
