@@ -1,4 +1,11 @@
-#include <iostream>
+#include <iostream>{
+	while (*string)
+	{
+		*string = std::toupper(*string);
+		string++;
+	}
+}
+
 #include <cctype>
 
 void	up_case(char *string)
