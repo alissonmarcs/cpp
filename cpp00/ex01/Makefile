@@ -1,6 +1,6 @@
 NAME		= phone_book
 CPPFLAGS	= -std=c++98 -Wall -Werror -Wextra -O3
-SOURCES		= main.cpp Contact.cpp PhoneBook.cpp
+SOURCES		= main.cpp Contact.cpp PhoneBook.cpp utils.cpp
 OBJECTS		= $(addprefix ./objs/,$(SOURCES:.cpp=.o))
 
 ifdef REMOVE_W_FLAGS

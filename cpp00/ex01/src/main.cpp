@@ -25,14 +25,18 @@ int		main(void)
 {
 	PhoneBook		book;
 	std::string		input = "ADD";
-
 	
 
 	// prompt(inp, book);
 	// Contact tmp;;
 
+	book.add();
+	// book.add();
+	// book.add();
+	// book.add();
+	// book.add();
+	book.search();
 	// std::cin >> tmp;
-	
 	// std::cout << tmp.getFirstName() << '\n';
 	// std::cout << tmp.getLastName() << '\n';
 	// std::cout << tmp.getDarkestSecret() << '\n';
