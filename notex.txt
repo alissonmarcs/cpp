@@ -1,0 +1,62 @@
+#### notes ####
+
+## referencias e ponteiros
+referencias sao diferentes de ponteiros. Elas são apenas uma sintaxe mais amigável para pointers.
+
+## valores default para paramentros de funções
+parametros com valores default também são chamados de parâmetros opcionais.
+quando definindo uma função, se um parametro tem valor default, os parametros seguintes devem ter valor default.
+
+## standard library
+
+limpa os indicadores de erro e de EOF de uma dada stream.
+std::clearerr(stream);
+
+devolvem o estado de um indicador de uma dada stream:
+
+feof(stream);
+ferror(stream);
+
+std:string::npos é uma constante definida **dentro da classe std:string**. É o indicador retornado quando os métodos (find() por exemplo) de procura
+não encontram a substring desejada.
+
+## membros staticos em classes
+
+classes podem ter membros staticos. você pode acessar membros staticos sem instanciar a classe. membros staticos são compartilhados por todas as instancias da classe.
+
+para usar membros staticos, você precisa declara-lo na definição da classe, e o defini-lô fora da classe. Exemplo:
+
+## nivel de acesso default
+
+se não for especificado o nivel de acesso de algum membro da classe, ele será privado por default.
+
+```c++
+class	pessoa {
+public:
+	static int			age;
+	char				*name;
+	char				*lastName;
+};
+
+int pessoa::age;
+
+int		main(int argc, char **argv)
+{
+	pessoa::age = 21;
+// ...
+
+suspeito que membros staticos de classes são armazenados na stack, por isso a necessidade de defini-lôs fora da definição da classe.
+
+```
+
+## relação entre atributos e métodos
+
+geralmente a classe terá alguns atributos, e o métodos vão manipular esses atributos.
+
+## níveis de acesso
+
+protegido: a classe B que herdou da classe A pode acessar os membros de A que forem protegidos.
+
+#### duvidas ####
+
+eu posso usar um membro const  diretamente de uma classe (aka: sem inscanciar um objeto) ?
