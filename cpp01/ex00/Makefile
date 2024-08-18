@@ -1,4 +1,4 @@
-NAME		= phone_book
+NAME		= BraiiiiiiinnnzzzZ
 WFLAGS 		= -Wall -Werror -Wextra -Werror=unused-variable \
 			-Werror=unused-parameter -Werror=unused-function
 

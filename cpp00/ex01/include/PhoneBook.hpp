@@ -3,17 +3,17 @@
 
 #include "Contact.hpp"
 
-class	PhoneBook {
-private:
-	Contact			contacts[8];
-	int				index;
+class	PhoneBook
+{
+	private:
+		Contact			contacts[8];
+		int				current;
 
-public:
-	PhoneBook();
-	~PhoneBook();
-	void		add();
-	void		search();
-	
+	public:
+		PhoneBook();
+		~PhoneBook();
+		void		add();
+		void		search();
 };
 
 #endif

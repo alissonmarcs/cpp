@@ -1,13 +1,12 @@
-NAME		= phone_book
+NAME		= brain
 WFLAGS 		= -Wall -Werror -Wextra -Werror=unused-variable \
 			-Werror=unused-parameter -Werror=unused-function
 
-CPPFLAGS	= -std=c++98 -O3 -I ./include/
+CPPFLAGS	= -std=c++98 -O3
 DEBUG_FLAGS =
 SOURCES		= $(wildcard ./src/*.cpp)
 SOURCES		:= $(patsubst ./src/%,%, $(SOURCES))
 OBJECTS		= $(addprefix ./objs/,$(SOURCES:.cpp=.o))
-HEADERS 	= $(wildcard ./include/*.hpp)
 
 ifdef REMOVE_W_FLAGS
 	WFLAGS =
@@ -26,7 +25,7 @@ all: ./objs/ $(NAME)
 $(NAME): $(OBJECTS)
 	c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) $(OBJECTS) -o $(NAME)
 
-./objs/%.o: ./src/%.cpp $(HEADERS)
+./objs/%.o: ./src/%.cpp
 	c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) -c $< -o $@
 
 clean:

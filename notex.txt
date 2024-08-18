@@ -20,6 +20,12 @@ ferror(stream);
 std:string::npos é uma constante definida **dentro da classe std:string**. É o indicador retornado quando os métodos (find() por exemplo) de procura
 não encontram a substring desejada.
 
+---
+
+<sstream> significa "string stream" e permite que você inicialize streams com strings.
+
+a classe std::stringstream é uma subclasse de std::istream e std::ostream, o que significa que você pode usar << e >> com objetos de std::stringstream.
+
 ## membros staticos em classes
 
 classes podem ter membros staticos. você pode acessar membros staticos sem instanciar a classe. membros staticos são compartilhados por todas as instancias da classe.

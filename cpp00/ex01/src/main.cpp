@@ -1,45 +1,37 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include "utils.hpp"
 
 #include <iostream>
 #include <cstdio>
+#include <cstdlib>
 
-bool	end = false;
-
-void	prompt(std::string &input, PhoneBook &book)
+void	printOptions()
 {
-	if (!input.compare("ADD"))
-		book.add();
-	else if (!input.compare("SEARCH"))
-		std::cout << "The command is: " << input << '\n';
-	else if (!input.compare("EXIT"))
-	{
-		std::cout << "Bye" << '\n';
-		end = true;
-	}
-	else
-		std::cout << "Unknow command: " << input << '\n';
+	std::cout << '\n';
+	std::cout << "ADD\n";
+	std::cout << "SEARCH\n";
+	std::cout << "EXIT\n\n";
 }
 
-int		main(void)
+int		main()
 {
 	PhoneBook		book;
-	std::string		input = "ADD";
-	
+	std::string		input;
 
-	// prompt(inp, book);
-	// Contact tmp;;
-
-	book.add();
-	// book.add();
-	// book.add();
-	// book.add();
-	// book.add();
-	book.search();
-	// std::cin >> tmp;
-	// std::cout << tmp.getFirstName() << '\n';
-	// std::cout << tmp.getLastName() << '\n';
-	// std::cout << tmp.getDarkestSecret() << '\n';
-	// std::cout << tmp.getPhoneNumber() << '\n';
-	// std::cout << tmp.getNickName() << '\n';
+	while (input != "EXIT")
+	{
+		printOptions();
+		std::cout << "Enter a command: ";
+		std::getline(std::cin, input);
+		if (feof(stdin) == 1)
+		{
+			std::cout << '\n';
+			exit(42);
+		}
+		if (input == "ADD")	
+			book.add();
+		else if (input == "SEARCH")
+			book.search();
+	}
 }
