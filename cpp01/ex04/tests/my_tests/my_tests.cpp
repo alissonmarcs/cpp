@@ -1,6 +1,7 @@
 #include "utils.hpp"
 
 #include "gtest/gtest.h"
+#include <string>
 
 namespace
 {
@@ -18,5 +19,17 @@ namespace
 		EXPECT_STREQ(ret.c_str(), "does not have target");
 		ret = replace("does not have target", "", "LOL");
 		EXPECT_TRUE(ret.empty());
+
+	}
+
+	TEST(replace, endlessLoop)
+	{
+		std::string		ret;
+
+		ret = replace("teste com palavras parecidas", "palavras", "palavrassssss");
+		EXPECT_STREQ(ret.c_str(), "teste com palavrassssss parecidas");
+
+		ret = replace("teste com palavras iguais", "iguais", "iguais");
+		EXPECT_STREQ(ret.c_str(), "teste com palavras iguais");
 	}
 }

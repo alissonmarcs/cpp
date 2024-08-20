@@ -13,7 +13,7 @@ ifdef REMOVE_W_FLAGS
 	WFLAGS =
 endif
 
-ifdef ADD_DEBUG_FLAGS
+ifdef DEBUG
 		DEBUG_FLAGS := -g3 -O0
 		CPPFLAGS := $(subst -O3,,$(CPPFLAGS))
 endif
