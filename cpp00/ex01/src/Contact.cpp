@@ -92,6 +92,6 @@ std::ostream &operator<<(std::ostream &output, Contact &contact)
 	output << std::left << std::setw(18) <<
 	"PhoneNumber: " << contact.getPhoneNumber() << '\n';
 	output << std::left << std::setw(18) <<
-	"DarkestSecret: " << contact.getDarkestSecret() << '\n';
+	"DarkestSecret: " << contact.getDarkestSecret() << std::endl;
 	return output;
 }

@@ -21,10 +21,7 @@ namespace utils
 		std::cout << "Enter the " << prompt << ": ";
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-		{
-			std::cout << '\n';
-			exit(42);
-		}
+			throw ("fatal error: EOF entered, aborting.");	
 		if (input.empty())
 		{
 			std::cout << "Contact cant have empty fileds! Try again:\n";
@@ -40,10 +37,7 @@ namespace utils
 
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-		{
-			std::cout << '\n';
-			exit(42);
-		}
+			throw ("fatal error: EOF entered, aborting.");
 		index = input[0] - '0';
 		if (input.size() != 1 || input[0] < '0' || input[0] > '7' || index >= len)
 		{
@@ -69,10 +63,7 @@ namespace utils
 
 		std::getline(std::cin, input);
 		if (std::cin.eof())
-		{
-			std::cout << '\n';
-			exit(42);
-		}
+			throw ("fatal error: EOF entered, aborting.");
 		if (!isNumber(input) || input.size() < 9)
 		{
 			std::cout << "Invalid phone number, try again: ";

@@ -1,34 +1,26 @@
-#include <iostream>{
-	while (*string)
-	{
-		*string = std::toupper(*string);
-		string++;
-	}
-}
-
+#include <iostream>
 #include <cctype>
 
-void	up_case(char *string)
+std::string up_case(std::string str)
 {
-	while (*string)
-	{
-		*string = std::toupper(*string);
-		string++;
-	}
+	for (size_t i = 0; i < str.size(); i++)
+		str[i] = std::toupper(str[i]);
+	return (str);
 }
 
 int		main(int argc, char **argv)
 {
+	std::string		str;
+
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else if (argv[1][0] != '\0')
 	{
 		for (int i = 1; argv[i]; i++)
 		{
-			up_case(argv[i]);
-			std::cout << argv[i];
+			str = up_case(argv[i]);
+			std::cout << str << std::endl;
 		}
-		std::cout << '\n';
 	}
 	return 0;
 }
