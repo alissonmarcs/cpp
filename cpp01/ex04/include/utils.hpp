@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace utils
 {
 	std::string		replace(std::string str, std::string remove, std::string add);
