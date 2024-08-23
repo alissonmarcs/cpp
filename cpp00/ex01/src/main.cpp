@@ -19,19 +19,26 @@ int		main()
 	PhoneBook		book;
 	std::string		input;
 
-	while (input != "EXIT")
+	try
 	{
-		printOptions();
-		std::cout << "Enter a command: ";
-		std::getline(std::cin, input);
-		if (feof(stdin) == 1)
+
+		while (input != "EXIT")
 		{
-			std::cout << '\n';
-			exit(42);
-		}
-		if (input == "ADD")	
-			book.add();
-		else if (input == "SEARCH")
-			book.search();
+			printOptions();
+			std::cout << "Enter a command: ";
+			std::getline(std::cin, input);
+			if (feof(stdin) == 1)
+				throw ("fatal error: EOF entered, aborting.");
+			if (input == "ADD")	
+				book.add();
+			else if (input == "SEARCH")
+				book.search();
+		}		
 	}
+	catch (const char *msg)
+	{
+		std::cerr << '\n' << msg << std::endl;
+		return 1;
+	}
+	return 0;
 }
