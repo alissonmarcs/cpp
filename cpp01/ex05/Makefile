@@ -1,4 +1,4 @@
-NAME		= violence
+NAME		= Harl
 WFLAGS 		= -Wall -Werror -Wextra
 CPPFLAGS	= -std=c++98 -O3 -I ./include/
 DEBUG_FLAGS =
@@ -11,7 +11,7 @@ ifdef REMOVE_W_FLAGS
 	WFLAGS =
 endif
 
-ifdef ADD_DEBUG_FLAGS
+ifdef DEBUG
 		DEBUG_FLAGS := -g3 -O0
 		CPPFLAGS := $(subst -O3,,$(CPPFLAGS))
 endif

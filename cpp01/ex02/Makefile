@@ -1,7 +1,5 @@
 NAME		= brain
-WFLAGS 		= -Wall -Werror -Wextra -Werror=unused-variable \
-			-Werror=unused-parameter -Werror=unused-function
-
+WFLAGS 		= -Wall -Werror -Wextra
 CPPFLAGS	= -std=c++98 -O3
 DEBUG_FLAGS =
 SOURCES		= $(wildcard ./src/*.cpp)
