@@ -1,7 +1,7 @@
 #include "HumanA.hpp"
 #include "Weapon.hpp"
 
-#include <cstdlib>
+#include <iostream>
 
 HumanA::HumanA(std::string name, Weapon &weapon): name(name), weapon(weapon)
 {

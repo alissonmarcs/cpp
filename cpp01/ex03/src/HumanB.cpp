@@ -1,5 +1,7 @@
 #include "HumanB.hpp"
 
+#include <iostream>
+
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
