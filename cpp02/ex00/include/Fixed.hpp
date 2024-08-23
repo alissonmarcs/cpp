@@ -6,8 +6,9 @@ class Fixed
 		Fixed();
 		Fixed(const Fixed &object);
 		~Fixed();
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		Fixed&		operator=(const Fixed& object);
+		int			getRawBits(void) const;
+		void		setRawBits(int const raw);
 
 	private:
 		int						integer;
