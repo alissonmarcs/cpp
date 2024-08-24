@@ -12,5 +12,5 @@ class Fixed
 
 	private:
 		int						integer;
-		const static int		decimal = 8;
+		const static int		_bits = 8;
 };

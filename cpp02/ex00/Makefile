@@ -1,4 +1,4 @@
-NAME		= Harl
+NAME		= fixed
 WFLAGS 		= -Wall -Werror -Wextra
 CPPFLAGS	= -std=c++98 -O3 -I ./include/
 DEBUG_FLAGS =

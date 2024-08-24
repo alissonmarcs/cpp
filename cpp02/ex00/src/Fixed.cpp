@@ -6,10 +6,18 @@ Fixed::Fixed(): integer(0)
 	std::cout << "Dafault constructor called" << std::endl;
 }
 
+Fixed& Fixed::operator=(const Fixed &object)
+{
+	std::cout << "Copy assigment operator called" << std::endl;
+	if (this != &object)
+		integer = object.getRawBits();
+	return *this;
+}
+
 Fixed::Fixed(const Fixed& object)
 {
-	*this = object;
 	std::cout << "Copy constructor called" << std::endl;
+	*this = object;
 }
 
 Fixed::~Fixed()
@@ -17,20 +25,15 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed& Fixed::operator=(const Fixed &object)
-{
-	if (this != &object)
-		this->integer = object.integer;
-	return *this;
-}
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return integer;
 }
 
 void	Fixed::setRawBits(const int bits)
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	integer = bits;
 }
