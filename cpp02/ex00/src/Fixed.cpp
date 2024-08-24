@@ -12,7 +12,17 @@ Fixed::Fixed(const Fixed& object)
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed::~Fixed() {}
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed& Fixed::operator=(const Fixed &object)
+{
+	if (this != &object)
+		this->integer = object.integer;
+	return *this;
+}
 
 int		Fixed::getRawBits(void) const
 {
