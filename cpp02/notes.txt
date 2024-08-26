@@ -23,3 +23,29 @@ construir um float é só multiplica-lo por 256. (<<)
 
 converter para int é só dividir por 256. (>>)
 converter para float é só dividir por 256. (>>)
+
+-----
+
+ex02
+
+i am browsing some c++ code and I view the following lines: "Fixed &Fixed::operator++(void) {
+	++this->_value;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed	temp(this->toFloat());
+
+	this->_value++;
+	return (temp);
+}". i want to understand how the compiler know what function overloaded to call. the two functions receive different parameters, but the form to call the functions are the same.
+
+----
+
+overload a function mean have other function with the same name but with diferent parameters.
+
+
+----
+
+construtor de copia costuma chamar o operador de atribuição.
+averiguar a diferança que dava entre o codigo da jujuba e do gfantoni
