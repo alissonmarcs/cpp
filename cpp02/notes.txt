@@ -1,0 +1,25 @@
+-----
+
+ints e floats sao guardados de formas diferentes.
+
+	tmp.setRawBits(42);
+	std::cout << tmp.toFloat() << std::endl;
+
+nao espere toFloat() devolver 42.
+
+-----
+
+se eu setei os bits para 42, porque toInt() nao devolve 42 ?
+
+	tmp.setRawBits(42);
+	std::cout << tmp.toInt() << std::endl;
+
+R: é "definido" que a classe Fixed sempre vai acessar o "o bit mais a esquerda do numero".
+
+-----
+
+construir um int é só multiplica-lo por 256. (<<)
+construir um float é só multiplica-lo por 256. (<<)
+
+converter para int é só dividir por 256. (>>)
+converter para float é só dividir por 256. (>>)
