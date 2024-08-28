@@ -2,9 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed () : _rawBits (0)
-{
-}
+Fixed::Fixed () : _rawBits (0) {}
 
 Fixed::Fixed (const int Value)
 {
