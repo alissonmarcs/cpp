@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 Fixed::Fixed () : _rawBits (0)
 {
@@ -22,13 +22,13 @@ Fixed::toInt () const
 Fixed::Fixed (const float Value)
 {
   std::cout << "Float constructor called" << std::endl;
-  this->_rawBits = roundf(Value * (1 << Fixed::_bitsOffset));
+  this->_rawBits = roundf (Value * (1 << Fixed::_bitsOffset));
 }
 
 float
 Fixed::toFloat () const
 {
-  return (float) this->_rawBits / (1 << Fixed::_bitsOffset);
+  return (float)this->_rawBits / (1 << Fixed::_bitsOffset);
 }
 
 Fixed &
@@ -41,9 +41,9 @@ Fixed::operator= (const Fixed &object)
 }
 
 std::ostream &
-operator<<(std::ostream &out, const Fixed &object)
+operator<< (std::ostream &out, const Fixed &object)
 {
-  out << object.toFloat();
+  out << object.toFloat ();
   return out;
 }
 

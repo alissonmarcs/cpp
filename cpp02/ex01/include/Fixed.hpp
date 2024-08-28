@@ -9,9 +9,9 @@ public:
   ~Fixed ();
   Fixed (const Fixed &object);
   Fixed (const int Value);
-  int toInt() const;
+  int toInt () const;
   Fixed (const float Value);
-  float toFloat() const;
+  float toFloat () const;
   Fixed &operator= (const Fixed &object);
   int getRawBits (void) const;
   void setRawBits (int const raw);
@@ -21,5 +21,4 @@ private:
   const static int _bitsOffset = 8;
 };
 
-std::ostream&
-operator<<(std::ostream &out, const Fixed &objec);
+std::ostream &operator<< (std::ostream &out, const Fixed &objec);
