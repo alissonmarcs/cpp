@@ -30,4 +30,4 @@ private:
   int _attackDamage;
 };
 
-#define print(s) std::cout << s << std::endl;
+#define print(s) std::cout << s << std::endl
