@@ -3,25 +3,25 @@
 ClapTrap::ClapTrap ()
     : _name ("guest"), _hitPoints (10), _energyPoints (10), _attackDamage (0)
 {
-	print("ClapTrap default constructor called");
+  print ("ClapTrap default constructor called");
 }
 
 ClapTrap::ClapTrap (std::string name)
     : _name (name), _hitPoints (10), _energyPoints (10), _attackDamage (0)
 {
-	print("ClapTrap name constructor called");
+  print ("ClapTrap name constructor called");
 }
 
 ClapTrap::ClapTrap (const ClapTrap &other)
 {
-	print("ClapTrap copy constructor called");
+  print ("ClapTrap copy constructor called");
   *this = other;
 }
 
 ClapTrap &
 ClapTrap::operator= (const ClapTrap &other)
 {
-	print("ClapTrap assigment operator called");
+  print ("ClapTrap assigment operator called");
   if (this != &other)
     {
       this->setName (other.getName ());
@@ -48,13 +48,13 @@ void
 ClapTrap::attack (const std::string &target)
 {
   if (getHitPoints () <= 0)
-  	print("ClapTrap " << getName() << " is dead and can't attack!");
+    print ("ClapTrap " << getName () << " is dead and can't attack!");
   else if (getEnergyPoints () <= 0)
-  	print("ClapTrap " << getName() << " is out of energy and can't attack!");
+    print ("ClapTrap " << getName () << " is out of energy and can't attack!");
   else
     {
-    	print("ClapTrap " << getName() << " attacks " << target
-				<< ", causing " << getAttackDamage() << " points of damage!");
+      print ("ClapTrap " << getName () << " attacks " << target << ", causing "
+                         << getAttackDamage () << " points of damage!");
       _energyPoints -= 1;
     }
 }
@@ -62,7 +62,8 @@ ClapTrap::attack (const std::string &target)
 void
 ClapTrap::takeDamage (unsigned int amount)
 {
-	print("ClapTrap " << getName() << " takes " << amount << " points of damage!");
+  print ("ClapTrap " << getName () << " takes " << amount
+                     << " points of damage!");
   _hitPoints -= amount;
 }
 
@@ -70,12 +71,14 @@ void
 ClapTrap::beRepaired (unsigned int amount)
 {
   if (getHitPoints () <= 0)
-  	print("ClapTrap " << getName() << " is dead and can't be repaired!");
+    print ("ClapTrap " << getName () << " is dead and can't be repaired!");
   else if (getEnergyPoints () <= 0)
-  	print("ClapTrap " << getName() << " is out of energy and can't be repaired!");
+    print ("ClapTrap " << getName ()
+                       << " is out of energy and can't be repaired!");
   else
     {
-    	print("ClapTrap " << getName() << " is repaired by " << amount << " points!");
+      print ("ClapTrap " << getName () << " is repaired by " << amount
+                         << " points!");
       _energyPoints -= 1;
       _hitPoints += amount;
     }
@@ -104,8 +107,8 @@ ClapTrap::setEnergyPoints (int amount)
 {
   if (amount > 0)
     _energyPoints = amount;
-	else
-		print("ClapTrap energy points can't be negative! Previous value kept.");
+  else
+    print ("ClapTrap energy points can't be negative! Previous value kept.");
 }
 
 void
@@ -113,8 +116,8 @@ ClapTrap::setAtackDamage (int amount)
 {
   if (amount > 0)
     _attackDamage = amount;
-	else
-		print("ClapTrap attack damage can't be negative! Previous value kept.");
+  else
+    print ("ClapTrap attack damage can't be negative! Previous value kept.");
 }
 
 int
