@@ -6,14 +6,20 @@
 class ClapTrap
 {
 public:
+
+  /* Cannonical form */
   ClapTrap ();
-  ClapTrap (std::string name);
   ClapTrap (const ClapTrap &other);
   ClapTrap &operator= (const ClapTrap &other);
   ~ClapTrap ();
+
+  /* Subject */
+  ClapTrap (std::string name);
   void attack (const std::string &target);
   void takeDamage (unsigned int amount);
   void beRepaired (unsigned int amount);
+
+  /* Getters and Setters */
   int getEnergyPoints () const;
   void setEnergyPoints (int amount);
   int getHitPoints () const;
