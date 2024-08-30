@@ -20,6 +20,8 @@ class ClapTrap
 		void	setHitPoints(int amount);
 		int		getAttackDamage() const;
 		void	setAtackDamage(int amount);
+		std::string	getName() const;
+		void	setName(std::string name);
 
 	private:
 		std::string _name;
@@ -29,4 +31,4 @@ class ClapTrap
 	
 };
 
-#define printl(s) std::cout << s << std::endl;
+#define print(s) std::cout << s << std::endl;
