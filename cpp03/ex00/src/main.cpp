@@ -87,4 +87,16 @@ main (void)
     print ("Tmp2 hit points: " << tmp2.getEnergyPoints ());
     print ("Tmp2 attack damage: " << tmp2.getAttackDamage ());
   }
+
+  {
+    print ("\n\t\tTake damage\n");
+
+    ClapTrap tmp ("teste");
+
+    print (std::left << std::setw (32) << "Hit points before take damage: "
+                     << tmp.getHitPoints ());
+    tmp.takeDamage (6);
+    print (std::left << std::setw (32) << "Hit points after take damage: "
+                     << tmp.getHitPoints ());
+  }
 }
