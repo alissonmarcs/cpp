@@ -27,7 +27,7 @@ ClapTrap::operator= (const ClapTrap &other)
       this->setName (other.getName ());
       this->setHitPoints (other.getHitPoints ());
       this->setEnergyPoints (other.getEnergyPoints ());
-      this->setAtackDamage (other.getAttackDamage ());
+      this->setAttackDamage (other.getAttackDamage ());
     }
   return *this;
 }
@@ -105,16 +105,16 @@ ClapTrap::getEnergyPoints () const
 void
 ClapTrap::setEnergyPoints (int amount)
 {
-  if (amount > 0)
+  if (amount >= 0)
     _energyPoints = amount;
   else
     print ("ClapTrap energy points can't be negative! Previous value kept.");
 }
 
 void
-ClapTrap::setAtackDamage (int amount)
+ClapTrap::setAttackDamage (int amount)
 {
-  if (amount > 0)
+  if (amount >= 0)
     _attackDamage = amount;
   else
     print ("ClapTrap attack damage can't be negative! Previous value kept.");
@@ -126,4 +126,7 @@ ClapTrap::getAttackDamage () const
   return _attackDamage;
 }
 
-ClapTrap::~ClapTrap () {}
+ClapTrap::~ClapTrap ()
+{
+	print ("ClapTrap destructor called");
+}
