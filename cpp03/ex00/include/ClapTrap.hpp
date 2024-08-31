@@ -6,7 +6,6 @@
 class ClapTrap
 {
 public:
-
   /* Cannonical form */
   ClapTrap ();
   ClapTrap (const ClapTrap &other);

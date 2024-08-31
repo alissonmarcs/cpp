@@ -126,7 +126,4 @@ ClapTrap::getAttackDamage () const
   return _attackDamage;
 }
 
-ClapTrap::~ClapTrap ()
-{
-	print ("ClapTrap destructor called");
-}
+ClapTrap::~ClapTrap () { print ("ClapTrap destructor called"); }
