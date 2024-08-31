@@ -93,7 +93,11 @@ ClapTrap::getHitPoints () const
 void
 ClapTrap::setHitPoints (int amount)
 {
-  _hitPoints = amount;
+
+	if (amount >= 0)
+	_hitPoints = amount;
+  else
+	print ("ClapTrap hit points can't be negative! Previous value kept.");
 }
 
 int

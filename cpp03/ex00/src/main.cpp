@@ -92,11 +92,20 @@ main (void)
     print ("\n\t\tTake damage\n");
 
     ClapTrap tmp ("teste");
-
     print (std::left << std::setw (32) << "Hit points before take damage: "
                      << tmp.getHitPoints ());
     tmp.takeDamage (6);
     print (std::left << std::setw (32) << "Hit points after take damage: "
                      << tmp.getHitPoints ());
+  }
+
+  {
+
+    print ("\n\t\tOthers\n");
+
+    ClapTrap tmp ("teste");
+    tmp.setAttackDamage (8);
+    tmp.attack ("carla");
+    tmp.takeDamage (3);
   }
 }
