@@ -1,88 +1,133 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("guest"), _hitPoints(10), _energyPoints(10), _attackDamage(0) 
+ClapTrap::ClapTrap ()
+    : _name ("guest"), _hitPoints (10), _energyPoints (10), _attackDamage (0)
 {
-	std::cout << "ClapTrap default constructor called" << std::endl;
+  print ("ClapTrap default constructor called");
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) 
+ClapTrap::ClapTrap (std::string name)
+    : _name (name), _hitPoints (10), _energyPoints (10), _attackDamage (0)
 {
-	std::cout << "ClapTrap name constructor called" << std::endl;
+  print ("ClapTrap name constructor called");
+}
+
+ClapTrap::ClapTrap (const ClapTrap &other)
+{
+  print ("ClapTrap copy constructor called");
+  *this = other;
+}
+
+ClapTrap &
+ClapTrap::operator= (const ClapTrap &other)
+{
+  print ("ClapTrap assigment operator called");
+  if (this != &other)
+    {
+      this->setName (other.getName ());
+      this->setHitPoints (other.getHitPoints ());
+      this->setEnergyPoints (other.getEnergyPoints ());
+      this->setAttackDamage (other.getAttackDamage ());
+    }
+  return *this;
+}
+
+std::string
+ClapTrap::getName () const
+{
+  return _name;
 }
 
 void
-ClapTrap::attack(const std::string &target)
+ClapTrap::setName (std::string name)
 {
-	if (getHitPoints() <= 0)
-		std::cout << "ClapTrap " << _name << " is dead and can't attack!" << std::endl;
-	else if (getEnergyPoints() <= 0)
-		std::cout << "ClapTrap " << _name << " is out of energy and can't attack!" << std::endl;
-	else
-	{
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
-		_energyPoints -= 1;
-	}
+  _name = name;
 }
 
 void
-ClapTrap::takeDamage(unsigned int amount)
+ClapTrap::attack (const std::string &target)
 {
-	std::cout << "ClapTrap " << _name << " takes " << amount << " points of damage!" << std::endl;
-	_hitPoints -= amount;
+  if (getHitPoints () <= 0)
+    print ("ClapTrap " << getName () << " is dead and can't attack!");
+  else if (getEnergyPoints () <= 0)
+    print ("ClapTrap " << getName () << " is out of energy and can't attack!");
+  else
+    {
+      print ("ClapTrap " << getName () << " attacks " << target << ", causing "
+                         << getAttackDamage () << " points of damage!");
+      _energyPoints -= 1;
+    }
 }
 
 void
-ClapTrap::beRepaired(unsigned int amount)
+ClapTrap::takeDamage (unsigned int amount)
 {
-	if (getHitPoints() <= 0)
-		std::cout << "ClapTrap " << _name << " is dead and can't be repaired!" << std::endl;
-	else if (getEnergyPoints() <= 0)
-		std::cout << "ClapTrap " << _name << " is out of energy and can't be repaired!" << std::endl;
-	else
-	{
-		std::cout << "ClapTrap " << _name << " is repaired by " << amount << " points!" << std::endl;
-		_energyPoints -= 1;
-		_hitPoints += amount;		
-	}
+  print ("ClapTrap " << getName () << " takes " << amount
+                     << " points of damage!");
+  _hitPoints -= amount;
+}
+
+void
+ClapTrap::beRepaired (unsigned int amount)
+{
+  if (getHitPoints () <= 0)
+    print ("ClapTrap " << getName () << " is dead and can't be repaired!");
+  else if (getEnergyPoints () <= 0)
+    print ("ClapTrap " << getName ()
+                       << " is out of energy and can't be repaired!");
+  else
+    {
+      print ("ClapTrap " << getName () << " is repaired by " << amount
+                         << " points!");
+      _energyPoints -= 1;
+      _hitPoints += amount;
+    }
 }
 
 int
-ClapTrap::getHitPoints() const
+ClapTrap::getHitPoints () const
 {
-	return _hitPoints;
+  return _hitPoints;
 }
 
 void
-ClapTrap::setHitPoints(int amount)
+ClapTrap::setHitPoints (int amount)
 {
-		_hitPoints = amount;
+
+  if (amount >= 0)
+    _hitPoints = amount;
+  else
+    print ("ClapTrap hit points can't be negative! Previous value kept.");
 }
 
 int
-ClapTrap::getEnergyPoints() const
+ClapTrap::getEnergyPoints () const
 {
-	return _energyPoints;
+  return _energyPoints;
 }
 
 void
-ClapTrap::setEnergyPoints(int amount)
+ClapTrap::setEnergyPoints (int amount)
 {
-	if (amount > 0)	
-		_energyPoints = amount;
+  if (amount >= 0)
+    _energyPoints = amount;
+  else
+    print ("ClapTrap energy points can't be negative! Previous value kept.");
 }
 
 void
-ClapTrap::setAtackDamage(int amount)
+ClapTrap::setAttackDamage (int amount)
 {
-	if (amount > 0)	
-		_attackDamage = amount;
+  if (amount >= 0)
+    _attackDamage = amount;
+  else
+    print ("ClapTrap attack damage can't be negative! Previous value kept.");
 }
 
 int
-ClapTrap::getAttackDamage() const
+ClapTrap::getAttackDamage () const
 {
-	return _attackDamage;
+  return _attackDamage;
 }
 
-
-ClapTrap::~ClapTrap() {}
+ClapTrap::~ClapTrap () { print ("ClapTrap destructor called"); }
