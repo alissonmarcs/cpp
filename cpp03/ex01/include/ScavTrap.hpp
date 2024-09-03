@@ -2,18 +2,17 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap : public ClapTrap
 {
-	public:
+public:
+  /* Cannonical form */
+  ScavTrap ();
+  ScavTrap (const ScavTrap &other);
+  ScavTrap &operator= (const ScavTrap &other);
+  ~ScavTrap ();
 
-		/* Cannonical form */
-		ScavTrap();
-		ScavTrap(const ScavTrap &other);
-		ScavTrap &operator=(const ScavTrap &other);
-		~ScavTrap();
-
-		/* Subject */
-		ScavTrap(std::string name);
-		void guardGate();
-		void attack (const std::string &target);
+  /* Subject */
+  ScavTrap (std::string name);
+  void guardGate ();
+  void attack (const std::string &target);
 };
