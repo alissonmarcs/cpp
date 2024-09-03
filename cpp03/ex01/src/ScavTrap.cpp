@@ -4,12 +4,12 @@
 ScavTrap::ScavTrap () : ClapTrap ()
 {
   print ("ScavTrap default constructor called");
-  this->setHitPoints (100);
-  this->setEnergyPoints (50);
-  this->setAttackDamage (20);
+  this->_hitPoints = 100;
+  this->_energyPoints = 50;
+  this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap (const ScavTrap &other)
+ScavTrap::ScavTrap (const ScavTrap &other) : ClapTrap (other)
 {
   print ("ScavTrap copy constructor called");
   *this = other;
@@ -34,9 +34,9 @@ ScavTrap::~ScavTrap () { print ("ScavTrap destructor called"); }
 ScavTrap::ScavTrap (std::string name) : ClapTrap (name)
 {
   print ("ScavTrap name constructor called");
-  this->setHitPoints (100);
-  this->setEnergyPoints (50);
-  this->setAttackDamage (20);
+  this->_hitPoints = 100;
+  this->_energyPoints = 50;
+  this->_attackDamage = 20;
 }
 
 void

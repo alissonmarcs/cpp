@@ -28,7 +28,7 @@ public:
   std::string getName () const;
   void setName (std::string name);
 
-private:
+protected:
   std::string _name;
   int _hitPoints;
   int _energyPoints;
