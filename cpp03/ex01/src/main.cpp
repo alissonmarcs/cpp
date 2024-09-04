@@ -1,100 +1,82 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include <iostream>
-#include <vector>
+#include <iomanip>
 
-// int
-// main (void)
-// {
-//   ScavTrap scavTrap ("carla");
-//   ClapTrap clapTrap ("simone");
-
-//   print ("ClapTrap name: " << clapTrap.getName ());
-//   print ("ScavTrap name: " << scavTrap.getName ());
-
-//   print ("ClapTrap hit points: " << clapTrap.getHitPoints ());
-//   print ("ScavTrap hit points: " << scavTrap.getHitPoints ());
-
-//   print ("ClapTrap energy points: " << clapTrap.getEnergyPoints ());
-//   print ("ScavTrap energy points: " << scavTrap.getEnergyPoints ());
-
-//   print ("ClapTrap attack damage: " << clapTrap.getAttackDamage ());
-//   print ("ScavTrap attack damage: " << scavTrap.getAttackDamage ());
-
-//   clapTrap.attack ("enemy");
-//   scavTrap.attack ("enemy");
-
-//   scavTrap.guardGate ();
-// }
-
-// namespace Tests
-// {
-//   void TestCopyConstructor()
-//   {
-//     ClapTrap clap("carla");
-//     ScavTrap scav(clap);
-
-
-//     print("Scav Name: " << scav.getName());
-//     print("Scav Hit Points: " << scav.getHitPoints());
-//     print("Scav Energy Points: " << scav.getEnergyPoints());
-//     print("Scav Attack Damage: " << scav.getAttackDamage());
-//   }
-
-// }
-
-class Base
+namespace Tests
 {
-protected:
-  std::string _name;
-
-public:
-  Base(std::string name) : _name(name) {}
-  std::string get_name()
+  void TestDefaultConstructor()
   {
-    return  _name;
-  }
-};
+    ScavTrap scav;
 
-class Circle: public Base
-{
-public:
-  Circle(std::string name) : Base(name) {}
-  void print_form()
+    print(std::setw(30) << std::left << "scav Name: " << scav.getName());
+    print(std::setw(30) << std::left << "scav Hit Points: " << scav.getHitPoints());
+    print(std::setw(30) << std::left << "scav Energy Points: " << scav.getEnergyPoints());
+    print(std::setw(30) << std::left << "scav Attack Damage: " << scav.getAttackDamage());
+  }
+
+  void TestNameConstructor()
   {
-    std::cout << "Circle named: " << get_name() << std::endl;
-  }
-};
+    ScavTrap scav ("senhor pedro");
 
-class Triangle: public Base
-{
-public:
-  Triangle(std::string name) : Base(name) {}
-  void print_form()
+    print(std::setw(30) << std::left << "scav Name: " << scav.getName());
+    print(std::setw(30) << std::left << "scav Hit Points: " << scav.getHitPoints());
+    print(std::setw(30) << std::left << "scav Energy Points: " << scav.getEnergyPoints());
+    print(std::setw(30) << std::left << "scav Attack Damage: " << scav.getAttackDamage());
+  }
+
+  void TestCopyConstructor()
   {
-    std::cout << "Triangle named: " << get_name() << std::endl;
+    ScavTrap scav ("carla");
+    ScavTrap scavCopy (scav);
+
+
+    print(std::setw(30) << std::left << "scavCopy Name: " << scav.getName());
+    print(std::setw(30) << std::left << "scavCopy Hit Points: " << scav.getHitPoints());
+    print(std::setw(30) << std::left << "scavCopy Energy Points: " << scav.getEnergyPoints());
+    print(std::setw(30) << std::left << "scavCopy Attack Damage: " << scav.getAttackDamage());
   }
-};
 
-int main()
-{
-  std::vector<Base *> vect;
-  Circle circle("circle");
-  Triangle triangle("triangle");
+  void TestAssignmentOperator()
+  {
+    ScavTrap scav ("carla");
+    ScavTrap scavCopy ("simone");
 
-  vect.push_back(&circle);
-  vect.push_back(&triangle);
+    scav.setHitPoints(3);
+    scav.setEnergyPoints(3);
+    scav.setAttackDamage(3);
+    scavCopy = scav;
+    print(std::setw(30) << std::left << "scavCopy Name: " << scav.getName());
+    print(std::setw(30) << std::left << "scavCopy Hit Points: " << scav.getHitPoints());
+    print(std::setw(30) << std::left << "scavCopy Energy Points: " << scav.getEnergyPoints());
+    print(std::setw(30) << std::left << "scavCopy Attack Damage: " << scav.getAttackDamage());
+  }
 
-  ((Circle *)vect[0])->print_form();
-  ((Triangle *)vect[1])->print_form();
-  return 0;
+  void TestScavTrapSpecifics()
+  {
+    ScavTrap scav ("carla");
+
+    scav.guardGate();
+    scav.attack("enemy");
+  }
 }
 
-// int main()
-// {
-//   ScavTrap scavTrap("carla");
-//   ClapTrap tmp(scavTrap);
+int
+main()
+{
+  print("\n\n\t\tTesting Default Constructor\n");
+  Tests::TestDefaultConstructor();
 
-//   print(tmp.getAttackDamage());
-//   return 0;
-// }
+  print("\n\n\t\tTesting Name Constructor\n");
+  Tests::TestNameConstructor();
+
+  print("\n\n\t\tTesting Copy Constructor\n");
+  Tests::TestCopyConstructor();
+
+  print("\n\n\t\tTesting Assignment Operator\n");
+  Tests::TestAssignmentOperator();
+
+  print("\n\n\t\tTesting ScavTrap specifics\n");
+  Tests::TestScavTrapSpecifics();
+
+  return 0;
+}

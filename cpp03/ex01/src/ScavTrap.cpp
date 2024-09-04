@@ -49,6 +49,12 @@ ScavTrap::guardGate ()
 void
 ScavTrap::attack (const std::string &target)
 {
-  print ("ScavTrap " << this->getName () << " attack " << target << " causing "
+  if (this->getHitPoints () <= 0)
+    print ("ScavTrap " << this->getName () << " is dead and can't attack!");
+  else if (this->getEnergyPoints () <= 0)
+    print ("ScavTrap " << this->getName () << " is out of energy and can't attack!");
+  else
+    print ("ScavTrap " << this->getName () << " attack " << target << " causing "
                      << this->getAttackDamage () << " points of damage!");
+  _energyPoints -= 1;
 }
