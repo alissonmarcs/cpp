@@ -15,6 +15,15 @@ DiamondTrap::DiamondTrap (const DiamondTrap &other)
   *this = other;
 }
 
+DiamondTrap::DiamondTrap (std::string name)
+    : ClapTrap (name), ScavTrap (name), FragTrap (name)
+{
+  print ("DiamondTrap name constructor called");
+  setEnergyPoints (50);
+  this->DiamondTrap::setName (name);
+  this->ClapTrap::setName (this->DiamondTrap::getName () + "_clap_name");
+}
+
 DiamondTrap &
 DiamondTrap::operator= (const DiamondTrap &other)
 {
@@ -40,15 +49,6 @@ DiamondTrap::whoAmI ()
 {
   print ("DiamondTrap name: " << this->DiamondTrap::getName ());
   print ("ClapTrap name: " << this->ClapTrap::getName ());
-}
-
-DiamondTrap::DiamondTrap (std::string name)
-    : ClapTrap (name), ScavTrap (name), FragTrap (name)
-{
-  print ("DiamondTrap name constructor called");
-  setEnergyPoints (50);
-  this->DiamondTrap::setName (name);
-  this->ClapTrap::setName (this->DiamondTrap::getName () + "_clap_name");
 }
 
 std::string

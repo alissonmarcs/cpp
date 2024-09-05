@@ -88,6 +88,8 @@ TestDiamondTrapSpecifics ()
                         << d.getAttackDamage ());
 
   d.attack ("boss");
+  d.highFivesGuys ();
+  d.guardGate ();
   d.whoAmI ();
 }
 }
