@@ -35,7 +35,7 @@ ClapTrap::operator= (const ClapTrap &other)
 std::string
 ClapTrap::getName () const
 {
-  return _name;
+  return this->ClapTrap::_name;
 }
 
 void

@@ -1,95 +1,95 @@
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
 #include <iomanip>
+#include "DiamondTrap.hpp"
+
 
 namespace Tests
 {
 void
 TestDefaultConstructor ()
 {
-  FragTrap frag;
+  DiamondTrap diamon;
 
-  print (std::setw (28) << std::left << "FragTrap Name: " << frag.getName ());
+  print (std::setw (28) << std::left << "DiamondTrap Name: " << diamon.getName ());
   print (std::setw (28) << std::left
-                        << "FragTrap Hit points: " << frag.getHitPoints ());
-  print (std::setw (28) << std::left << "FragTrap Energy points: "
-                        << frag.getEnergyPoints ());
-  print (std::setw (28) << std::left << "FragTrap Attack damage: "
-                        << frag.getAttackDamage ());
+                        << "DiamondTrap Hit points: " << diamon.getHitPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Energy points: "
+                        << diamon.getEnergyPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
+                        << diamon.getAttackDamage ());
 }
 
 void
 TestNameConstructor ()
 {
-  FragTrap frag ("any name here");
+  DiamondTrap diamon ("any name here");
 
-  print (std::setw (28) << std::left << "FragTrap Name: " << frag.getName ());
+  print (std::setw (28) << std::left << "DiamondTrap Name: " << diamon.getName ());
   print (std::setw (28) << std::left
-                        << "FragTrap Hit points: " << frag.getHitPoints ());
-  print (std::setw (28) << std::left << "FragTrap Energy points: "
-                        << frag.getEnergyPoints ());
-  print (std::setw (28) << std::left << "FragTrap Attack damage: "
-                        << frag.getAttackDamage ());
+                        << "DiamondTrap Hit points: " << diamon.getHitPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Energy points: "
+                        << diamon.getEnergyPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
+                        << diamon.getAttackDamage ());
 }
 
 void
 TestAssigmentOperator ()
 {
-  FragTrap awesome ("awesome");
-  FragTrap any ("any");
+  DiamondTrap awesome ("awesome");
+  DiamondTrap any ("any");
 
   awesome.setHitPoints (2);
   awesome.setEnergyPoints (2);
   awesome.setAttackDamage (2);
   any = awesome;
 
-  print (std::setw (28) << std::left << "FragTrap Name: " << any.getName ());
+  print (std::setw (28) << std::left << "DiamondTrap Name: " << any.getName ());
   print (std::setw (28) << std::left
-                        << "FragTrap Hit points: " << any.getHitPoints ());
-  print (std::setw (28) << std::left << "FragTrap Energy points: "
+                        << "DiamondTrap Hit points: " << any.getHitPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Energy points: "
                         << any.getEnergyPoints ());
-  print (std::setw (28) << std::left << "FragTrap Attack damage: "
+  print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
                         << any.getAttackDamage ());
 }
 
 void
 TestCopyConstructor ()
 {
-  FragTrap awesome ("awesome");
+  DiamondTrap awesome ("awesome");
 
   awesome.setHitPoints (7);
   awesome.setEnergyPoints (7);
   awesome.setAttackDamage (7);
-  FragTrap copy (awesome);
+  DiamondTrap copy (awesome);
 
-  print (std::setw (28) << std::left << "FragTrap Name: " << copy.getName ());
+  print (std::setw (28) << std::left << "DiamondTrap Name: " << copy.getName ());
   print (std::setw (28) << std::left
-                        << "FragTrap Hit points: " << copy.getHitPoints ());
-  print (std::setw (28) << std::left << "FragTrap Energy points: "
+                        << "DiamondTrap Hit points: " << copy.getHitPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Energy points: "
                         << copy.getEnergyPoints ());
-  print (std::setw (28) << std::left << "FragTrap Attack damage: "
+  print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
                         << copy.getAttackDamage ());
 }
 
-void
-TestHighFivesGuys ()
+void TestDiamondTrapSpecifics ()
 {
-  FragTrap awesome ("awesome");
+  DiamondTrap d ("i am alisson");
 
-  awesome.highFivesGuys ();
-  awesome.setHitPoints (0);
-  awesome.highFivesGuys ();
-  awesome.setHitPoints (1);
-  awesome.setEnergyPoints (0);
-  awesome.highFivesGuys ();
+  print (std::setw (28) << std::left << "DiamondTrap Name: " << d.getName ());
+  print (std::setw (28) << std::left
+                        << "DiamondTrap Hit points: " << d.getHitPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Energy points: "
+                        << d.getEnergyPoints ());
+  print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
+                        << d.getAttackDamage ());
+
+  d.attack ("boss");
+  d.whoAmI ();
+}
 }
 
-}
-
-int
-main (void)
+int main(void)
 {
-
   print ("\n\n\t\tTesting Default Constructor\n");
   Tests::TestDefaultConstructor ();
 
@@ -102,7 +102,7 @@ main (void)
   print ("\n\n\t\tTesting Copy Constructor\n");
   Tests::TestCopyConstructor ();
 
-  print ("\n\n\t\tTesting High Fives Guys\n");
-  Tests::TestHighFivesGuys ();
+  print ("\n\n\t\tTesting DiamondTrap specifics\n");
+  Tests::TestDiamondTrapSpecifics ();
   return 0;
 }
