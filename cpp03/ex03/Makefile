@@ -16,6 +16,10 @@ ifdef DEBUG
 		CPPFLAGS := $(subst -O3,,$(CPPFLAGS))
 endif
 
+ifdef REMOVE_STD
+		CPPFLAGS := $(subst -std=c++98,,$(CPPFLAGS))
+endif
+
 all: ./objs/ $(NAME)
 
 ./objs/:

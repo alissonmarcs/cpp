@@ -18,7 +18,6 @@ public:
   void whoAmI ();
   std::string getName () const;
   void setName (std::string name);
-  bool operator== (const DiamondTrap &object) const;
 
 private:
   std::string _name;

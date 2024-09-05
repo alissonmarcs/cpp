@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/tests
+CMAKE_SOURCE_DIR = /nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/tests
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/tests/build
+CMAKE_BINARY_DIR = /nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/tests/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/tests/build/CMakeFiles /nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/tests/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/tests/build/CMakeFiles /nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/tests/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/tests/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/tests/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -232,6 +232,33 @@ gtest/fast:
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+my_tests/DiamondTrap.o: my_tests/DiamondTrap.cpp.o
+
+.PHONY : my_tests/DiamondTrap.o
+
+# target to build an object file
+my_tests/DiamondTrap.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/my_tests/DiamondTrap.cpp.o
+.PHONY : my_tests/DiamondTrap.cpp.o
+
+my_tests/DiamondTrap.i: my_tests/DiamondTrap.cpp.i
+
+.PHONY : my_tests/DiamondTrap.i
+
+# target to preprocess a source file
+my_tests/DiamondTrap.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/my_tests/DiamondTrap.cpp.i
+.PHONY : my_tests/DiamondTrap.cpp.i
+
+my_tests/DiamondTrap.s: my_tests/DiamondTrap.cpp.s
+
+.PHONY : my_tests/DiamondTrap.s
+
+# target to generate assembly for a file
+my_tests/DiamondTrap.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/my_tests/DiamondTrap.cpp.s
+.PHONY : my_tests/DiamondTrap.cpp.s
+
 my_tests/my_tests.o: my_tests/my_tests.cpp.o
 
 .PHONY : my_tests/my_tests.o
@@ -259,59 +286,113 @@ my_tests/my_tests.cpp.s:
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/my_tests/my_tests.cpp.s
 .PHONY : my_tests/my_tests.cpp.s
 
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.o
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.o
 
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.o
-
-# target to build an object file
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.o:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.o
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.o
-
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.i
-
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.i
-
-# target to preprocess a source file
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.i:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.i
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.i
-
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.s
-
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.s
-
-# target to generate assembly for a file
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.s:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.s
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.cpp.s
-
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.o
-
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.o
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.o
 
 # target to build an object file
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.o:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.o
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.o
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.o
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.o
 
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.i
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.i
 
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.i
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.i
 
 # target to preprocess a source file
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.i:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.i
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.i
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.i
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.i
 
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.s
 
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.s
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.s
 
 # target to generate assembly for a file
-nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s
-.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.s
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.cpp.s
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.o
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.o
+
+# target to build an object file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.o
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.o
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.i
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.i
+
+# target to preprocess a source file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.i
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.i
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.s
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.s
+
+# target to generate assembly for a file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.s
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.cpp.s
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.o
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.o
+
+# target to build an object file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.o
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.o
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.i
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.i
+
+# target to preprocess a source file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.i
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.i
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.s
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.s
+
+# target to generate assembly for a file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.s
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.cpp.s
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.o
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.o
+
+# target to build an object file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.o
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.o
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.i
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.i
+
+# target to preprocess a source file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.i
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.i
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.s
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.s
+
+# target to generate assembly for a file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.s
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.cpp.s
 
 # Help Target
 help:
@@ -331,15 +412,24 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... my_tests/DiamondTrap.o"
+	@echo "... my_tests/DiamondTrap.i"
+	@echo "... my_tests/DiamondTrap.s"
 	@echo "... my_tests/my_tests.o"
 	@echo "... my_tests/my_tests.i"
 	@echo "... my_tests/my_tests.s"
-	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.o"
-	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.i"
-	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ClapTrap.s"
-	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.o"
-	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.i"
-	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.s"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.o"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.i"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ClapTrap.s"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.o"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.i"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/DiamondTrap.s"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.o"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.i"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/FragTrap.s"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.o"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.i"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex03/src/ScavTrap.s"
 .PHONY : help
 
 
