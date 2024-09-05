@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap () : ClapTrap(), ScavTrap (), FragTrap ()
+DiamondTrap::DiamondTrap () : ClapTrap (), ScavTrap (), FragTrap ()
 {
   print ("DiamondTrap default constructor called");
   setEnergyPoints (50);
@@ -9,7 +9,7 @@ DiamondTrap::DiamondTrap () : ClapTrap(), ScavTrap (), FragTrap ()
 }
 
 DiamondTrap::DiamondTrap (const DiamondTrap &other)
-    : ClapTrap(other), ScavTrap (other), FragTrap (other)
+    : ClapTrap (other), ScavTrap (other), FragTrap (other)
 {
   print ("DiamondTrap copy constructor called");
   *this = other;
@@ -42,7 +42,8 @@ DiamondTrap::whoAmI ()
   print ("ClapTrap name: " << this->ClapTrap::getName ());
 }
 
-DiamondTrap::DiamondTrap (std::string name) : ClapTrap(name), ScavTrap (name), FragTrap (name)
+DiamondTrap::DiamondTrap (std::string name)
+    : ClapTrap (name), ScavTrap (name), FragTrap (name)
 {
   print ("DiamondTrap name constructor called");
   setEnergyPoints (50);
