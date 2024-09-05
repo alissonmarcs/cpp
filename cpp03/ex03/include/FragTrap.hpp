@@ -2,17 +2,16 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap : public ClapTrap
 {
-	public:
+public:
+  /* Canonical form */
+  FragTrap ();
+  FragTrap (const FragTrap &other);
+  FragTrap &operator= (const FragTrap &other);
+  ~FragTrap ();
 
-		/* Canonical form */
-		FragTrap();
-		FragTrap(const FragTrap &other);
-		FragTrap &operator=(const FragTrap &other);
-		~FragTrap();
-
-		/* Subject */
-		FragTrap(std::string name);
-		void highFivesGuys();
+  /* Subject */
+  FragTrap (std::string name);
+  void highFivesGuys ();
 };
