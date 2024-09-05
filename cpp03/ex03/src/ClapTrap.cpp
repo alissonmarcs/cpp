@@ -3,7 +3,7 @@
 ClapTrap::ClapTrap ()
     : _name ("guest"), _hitPoints (10), _energyPoints (10), _attackDamage (0)
 {
-  print ("ClapTrap default constructor called");
+  print ("ClapTrap default constructor called droga");
 }
 
 ClapTrap::ClapTrap (std::string name)
