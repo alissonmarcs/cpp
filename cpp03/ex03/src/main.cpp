@@ -1,6 +1,5 @@
-#include <iomanip>
 #include "DiamondTrap.hpp"
-
+#include <iomanip>
 
 namespace Tests
 {
@@ -9,9 +8,10 @@ TestDefaultConstructor ()
 {
   DiamondTrap diamon;
 
-  print (std::setw (28) << std::left << "DiamondTrap Name: " << diamon.getName ());
   print (std::setw (28) << std::left
-                        << "DiamondTrap Hit points: " << diamon.getHitPoints ());
+                        << "DiamondTrap Name: " << diamon.getName ());
+  print (std::setw (28) << std::left << "DiamondTrap Hit points: "
+                        << diamon.getHitPoints ());
   print (std::setw (28) << std::left << "DiamondTrap Energy points: "
                         << diamon.getEnergyPoints ());
   print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
@@ -23,9 +23,10 @@ TestNameConstructor ()
 {
   DiamondTrap diamon ("any name here");
 
-  print (std::setw (28) << std::left << "DiamondTrap Name: " << diamon.getName ());
   print (std::setw (28) << std::left
-                        << "DiamondTrap Hit points: " << diamon.getHitPoints ());
+                        << "DiamondTrap Name: " << diamon.getName ());
+  print (std::setw (28) << std::left << "DiamondTrap Hit points: "
+                        << diamon.getHitPoints ());
   print (std::setw (28) << std::left << "DiamondTrap Energy points: "
                         << diamon.getEnergyPoints ());
   print (std::setw (28) << std::left << "DiamondTrap Attack damage: "
@@ -43,7 +44,8 @@ TestAssigmentOperator ()
   awesome.setAttackDamage (2);
   any = awesome;
 
-  print (std::setw (28) << std::left << "DiamondTrap Name: " << any.getName ());
+  print (std::setw (28) << std::left
+                        << "DiamondTrap Name: " << any.getName ());
   print (std::setw (28) << std::left
                         << "DiamondTrap Hit points: " << any.getHitPoints ());
   print (std::setw (28) << std::left << "DiamondTrap Energy points: "
@@ -62,7 +64,8 @@ TestCopyConstructor ()
   awesome.setAttackDamage (7);
   DiamondTrap copy (awesome);
 
-  print (std::setw (28) << std::left << "DiamondTrap Name: " << copy.getName ());
+  print (std::setw (28) << std::left
+                        << "DiamondTrap Name: " << copy.getName ());
   print (std::setw (28) << std::left
                         << "DiamondTrap Hit points: " << copy.getHitPoints ());
   print (std::setw (28) << std::left << "DiamondTrap Energy points: "
@@ -71,7 +74,8 @@ TestCopyConstructor ()
                         << copy.getAttackDamage ());
 }
 
-void TestDiamondTrapSpecifics ()
+void
+TestDiamondTrapSpecifics ()
 {
   DiamondTrap d ("i am alisson");
 
@@ -88,7 +92,8 @@ void TestDiamondTrapSpecifics ()
 }
 }
 
-int main(void)
+int
+main (void)
 {
   print ("\n\n\t\tTesting Default Constructor\n");
   Tests::TestDefaultConstructor ();
