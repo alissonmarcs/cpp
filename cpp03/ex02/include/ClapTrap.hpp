@@ -6,14 +6,14 @@
 class ClapTrap
 {
 public:
-  /* Cannonical form */
+  /* Canonical form */
   ClapTrap ();
   ClapTrap (const ClapTrap &other);
   ClapTrap &operator= (const ClapTrap &other);
   ~ClapTrap ();
-  ClapTrap (std::string name);
 
   /* Subject */
+  ClapTrap (std::string name);
   void attack (const std::string &target);
   void takeDamage (unsigned int amount);
   void beRepaired (unsigned int amount);

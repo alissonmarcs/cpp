@@ -313,6 +313,33 @@ nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s:
 	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s
 .PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.cpp.s
 
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.o: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.o
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.o
+
+# target to build an object file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.o:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.o
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.o
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.i: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.i
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.i
+
+# target to preprocess a source file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.i:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.i
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.i
+
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.s: nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.s
+
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.s
+
+# target to generate assembly for a file
+nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.s:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.s
+.PHONY : nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -340,6 +367,9 @@ help:
 	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.o"
 	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.i"
 	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/FragTrap.s"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.o"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.i"
+	@echo "... nfs/homes/almarcos/repos/my/cpp/cpp03/ex02/src/ScavTrap.s"
 .PHONY : help
 
 
