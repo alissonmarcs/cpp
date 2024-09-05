@@ -1,3 +1,8 @@
+##### para pesquisar sobre o gtest: #####
+
+- como testar itens protegidos ou publicos ?
+- como descobrir qual assertion falhou dentro de um teste ?
+
 #### notes ####
 
 ## referencias e ponteiros
