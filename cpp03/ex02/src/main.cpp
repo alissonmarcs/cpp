@@ -104,5 +104,7 @@ main (void)
 
   print ("\n\n\t\tTesting High Fives Guys\n");
   Tests::TestHighFivesGuys ();
+
+  print ("test only");
   return 0;
 }
