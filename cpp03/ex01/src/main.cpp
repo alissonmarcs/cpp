@@ -36,15 +36,18 @@ void
 TestCopyConstructor ()
 {
   ScavTrap scav ("carla");
+  scav.setHitPoints (3);
+  scav.setEnergyPoints (3);
+  scav.setAttackDamage (3);
   ScavTrap scavCopy (scav);
 
-  print (std::setw (30) << std::left << "scavCopy Name: " << scav.getName ());
+  print (std::setw (30) << std::left << "scavCopy Name: " << scavCopy.getName ());
   print (std::setw (30) << std::left
-                        << "scavCopy Hit Points: " << scav.getHitPoints ());
+                        << "scavCopy Hit Points: " << scavCopy.getHitPoints ());
   print (std::setw (30) << std::left << "scavCopy Energy Points: "
-                        << scav.getEnergyPoints ());
+                        << scavCopy.getEnergyPoints ());
   print (std::setw (30) << std::left << "scavCopy Attack Damage: "
-                        << scav.getAttackDamage ());
+                        << scavCopy.getAttackDamage ());
 }
 
 void
@@ -57,13 +60,13 @@ TestAssignmentOperator ()
   scav.setEnergyPoints (3);
   scav.setAttackDamage (3);
   scavCopy = scav;
-  print (std::setw (30) << std::left << "scavCopy Name: " << scav.getName ());
+  print (std::setw (30) << std::left << "scavCopy Name: " << scavCopy.getName ());
   print (std::setw (30) << std::left
-                        << "scavCopy Hit Points: " << scav.getHitPoints ());
+                        << "scavCopy Hit Points: " << scavCopy.getHitPoints ());
   print (std::setw (30) << std::left << "scavCopy Energy Points: "
-                        << scav.getEnergyPoints ());
+                        << scavCopy.getEnergyPoints ());
   print (std::setw (30) << std::left << "scavCopy Attack Damage: "
-                        << scav.getAttackDamage ());
+                        << scavCopy.getAttackDamage ());
 }
 
 void
