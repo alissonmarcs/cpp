@@ -106,5 +106,6 @@ main (void)
   Tests::TestHighFivesGuys ();
 
   print ("test only");
+  print ("test only 2");
   return 0;
 }
