@@ -6,12 +6,12 @@
 class Dog : public Animal
 {
 public:
-	/* Canonical form */
-	Dog();
-	Dog(const Dog &other);
-	Dog &operator=(const Dog &other);
-	~Dog();
+  /* Canonical form */
+  Dog ();
+  Dog (const Dog &other);
+  Dog &operator= (const Dog &other);
+  ~Dog ();
 
-	/* Subject */
-	void makeSound() const;
+  /* Subject */
+  void makeSound () const;
 };

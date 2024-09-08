@@ -1,26 +1,39 @@
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Default animal") { print ("Animal default constructor called"); }
-
-Animal::Animal(const Animal &other)
+Animal::Animal () : _type ("Default animal")
 {
-	print ("Animal copy constructor called");
-	this->_type = other._type;
+  print ("Animal default constructor called");
 }
 
-Animal &Animal::operator=(const Animal &other)
+Animal::Animal (const Animal &other)
 {
-	this->_type = other._type;
-	return *this;
+  print ("Animal copy constructor called");
+  this->_type = other._type;
 }
 
-Animal::~Animal() { print ("Animal destructor called"); }
+Animal &
+Animal::operator= (const Animal &other)
+{
+  this->_type = other._type;
+  return *this;
+}
+
+Animal::~Animal () { print ("Animal destructor called"); }
 
 void
-Animal::makeSound() const { print ("Animal sound"); }
+Animal::makeSound () const
+{
+  print ("Animal sound");
+}
 
 std::string
-Animal::getType() const { return _type; }
+Animal::getType () const
+{
+  return _type;
+}
 
 void
-Animal::setType(std::string type) { _type = type; }
+Animal::setType (std::string type)
+{
+  _type = type;
+}

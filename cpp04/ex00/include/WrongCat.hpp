@@ -5,10 +5,9 @@
 class WrongCat : public WrongAnimal
 {
 public:
-	/* Canonical form */
-	WrongCat();
-	WrongCat(const WrongCat &other);
-	void operator=(const WrongCat &other);
-	~WrongCat();
-
+  /* Canonical form */
+  WrongCat ();
+  WrongCat (const WrongCat &other);
+  void operator= (const WrongCat &other);
+  ~WrongCat ();
 };

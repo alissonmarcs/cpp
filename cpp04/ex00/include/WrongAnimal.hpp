@@ -5,14 +5,14 @@
 class WrongAnimal
 {
 public:
-	/* Canonical form */
-	WrongAnimal();
-	WrongAnimal(const WrongAnimal &other);
-	void operator=(const WrongAnimal &other);
-	~WrongAnimal();
+  /* Canonical form */
+  WrongAnimal ();
+  WrongAnimal (const WrongAnimal &other);
+  void operator= (const WrongAnimal &other);
+  ~WrongAnimal ();
 
-	/* Subject */
-	void makeSound() const;
+  /* Subject */
+  void makeSound () const;
 };
 
 #define print(s) std::cout << s << std::endl

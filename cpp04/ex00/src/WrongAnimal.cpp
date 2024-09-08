@@ -1,32 +1,29 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() 
+WrongAnimal::WrongAnimal ()
 {
-	print ("WrongAnimal default constructor called");
+  print ("WrongAnimal default constructor called");
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &other) 
+WrongAnimal::WrongAnimal (const WrongAnimal &other)
 {
-	(void)other;
-	print ("WrongAnimal copy constructor called");
-	return ;
-}
-
-void
-WrongAnimal::operator=(const WrongAnimal &other)
-{
-	(void)other;
-	print ("WrongAnimal assignment operator called");
-	return ;
-}
-
-WrongAnimal::~WrongAnimal()
-{
-	print ("WrongAnimal destructor called");
+  (void)other;
+  print ("WrongAnimal copy constructor called");
+  return;
 }
 
 void
-WrongAnimal::makeSound() const
+WrongAnimal::operator= (const WrongAnimal &other)
 {
-	print ("WrongAnimal sound");
+  (void)other;
+  print ("WrongAnimal assignment operator called");
+  return;
+}
+
+WrongAnimal::~WrongAnimal () { print ("WrongAnimal destructor called"); }
+
+void
+WrongAnimal::makeSound () const
+{
+  print ("WrongAnimal sound");
 }

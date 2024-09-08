@@ -1,26 +1,23 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : WrongAnimal()
+WrongCat::WrongCat () : WrongAnimal ()
 {
-	print ("WrongCat default constructor");
+  print ("WrongCat default constructor");
 }
 
-WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other)
+WrongCat::WrongCat (const WrongCat &other) : WrongAnimal (other)
 {
-	(void)other;
-	print ("WrongCat copy constructor");
-	return ;
+  (void)other;
+  print ("WrongCat copy constructor");
+  return;
 }
 
 void
-WrongCat::operator=(const WrongCat &other)
+WrongCat::operator= (const WrongCat &other)
 {
-	(void)other;
-	print ("WrongCat assignment operator");
-	return ;
+  (void)other;
+  print ("WrongCat assignment operator");
+  return;
 }
 
-WrongCat::~WrongCat()
-{
-	print ("WrongCat destructor");
-}
+WrongCat::~WrongCat () { print ("WrongCat destructor"); }
