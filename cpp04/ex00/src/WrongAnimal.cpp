@@ -2,7 +2,7 @@
 
 WrongAnimal::WrongAnimal() 
 {
-	print ("WrongAnimal constructor called");
+	print ("WrongAnimal default constructor called");
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other) 

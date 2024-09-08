@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Animal.hpp"
+#include "Dog.hpp"
 
 class Dog : public Animal
 {

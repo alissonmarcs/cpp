@@ -2,6 +2,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
 class AnimalTest : public ::testing::Test
 {
@@ -65,4 +67,37 @@ TEST(AnimalCatDogTest, makeSound)
 	d.makeSound();
 	output = testing::internal::GetCapturedStdout();
 	EXPECT_EQ(output, "Dog sound\n");
+}
+
+TEST(Wrong, makeSound)
+{
+	WrongAnimal a;
+	WrongCat c;
+	std::string aOutput, cOutput;
+
+	testing::internal::CaptureStdout();
+	a.makeSound();
+	aOutput = testing::internal::GetCapturedStdout();
+	testing::internal::CaptureStdout();
+	c.makeSound();
+	cOutput = testing::internal::GetCapturedStdout();
+	EXPECT_EQ(aOutput, cOutput);
+}
+
+TEST(WrongAnimal, InfinityLoop)
+{
+	WrongAnimal src;
+	WrongAnimal dest;
+	src = dest;
+
+	WrongAnimal copy(src);
+}
+
+TEST(WrongCat, InfinityLoop)
+{
+	WrongCat src;
+	WrongCat dest;
+	src = dest;
+
+	WrongCat copy(src);
 }

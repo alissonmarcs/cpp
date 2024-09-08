@@ -2,7 +2,7 @@
 
 Dog::Dog() : Animal()
 {
-	print ("Dog constructor called");
+	print ("Dog default constructor called");
 	this->_type = "Dog";
 }
 
@@ -19,7 +19,10 @@ Dog::operator=(const Dog &other)
 	return *this;
 }
 
-Dog::~Dog() {}
+Dog::~Dog()
+{
+	print ("Dog destructor called");
+}
 
 void
 Dog::makeSound() const

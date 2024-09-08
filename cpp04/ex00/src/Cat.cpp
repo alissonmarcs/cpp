@@ -2,7 +2,7 @@
 
 Cat::Cat() : Animal()
 {
-	print ("Cat constructor called");
+	print ("Cat default constructor called");
 	this->_type = "Cat";
 }
 
