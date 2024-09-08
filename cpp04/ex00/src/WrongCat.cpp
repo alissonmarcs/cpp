@@ -5,7 +5,7 @@ WrongCat::WrongCat() : WrongAnimal()
 	print ("WrongCat default constructor");
 }
 
-WrongCat::WrongCat(const WrongCat &other) 
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other)
 {
 	(void)other;
 	print ("WrongCat copy constructor");
