@@ -1,4 +1,5 @@
 #include "Cat.hpp"
+#include "print.hpp"
 
 Cat::Cat () : Animal ()
 {

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <string>
 
 class Animal
@@ -21,4 +20,3 @@ public:
   void setType (std::string type);
 };
 
-#define print(s) std::cout << s << std::endl

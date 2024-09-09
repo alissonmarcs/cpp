@@ -1,24 +1,26 @@
 #include "Brain.hpp"
+#include "print.hpp"
 
 Brain::Brain()
 {
-	printf("Brain default constructor called\n");
-
+	print ("Brain default constructor called");
 }
 
 Brain::Brain(const Brain &other) 
 {
-	
+	print ("Brain copy constructor called");
+	*this = other;
 }
 
 Brain &
 Brain::operator=(const Brain &other)
 {
+	print ("Brain assiment operator called");
 	return *this;
 }
 
 Brain::~Brain()
 {
-	printf("Brain destructor called\n");
-
+	print ("Brain destructor called");
 }
+

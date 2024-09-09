@@ -1,4 +1,5 @@
 #include "WrongCat.hpp"
+#include "print.hpp"
 
 WrongCat::WrongCat () : WrongAnimal ()
 {

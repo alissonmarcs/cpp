@@ -1,4 +1,5 @@
 #include "Animal.hpp"
+#include "print.hpp"
 
 Animal::Animal () : _type ("Default animal")
 {

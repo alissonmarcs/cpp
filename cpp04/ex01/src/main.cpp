@@ -1,4 +1,5 @@
 #include "Animal.hpp"
+#include "print.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"

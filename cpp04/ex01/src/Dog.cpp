@@ -1,4 +1,5 @@
 #include "Dog.hpp"
+#include "print.hpp"
 
 Dog::Dog () : Animal ()
 {

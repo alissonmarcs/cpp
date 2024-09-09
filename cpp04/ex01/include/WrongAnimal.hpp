@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 class WrongAnimal
 {
 public:
@@ -15,4 +13,3 @@ public:
   void makeSound () const;
 };
 
-#define print(s) std::cout << s << std::endl

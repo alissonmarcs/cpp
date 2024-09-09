@@ -1,4 +1,5 @@
 #include "WrongAnimal.hpp"
+#include "print.hpp"
 
 WrongAnimal::WrongAnimal ()
 {
