@@ -50,10 +50,15 @@ WrongMakeSound ()
 int
 main()
 {
-  Dog a;
-  Dog b(a);
+  // Dog a;
+  // Dog b(a);
 
-  print (a.getBrain());
-  print (b.getBrain());
-  return 0;
+  // print (a.getBrain());
+  // print (b.getBrain());
+  // return 0;
+
+  Brain a;
+  Brain b;
+
+  b = a;
 }
