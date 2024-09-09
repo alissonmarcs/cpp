@@ -15,6 +15,7 @@ Animal::Animal (const Animal &other)
 Animal &
 Animal::operator= (const Animal &other)
 {
+  print ("Animal assigment operator called");
   this->_type = other._type;
   return *this;
 }

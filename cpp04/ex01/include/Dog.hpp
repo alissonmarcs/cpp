@@ -2,9 +2,13 @@
 
 #include "Animal.hpp"
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
+private:
+  Brain *brain;
+
 public:
   /* Canonical form */
   Dog ();
@@ -14,4 +18,5 @@ public:
 
   /* Subject */
   void makeSound () const;
+  Brain *getBrain () const;
 };

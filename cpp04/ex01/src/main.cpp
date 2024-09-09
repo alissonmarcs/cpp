@@ -48,18 +48,12 @@ WrongMakeSound ()
 }
 
 int
-main ()
+main()
 {
-  print ("\n\n\t\tCat and Dog must inherite from Animal and overwrite "
-         "makeSound()\n");
-  Tests::makeSound ();
+  Dog a;
+  Dog b(a);
 
-  print ("\n\n\t\tWrongCat must inherite from WrongAnimal, but should not "
-         "overwrite makeSound()\n");
-  Tests::WrongMakeSound ();
-
-  print ("\n\n\t\tSubject Test\n");
-  Tests::Subject ();
-
+  print (a.getBrain());
+  print (b.getBrain());
   return 0;
 }
