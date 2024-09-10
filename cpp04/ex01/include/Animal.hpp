@@ -19,4 +19,3 @@ public:
   std::string getType () const;
   void setType (std::string type);
 };
-

@@ -1,5 +1,5 @@
-# pragma once
+#pragma once
 
-# include <iostream>
+#include <iostream>
 
 #define print(s) std::cout << s << std::endl
