@@ -95,6 +95,16 @@ Subject ()
       delete array[i];
     }
 }
+
+void
+MakeSound ()
+{
+  Dog d;
+  Cat c;
+
+  d.makeSound ();
+  c.makeSound ();
+}
 }
 
 int
@@ -111,6 +121,9 @@ main ()
 
   print ("\n\n\t\tAssigment operator test\n");
   Tests::assigementOperator ();
+
+  print ("\n\n\t\tMake sound test\n");
+  Tests::MakeSound ();
 
   print ("\n\n\t\t Delete Cat and Dog objects using Animal pointer should not "
          "result a leak\n");
