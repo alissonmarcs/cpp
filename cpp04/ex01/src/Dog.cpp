@@ -12,9 +12,7 @@ Dog::Dog (const Dog &other) : Animal (other)
 {
   print ("Dog copy constructor called");
   this->brain = new Brain ();
-  print ("pointer before: " << this->brain);
-  this->brain = other.brain;
-  print ("pointer after: " << this->brain);
+  *(this->brain) = *(other.brain);
 }
 
 Dog &

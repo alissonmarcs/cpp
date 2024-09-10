@@ -7,58 +7,23 @@
 
 namespace Tests
 {
-void
-Subject ()
-{
-  const Animal *meta = new Animal ();
-  const Animal *j = new Dog ();
-  const Animal *i = new Cat ();
-  std::cout << j->getType () << " " << std::endl;
-  std::cout << i->getType () << " " << std::endl;
-  i->makeSound ();
-  j->makeSound ();
-  meta->makeSound ();
+  void catDogBrain()
+  {
+    Dog d;
+    Cat c;
 
-  delete meta;
-  delete j;
-  delete i;
-}
-
-void
-makeSound ()
-{
-  Cat c;
-  Dog d;
-  Animal a;
-
-  c.makeSound ();
-  d.makeSound ();
-  a.makeSound ();
-}
-
-void
-WrongMakeSound ()
-{
-  WrongCat c;
-  WrongAnimal a;
-
-  c.makeSound ();
-  a.makeSound ();
-}
+    print ("Dog Brain pointer: " << d.getBrain());
+    // print ("Cat Brain pointer: " << c.getBrain());
+  }
 }
 
 int
 main()
 {
-  // Dog a;
-  // Dog b(a);
+  // Tests::catDogBrain();
+  Dog src;
+  Dog dst(src);
 
-  // print (a.getBrain());
-  // print (b.getBrain());
-  // return 0;
-
-  Brain a;
-  Brain b;
-
-  b = a;
+  print ("src Brain pointer: " << src.getBrain());
+  print ("dst Brain pointer: " << dst.getBrain());
 }
