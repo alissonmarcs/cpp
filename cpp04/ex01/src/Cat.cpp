@@ -5,25 +5,38 @@ Cat::Cat () : Animal ()
 {
   print ("Cat default constructor called");
   this->_type = "Cat";
+  this->brain = new Brain ();
 }
 
 Cat::Cat (const Cat &other) : Animal (other)
 {
   print ("Cat copy constructor called");
-  this->_type = other._type;
+  this->brain = new Brain ();
+  *(this->brain) = *(other.brain);
 }
 
 Cat &
 Cat::operator= (const Cat &other)
 {
-  this->_type = other._type;
+  print ("Cat assigment operator called");
+  *(this->brain) = *(other.brain);
   return *this;
 }
 
-Cat::~Cat () { print ("Cat destructor called"); }
+Cat::~Cat ()
+{
+  print ("Cat destructor called");
+  delete this->brain;
+}
 
 void
 Cat::makeSound () const
 {
   print ("Cat sound");
+}
+
+Brain *
+Cat::getBrain () const
+{
+  return this->brain;
 }
