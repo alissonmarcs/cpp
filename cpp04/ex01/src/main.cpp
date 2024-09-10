@@ -60,6 +60,24 @@ catDeepCopy ()
 }
 
 void
+assigementOperator()
+{
+  Dog src;
+  Dog dst;
+
+  src.getBrain ()->setIdea ("what is purpose of life ?", 75);
+  src.getBrain ()->setIdea ("some idea here", 040);
+  src.getBrain ()->setIdea ("hihihi", 31);
+  src.getBrain ()->setIdea ("i am batman", 42); 
+  dst = src;
+  print ("dst data get from src:");
+  print ("\t" << dst.getBrain ()->getIdea (75));
+  print ("\t" << dst.getBrain ()->getIdea (040));
+  print ("\t" << dst.getBrain ()->getIdea (31));
+  print ("\t" << dst.getBrain ()->getIdea (42)); 
+}
+
+void
 Subject ()
 {
   int size = 6;
@@ -82,15 +100,18 @@ Subject ()
 int
 main ()
 {
-  print ("\n\n\t\tTesting Brain private pointer of Cat and Dog\n");
+  print ("\n\n\t\tCat and Dog must have a privete pointer to Brain\n");
   Tests::catDogBrain ();
 
-  print ("\n\n\t\tTesting deep copy of Dog\n");
+  print ("\n\n\t\tWhen copying, Dog must alocate a new Brain object\n");
   Tests::dogDeepCopy ();
 
-  print ("\n\n\t\tTesting deep copy of Cat\n");
+  print ("\n\n\t\tWhen copying, Cat must alocate a new Brain object\n");
   Tests::catDeepCopy ();
 
-  print ("\n\n\t\t Subject Test\n");
+  print ("\n\n\t\tAssigment operator test\n");
+  Tests::assigementOperator ();
+
+  print ("\n\n\t\t Delete Cat and Dog objects using Animal pointer should not result a leak\n");
   Tests::Subject ();
 }
