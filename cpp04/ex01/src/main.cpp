@@ -60,7 +60,7 @@ catDeepCopy ()
 }
 
 void
-assigementOperator()
+assigementOperator ()
 {
   Dog src;
   Dog dst;
@@ -68,13 +68,13 @@ assigementOperator()
   src.getBrain ()->setIdea ("what is purpose of life ?", 75);
   src.getBrain ()->setIdea ("some idea here", 040);
   src.getBrain ()->setIdea ("hihihi", 31);
-  src.getBrain ()->setIdea ("i am batman", 42); 
+  src.getBrain ()->setIdea ("i am batman", 42);
   dst = src;
   print ("dst data get from src:");
   print ("\t" << dst.getBrain ()->getIdea (75));
   print ("\t" << dst.getBrain ()->getIdea (040));
   print ("\t" << dst.getBrain ()->getIdea (31));
-  print ("\t" << dst.getBrain ()->getIdea (42)); 
+  print ("\t" << dst.getBrain ()->getIdea (42));
 }
 
 void
@@ -112,6 +112,7 @@ main ()
   print ("\n\n\t\tAssigment operator test\n");
   Tests::assigementOperator ();
 
-  print ("\n\n\t\t Delete Cat and Dog objects using Animal pointer should not result a leak\n");
+  print ("\n\n\t\t Delete Cat and Dog objects using Animal pointer should not "
+         "result a leak\n");
   Tests::Subject ();
 }
