@@ -69,7 +69,7 @@ TEST (AnimalCatDogTest, makeSound)
   EXPECT_EQ (output, "Dog sound\n");
 }
 
-TEST (Wrong, makeSound)
+TEST (Wrong, makeSoundShouldBeDiferent)
 {
   WrongAnimal a;
   WrongCat c;
@@ -80,6 +80,22 @@ TEST (Wrong, makeSound)
   aOutput = testing::internal::GetCapturedStdout ();
   testing::internal::CaptureStdout ();
   c.makeSound ();
+  cOutput = testing::internal::GetCapturedStdout ();
+  EXPECT_NE (aOutput, cOutput);
+}
+
+TEST (Wrong, makeSound)
+{
+
+  WrongAnimal *a = new WrongAnimal ();
+  WrongAnimal *c = new WrongCat ();
+  std::string aOutput, cOutput;
+
+  testing::internal::CaptureStdout ();
+  a->makeSound ();
+  aOutput = testing::internal::GetCapturedStdout ();
+  testing::internal::CaptureStdout ();
+  c->makeSound ();
   cOutput = testing::internal::GetCapturedStdout ();
   EXPECT_EQ (aOutput, cOutput);
 }

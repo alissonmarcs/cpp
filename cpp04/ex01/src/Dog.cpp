@@ -21,8 +21,6 @@ Dog::operator= (const Dog &other)
   print ("Dog assiment operator called");
   if (this != &other)
     {
-      delete this->brain;
-      this->brain = new Brain ();
       *(this->brain) = *(other.brain);
 
     }

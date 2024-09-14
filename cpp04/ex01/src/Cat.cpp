@@ -19,7 +19,10 @@ Cat &
 Cat::operator= (const Cat &other)
 {
   print ("Cat assigment operator called");
-  *(this->brain) = *(other.brain);
+  if (this != &other)
+    {
+      *(this->brain) = *(other.brain);
+    }
   return *this;
 }
 
