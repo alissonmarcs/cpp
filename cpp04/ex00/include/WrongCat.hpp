@@ -10,4 +10,7 @@ public:
   WrongCat (const WrongCat &other);
   void operator= (const WrongCat &other);
   ~WrongCat ();
+
+  /* Subject */
+  void makeSound () const;
 };

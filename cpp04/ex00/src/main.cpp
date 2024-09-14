@@ -38,11 +38,14 @@ makeSound ()
 void
 WrongMakeSound ()
 {
-  WrongCat c;
-  WrongAnimal a;
+  WrongAnimal *a = new  WrongAnimal ();
+  WrongAnimal *b = new  WrongCat ();
 
-  c.makeSound ();
-  a.makeSound ();
+  a->makeSound();
+  b->makeSound();
+
+  delete a;
+  delete b;
 }
 }
 
