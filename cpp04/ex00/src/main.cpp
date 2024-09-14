@@ -57,7 +57,7 @@ main ()
   Tests::makeSound ();
 
   print ("\n\n\t\tWrongCat must inherite from WrongAnimal, but should not "
-         "overwrite makeSound()\n");
+         "overwrite makeSound() virtually\n");
   Tests::WrongMakeSound ();
 
   print ("\n\n\t\tSubject Test\n");
