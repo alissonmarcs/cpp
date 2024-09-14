@@ -78,6 +78,46 @@ assigementOperator ()
 }
 
 void
+DogAssigementOperator ()
+{
+  Dog src;
+  Dog dst;
+
+  src.getBrain ()->setIdea ("what is purpose of life ?", 75);
+  src.getBrain ()->setIdea ("some idea here", 040);
+  src.getBrain ()->setIdea ("hihihi", 31);
+  src.getBrain ()->setIdea ("i am batman", 42);
+  dst = src;
+  print ("dst data get from src:");
+  print ("\t" << dst.getBrain ()->getIdea (75));
+  print ("\t" << dst.getBrain ()->getIdea (040));
+  print ("\t" << dst.getBrain ()->getIdea (31));
+  print ("\t" << dst.getBrain ()->getIdea (42));
+  print ("dst Brain pointer: " << dst.getBrain ());
+  print ("src Brain pointer: " << src.getBrain ());
+}
+
+void
+CatAssigementOperator ()
+{
+  Cat src;
+  Cat dst;
+
+  src.getBrain ()->setIdea ("what is purpose of life ?", 75);
+  src.getBrain ()->setIdea ("some idea here", 040);
+  src.getBrain ()->setIdea ("hihihi", 31);
+  src.getBrain ()->setIdea ("i am batman", 42);
+  dst = src;
+  print ("dst data get from src:");
+  print ("\t" << dst.getBrain ()->getIdea (75));
+  print ("\t" << dst.getBrain ()->getIdea (040));
+  print ("\t" << dst.getBrain ()->getIdea (31));
+  print ("\t" << dst.getBrain ()->getIdea (42));
+  print ("dst Brain pointer: " << dst.getBrain ());
+  print ("src Brain pointer: " << src.getBrain ());
+}
+
+void
 Subject ()
 {
   int size = 6;
@@ -110,7 +150,7 @@ MakeSound ()
 int
 main ()
 {
-  print ("\n\n\t\tCat and Dog must have a privete pointer to Brain\n");
+  print ("\n\n\t\tCat and Dog must have a private pointer to Brain\n");
   Tests::catDogBrain ();
 
   print ("\n\n\t\tWhen copying, Dog must alocate a new Brain object\n");
@@ -119,8 +159,11 @@ main ()
   print ("\n\n\t\tWhen copying, Cat must alocate a new Brain object\n");
   Tests::catDeepCopy ();
 
-  print ("\n\n\t\tAssigment operator test\n");
-  Tests::assigementOperator ();
+  print ("\n\n\t\tDog assigment operator\n");
+  Tests::DogAssigementOperator ();
+
+  print ("\n\n\t\tCat assigment operator\n");
+  Tests::CatAssigementOperator ();
 
   print ("\n\n\t\tMake sound test\n");
   Tests::MakeSound ();
