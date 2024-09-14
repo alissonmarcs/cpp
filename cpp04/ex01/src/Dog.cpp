@@ -20,7 +20,7 @@ Dog::operator= (const Dog &other)
 {
   print ("Dog assiment operator called");
   if (this != &other)
-      *(this->brain) = *(other.brain);
+    *(this->brain) = *(other.brain);
   return *this;
 }
 
