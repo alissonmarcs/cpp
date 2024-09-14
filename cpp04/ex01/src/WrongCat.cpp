@@ -22,3 +22,9 @@ WrongCat::operator= (const WrongCat &other)
 }
 
 WrongCat::~WrongCat () { print ("WrongCat destructor"); }
+
+void
+WrongCat::makeSound () const
+{
+  print ("WrongCat sound");
+}
