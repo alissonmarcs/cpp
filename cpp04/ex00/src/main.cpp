@@ -63,5 +63,7 @@ main ()
   print ("\n\n\t\tSubject Test\n");
   Tests::Subject ();
 
+  print ()
+
   return 0;
 }

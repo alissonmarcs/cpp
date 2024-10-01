@@ -4,7 +4,7 @@ DiamondTrap::DiamondTrap () : ClapTrap (), ScavTrap (), FragTrap ()
 {
   print ("DiamondTrap default constructor called");
   setEnergyPoints (50);
-  this->DiamondTrap::setName ("guest");
+  this->DiamondTrap::setName ("opa");
   this->ClapTrap::setName (this->DiamondTrap::getName () + "_clap_name");
 }
 
