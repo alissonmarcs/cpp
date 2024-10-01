@@ -1,0 +1,99 @@
+#include "print.hpp"
+#include "Bureaucrat.hpp"
+
+namespace Tests
+{
+	void defaultConstructor()
+	{
+		Bureaucrat b1;
+
+		print(b1.getName());
+	}
+
+	void tooHigh()
+	{
+		try
+		{
+			Bureaucrat b("Mister", 0);
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+	}
+
+	void tooLow()
+	{
+		try
+		{
+			Bureaucrat b("Melvin", 200);
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+	}
+
+	void incrementGrade()
+	{
+		Bureaucrat b("Alisson", 1);
+
+		try
+		{
+			b.incrementGrade();
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+	}
+
+	void decrementGrade()
+	{
+		Bureaucrat b("Thor", 150);
+
+		try
+		{
+			b.decrementGrade();
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+	}
+
+	void printOperator()
+	{
+		Bureaucrat b("Batman", 100);
+
+		std::cout << b << std::endl;
+	}
+}
+
+int main(void)
+{
+	Tests::defaultConstructor();
+	Tests::tooHigh();
+	Tests::tooLow();
+	Tests::incrementGrade();
+	Tests::decrementGrade();
+	Tests::printOperator();
+	
+	Bureaucrat a("carla", 27);
+	Bureaucrat b("Pedro", 1);
+
+	b = a;
+	print (b.getName());
+	print (b.getGrade());
+
+	// ============
+
+	Bureaucrat src("Santa", 99);
+	Bureaucrat dst(src);
+
+	print(dst.getName());
+	print(dst.getGrade());
+
+
+	return 0;
+}
