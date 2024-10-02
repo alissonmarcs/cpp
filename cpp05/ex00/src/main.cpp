@@ -79,21 +79,5 @@ int main(void)
 	Tests::decrementGrade();
 	Tests::printOperator();
 	
-	Bureaucrat a("carla", 27);
-	Bureaucrat b("Pedro", 1);
-
-	b = a;
-	print (b.getName());
-	print (b.getGrade());
-
-	// ============
-
-	Bureaucrat src("Santa", 99);
-	Bureaucrat dst(src);
-
-	print(dst.getName());
-	print(dst.getGrade());
-
-
 	return 0;
 }
