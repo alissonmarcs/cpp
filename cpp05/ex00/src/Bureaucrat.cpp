@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "print.hpp"
 
-Bureaucrat::Bureaucrat() : _grade(0), _name("Nobody")
+Bureaucrat::Bureaucrat() : _name("Nobody"), _grade(0)
 {
 }
 
