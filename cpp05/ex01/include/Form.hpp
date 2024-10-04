@@ -27,15 +27,15 @@ public:
 	Form(int signGrade, int execGrade, std::string name);
 	void beSigned(const Bureaucrat &bureaucrat);
 
-	class GradeTooLowException : public std::exception
-	{
-		virtual const char *what() const throw();
-	};
+class GradeTooLowException : public std::exception
+{
+	const char *what() const throw();
+};
 
-	class GradeTooHighException : public std::exception
-	{
-		virtual const char *what() const throw();
-	};
+class GradeTooHighException : public std::exception
+{
+	const char *what() const throw();
+};
 };
 
 std::ostream

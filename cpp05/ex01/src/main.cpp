@@ -6,35 +6,96 @@ namespace Tests
 {
 	void signForm()
 	{
-		Bureaucrat jose("jose", 100);
+		Bureaucrat man("man", 100);
 		Form job(42, 90, "job");
+		man.signForm(job);
 
-		print (RED "Bureaucrat " << jose.getName() <<  " with low grade try to sign a form" RESET);
-		jose.signForm(job);
-
-
-		Bureaucrat carla("carla", 30);
+		Bureaucrat woman("woman", 30);
 		Form car(40, 89, "car");
+		woman.signForm(car);
+	}
 
-		print (RED "Bureaucrat " << jose.getName() <<  " with low grade try to sign a form" RESET);
-		carla.signForm(car);
+	void beSigned()
+	{
+		Bureaucrat man("man", 100);
+		Form motocycle(42, 90, "motocycle");
+
+		try
+		{
+			motocycle.beSigned(man);
+		}
+		catch (const std::exception &e)
+		{
+			print (e.what());
+		}
 	}
 
 	void formExceptions()
 	{
 		try
 		{
-			Form hight(0, 100, "TestForm");
+			Form highExecGrade(0, 100, "TestForm");
 		}
-		catch(const Form::GradeTooHighException& e)
+		catch(const std::exception &e)
 		{
-			std::cerr << e.what() << '\n';
+			print(e.what());
 		}
+		try
+		{
+			Form lowExecGrade(200, 100, "TestForm");
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+		try
+		{
+			Form highSignGrade(100, 0, "TestForm");
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+		try
+		{
+			Form lowSignGrade(100, 200, "TestForm");
+		}
+		catch (const std::exception &e)
+		{
+			print(e.what());
+		}
+	}
+
+	void overloarInsertion()
+	{
+		Bureaucrat spiderMan("spiderMan", 41);
+		Form web(42, 90, "web");
+
+		spiderMan.signForm(web);
+		std::cout << web << std::endl;
+	}
+
+	void getters()
+	{
+		Form dog(3, 90, "Dog");
+
+		print ("Name: " << dog.getName());
+		print ("Sign grade " << dog.getSignGrade());
+		print ("Exec grade " << dog.getExecGrade());
+		print ("Bool if is signed: " << dog.isSigned());
 	}
 }
 
 int main(void)
 {
+	print (GREEN "\n\t\tGetters" RESET);
+	Tests::getters();
+	print (GREEN "\n\t\tBureaucrat try to sign a form" RESET);
 	Tests::signForm();
+	print (GREEN "\n\t\tbeSigned()" RESET);
+	Tests::beSigned();
+	print (GREEN "\n\t\tForm constructor exceptions" RESET);
 	Tests::formExceptions();
+	print (GREEN "\n\t\tOverload of insertion" RESET);
+	Tests::overloarInsertion();
 }

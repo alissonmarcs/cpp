@@ -41,3 +41,27 @@ TEST(FormTest, SigningGradeTooLow) {
     Form form(100, 100, "TestForm");
     EXPECT_THROW(form.beSigned(bureaucrat), Form::GradeTooLowException);
 }
+
+// Test normal case: Bureaucrat successfully signs the form
+TEST(BureaucratTest, SignFormNormalCase) {
+    Bureaucrat bureaucrat("John Doe", 1);
+    Form form(1, 1, "TestForm"); // Assuming Form constructor takes name, sign grade, and execute grade
+    bureaucrat.signForm(form);
+    EXPECT_TRUE(form.isSigned());
+}
+
+// Test corner case: Bureaucrat with too low grade cannot sign the form
+TEST(BureaucratTest, SignFormLowGrade) {
+    Bureaucrat bureaucrat("John Doe", 150); // Assuming 150 is the lowest grade
+    Form form(1, 1, "TestForm");
+    bureaucrat.signForm(form);
+    EXPECT_FALSE(form.isSigned());
+}
+
+// Test corner case: Bureaucrat with too high grade cannot sign the form
+TEST(BureaucratTest, SignFormHighGrade) {
+    Bureaucrat bureaucrat("John Doe", 42); // Assuming 0 is an invalid grade
+    Form form(42, 1, "TestForm");
+    bureaucrat.signForm(form);
+    EXPECT_TRUE(form.isSigned());
+}
