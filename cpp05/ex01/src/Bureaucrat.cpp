@@ -70,7 +70,15 @@ operator<<(std::ostream &out, const Bureaucrat &obj)
 void
 Bureaucrat::signForm(Form &form)
 {
-
+	try
+	{
+		form.beSigned(*this);
+		print("Bureaucrat " << _name << " signs " << form.getName());
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		print("Bureaucrat " << _name << " cannot sign " << form.getName() << " because his grade is too low");
+	}
 }
 
 const char *

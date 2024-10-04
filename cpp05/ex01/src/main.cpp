@@ -4,73 +4,37 @@
 
 namespace Tests
 {
-	void defaultConstructor()
+	void signForm()
 	{
-		Bureaucrat b1;
+		Bureaucrat jose("jose", 100);
+		Form job(42, 90, "job");
 
-		print(b1.getName());
+		print (RED "Bureaucrat " << jose.getName() <<  " with low grade try to sign a form" RESET);
+		jose.signForm(job);
+
+
+		Bureaucrat carla("carla", 30);
+		Form car(40, 89, "car");
+
+		print (RED "Bureaucrat " << jose.getName() <<  " with low grade try to sign a form" RESET);
+		carla.signForm(car);
 	}
 
-	void tooHigh()
+	void formExceptions()
 	{
 		try
 		{
-			Bureaucrat b("Mister", 0);
+			Form hight(0, 100, "TestForm");
 		}
-		catch (const std::exception &e)
+		catch(const Form::GradeTooHighException& e)
 		{
-			print(e.what());
+			std::cerr << e.what() << '\n';
 		}
-	}
-
-	void tooLow()
-	{
-		try
-		{
-			Bureaucrat b("Melvin", 200);
-		}
-		catch (const std::exception &e)
-		{
-			print(e.what());
-		}
-	}
-
-	void incrementGrade()
-	{
-		Bureaucrat b("Alisson", 1);
-
-		try
-		{
-			b.incrementGrade();
-		}
-		catch (const std::exception &e)
-		{
-			print(e.what());
-		}
-	}
-
-	void decrementGrade()
-	{
-		Bureaucrat b("Thor", 150);
-
-		try
-		{
-			b.decrementGrade();
-		}
-		catch (const std::exception &e)
-		{
-			print(e.what());
-		}
-	}
-
-	void printOperator()
-	{
-		Form awesome(42, 90, "Alisson");
-
-		std::cout << awesome << std::endl;
 	}
 }
 
 int main(void)
 {
+	Tests::signForm();
+	Tests::formExceptions();
 }
