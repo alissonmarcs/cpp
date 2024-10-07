@@ -2,7 +2,7 @@
 #include "Form.hpp"
 #include "print.hpp"
 
-Bureaucrat::Bureaucrat () : _name ("Nobody"), _grade (0) {}
+Bureaucrat::Bureaucrat () : _name ("Nobody"), _grade (1) {}
 
 Bureaucrat::Bureaucrat (const Bureaucrat &other)
     : _name (other._name), _grade (other._grade)
