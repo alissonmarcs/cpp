@@ -12,7 +12,6 @@ Form::Form (const Form &other)
     : _name (other._name), _signGrade (other._signGrade),
       _execGrade (other._execGrade), _isSigned (other._isSigned)
 {
-  this->_isSigned = other._isSigned;
 }
 
 Form &

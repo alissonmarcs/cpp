@@ -77,3 +77,13 @@ TEST (BureaucratTest, SignFormHighGrade)
   bureaucrat.signForm (form);
   EXPECT_TRUE (form.isSigned ());
 }
+
+TEST (FormTest, CopyConstructor)
+{
+  Form src(05, 10, "Src");
+  Bureaucrat bureaucrat ("John Doe", 2);
+  src.beSigned(bureaucrat);
+  Form dst(src);
+
+  EXPECT_EQ(src.isSigned(), dst.isSigned());
+}
