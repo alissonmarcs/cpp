@@ -8,7 +8,8 @@ defaultConstructor ()
 {
   Bureaucrat b1;
 
-  print (b1.getName ());
+  print ("Name: " << b1.getName ());
+  print ("Grade: " << b1.getGrade ());
 }
 
 void
@@ -79,11 +80,17 @@ printOperator ()
 int
 main (void)
 {
+  print (GREEN TITTLE "Default constructor" RESET);
   Tests::defaultConstructor ();
+  print (GREEN TITTLE "High exception in constructor" RESET);
   Tests::tooHigh ();
+  print (GREEN TITTLE "Low exception in constructor" RESET);
   Tests::tooLow ();
+  print (GREEN TITTLE "High exception when increment" RESET);
   Tests::incrementGrade ();
+  print (GREEN TITTLE "Low exception when decrement" RESET);
   Tests::decrementGrade ();
+  print (GREEN TITTLE "Overload of print operator" RESET);
   Tests::printOperator ();
 
   return 0;
