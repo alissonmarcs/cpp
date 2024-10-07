@@ -94,14 +94,14 @@ getters ()
 int
 main (void)
 {
-  print (GREEN "\n\t\tGetters" RESET);
+  print (GREEN TITTLE "Getters" RESET);
   Tests::getters ();
-  print (GREEN "\n\t\tBureaucrat try to sign a form" RESET);
+  print (GREEN TITTLE "Bureaucrat try to sign a form" RESET);
   Tests::signForm ();
-  print (GREEN "\n\t\tbeSigned()" RESET);
+  print (GREEN TITTLE "beSigned()" RESET);
   Tests::beSigned ();
-  print (GREEN "\n\t\tForm constructor exceptions" RESET);
+  print (GREEN TITTLE "Form constructor exceptions" RESET);
   Tests::formExceptions ();
-  print (GREEN "\n\t\tOverload of insertion" RESET);
+  print (GREEN TITTLE "Overload of insertion" RESET);
   Tests::overloarInsertion ();
 }
