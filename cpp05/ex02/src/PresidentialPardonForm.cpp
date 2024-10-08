@@ -6,7 +6,6 @@ PresidentialPardonForm::PresidentialPardonForm()
 	
 }
 PresidentialPardonForm::PresidentialPardonForm(std::string name)
-	
 	: AForm (25, 5, name)
 {
 	

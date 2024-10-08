@@ -7,7 +7,6 @@ RobotomyRequestForm::RobotomyRequestForm()
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name)
-	
 	: AForm(72, 45, name)
 {
 	
