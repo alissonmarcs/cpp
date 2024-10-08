@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include "print.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 	: AForm(145, 137, "guest")
@@ -24,4 +25,10 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	
+}
+
+void
+ShrubberyCreationForm::action() const
+{
+	print ("ShrubberyCreationForm");
 }

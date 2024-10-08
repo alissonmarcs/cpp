@@ -1,4 +1,5 @@
 #include "PresidentialPardonForm.hpp"
+#include "print.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
 	: AForm (25, 5, "guest")
@@ -25,4 +26,10 @@ PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	
+}
+
+void
+PresidentialPardonForm::action() const
+{
+	print (getName() << " has been pardoned by Zafod Beeblebrox.");
 }

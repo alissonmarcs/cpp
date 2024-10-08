@@ -13,4 +13,5 @@ public:
 
 	/* Subject */
 	RobotomyRequestForm(std::string name);
+	void action() const;
 };

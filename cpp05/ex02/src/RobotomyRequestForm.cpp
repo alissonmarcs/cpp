@@ -1,4 +1,5 @@
 #include "RobotomyRequestForm.hpp"
+#include "print.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
 	: AForm(72, 45, "guest")
@@ -26,4 +27,10 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 	
+}
+
+void
+RobotomyRequestForm::action() const
+{
+	print ("RobotomyRequestForm");
 }

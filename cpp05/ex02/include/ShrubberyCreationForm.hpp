@@ -13,4 +13,5 @@ public:
 
 	/* Subject */
 	ShrubberyCreationForm(std::string name);
+	void action() const;
 };

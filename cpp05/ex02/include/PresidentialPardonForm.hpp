@@ -13,4 +13,5 @@ public:
 
 	/* Subject */
 	PresidentialPardonForm(std::string name);
+	void action() const;
 };

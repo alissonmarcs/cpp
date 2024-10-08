@@ -9,9 +9,9 @@ namespace Tests
 {
   void grades_at_creation()
   {
+   PresidentialPardonForm pardon("pardon");
    ShrubberyCreationForm tree("tree");
    RobotomyRequestForm robot("robot");
-   PresidentialPardonForm pardon("pardon");
 
    print ("\n\tShrubberyCreationForm\n");
    print ("Sign grade: " << tree.getSignGrade());
@@ -30,7 +30,6 @@ namespace Tests
 int
 main (void)
 {
-  print (GREEN TITTLE "Grades at creation" RESET);
+  print (GREEN "\n\t\t" "Grades at creation" RESET);
   Tests::grades_at_creation();
 }
-

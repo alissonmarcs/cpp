@@ -86,3 +86,20 @@ AForm::GradeTooHighException::what () const throw ()
 {
   return "Grade is too high";
 }
+
+const char *
+AForm::FormNotSignedException::what () const throw ()
+{
+  return "Form is not signed";
+}
+
+void
+AForm::execute(Bureaucrat const & executor)
+{
+  if (_isSigned == false) 
+    throw FormNotSignedException();
+  else if (executor.getGrade() > _execGrade)
+    throw GradeTooLowException();
+  else
+    this->action();
+}
