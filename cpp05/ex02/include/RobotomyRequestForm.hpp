@@ -13,5 +13,5 @@ public:
 
 	/* Subject */
 	RobotomyRequestForm(std::string name);
-	void action() const;
+	void execute(Bureaucrat const & executor) const;
 };

@@ -28,10 +28,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 void
-RobotomyRequestForm::action() const
+RobotomyRequestForm::execute(const Bureaucrat & executor) const
 {
 	static short calls_number = 1;
 
+	if (!isSigned())
+		throw AForm::FormNotSignedException();
+	else if (executor.getGrade() > getExecGrade())
+		throw AForm::GradeTooLowException();
 	print ("Bzzzzzzzzzz");
 	if (calls_number % 2)
 		print (getName() << " has been robotomized successfully.");

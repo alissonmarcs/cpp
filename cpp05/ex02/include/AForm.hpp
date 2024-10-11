@@ -2,7 +2,7 @@
 
 #include <string>
 
-class Bureaucrat;
+#include "Bureaucrat.hpp"
 
 class AForm
 {
@@ -26,8 +26,7 @@ public:
   bool isSigned () const;
   AForm (int signGrade, int execGrade, std::string name);
   void beSigned (const Bureaucrat &bureaucrat);
-  void execute(Bureaucrat const & executor) const;
-  virtual void action() const = 0;
+  virtual void execute(Bureaucrat const & executor) const = 0;
 
   class GradeTooLowException : public std::exception
   {

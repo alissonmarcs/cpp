@@ -27,6 +27,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
+	void execute(Bureaucrat const & executor) const;
 void
 PresidentialPardonForm::action() const
 {
