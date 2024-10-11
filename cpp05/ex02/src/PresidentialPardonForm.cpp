@@ -4,28 +4,27 @@
 PresidentialPardonForm::PresidentialPardonForm()
 	: AForm (25, 5, "guest")
 {
-	
 }
+
 PresidentialPardonForm::PresidentialPardonForm(std::string name)
 	: AForm (25, 5, name)
 {
-	
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) 
+	: AForm(other)
 {
-	
 }
 
 PresidentialPardonForm &
 PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
+	this->AForm::operator=(other);
 	return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	
 }
 
 void

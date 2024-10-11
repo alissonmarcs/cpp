@@ -24,6 +24,7 @@ public:
   void incrementGrade ();
   void decrementGrade ();
   void signForm (class AForm &form);
+  void executeForm (AForm const &form);
 
   class GradeTooLowException : public std::exception
   {

@@ -1,5 +1,6 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "print.hpp"
 
 #include <iostream>
 
@@ -94,7 +95,7 @@ AForm::FormNotSignedException::what () const throw ()
 }
 
 void
-AForm::execute(Bureaucrat const & executor)
+AForm::execute(Bureaucrat const & executor) const
 {
   if (_isSigned == false) 
     throw FormNotSignedException();
