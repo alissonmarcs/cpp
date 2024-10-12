@@ -15,3 +15,5 @@
 ## Porque o bloco `catch` precisa pegar os objetos usando um pointer da classe base ?
 
 ## Porque a `signForm()` usa `try` `catch` e a `beSigned()` não ?
+
+## Se uma função recebe referencia de um objeto como parâmetro, como ela garante que o estado do objeto não será alterado ?
