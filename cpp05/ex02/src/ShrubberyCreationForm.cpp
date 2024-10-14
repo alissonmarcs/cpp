@@ -3,17 +3,17 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-	: AForm(145, 137, "guest")
+	: AForm(145, 137, "ShrubberyCreationForm"), _target("Nobody")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name)
-	: AForm(145, 137, name)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+	: AForm(145, 137, "ShrubberyCreationForm"), _target(target)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) 
-	: AForm(other)
+	: AForm(other), _target(other._target)
 {
 }
 
@@ -26,7 +26,12 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	
+}
+
+std::string
+ShrubberyCreationForm::getTarget() const
+{
+	return _target;
 }
 
 void
@@ -35,7 +40,7 @@ ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 	if (!isSigned())
 		throw AForm::FormNotSignedException();
 	else if (executor.getGrade() > getExecGrade())
-		throw AForm::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	std::string filename = getName() + "_shrubbery";
 	std::ofstream file(filename.c_str());
 

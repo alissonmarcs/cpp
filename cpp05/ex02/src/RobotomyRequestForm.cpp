@@ -2,17 +2,17 @@
 #include "print.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: AForm(72, 45, "guest")
+	: AForm(72, 45, "RobotomyRequestForm"), _target("Nobody")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name)
-	: AForm(72, 45, name)
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+	: AForm(72, 45, "RobotomyRequestForm"), _target(target)
 {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) 
-	: AForm(other)
+	: AForm(other), _target(other._target)
 {
 }
 
@@ -27,6 +27,12 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
+std::string
+RobotomyRequestForm::getTarget() const
+{
+	return _target;
+}
+
 void
 RobotomyRequestForm::execute(const Bureaucrat & executor) const
 {
@@ -35,7 +41,7 @@ RobotomyRequestForm::execute(const Bureaucrat & executor) const
 	if (!isSigned())
 		throw AForm::FormNotSignedException();
 	else if (executor.getGrade() > getExecGrade())
-		throw AForm::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 	print ("Bzzzzzzzzzz");
 	if (calls_number % 2)
 		print (getName() << " has been robotomized successfully.");

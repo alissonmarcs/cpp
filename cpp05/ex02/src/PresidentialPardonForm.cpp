@@ -2,17 +2,17 @@
 #include "print.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
-	: AForm (25, 5, "guest")
+	: AForm (25, 5, "PresidentialPardonForm"), _target("Nobody")
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name)
-	: AForm (25, 5, name)
+PresidentialPardonForm::PresidentialPardonForm(std::string _target)
+	: AForm (25, 5, "PresidentialPardonForm"), _target(_target)
 {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) 
-	: AForm(other)
+	: AForm(other), _target(other._target)
 {
 }
 
@@ -27,12 +27,18 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
+std::string
+PresidentialPardonForm::getTarget() const
+{
+	return _target;
+}
+
 void
 PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (!isSigned())
 		throw AForm::FormNotSignedException();
-	else if (executor.getGrade() > getSignGrade())
+	else if (executor.getGrade() > getExecGrade())
 		throw Bureaucrat::GradeTooLowException();
 	print (getName() << " has been pardoned by Zafod Beeblebrox.");
 }

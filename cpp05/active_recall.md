@@ -21,3 +21,6 @@
 ## Qual a razão de deixar o construtor de uma classe protegido ?
 
 ## O que é o Singleton pattern ?
+
+## O formulario pode lançar excessoes que estão contidas dentro da propria classe Formulario quanto
+excessoes do burocrata.

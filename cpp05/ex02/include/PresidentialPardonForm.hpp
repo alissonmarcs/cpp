@@ -4,6 +4,9 @@
 
 class PresidentialPardonForm : public AForm
 {
+private:
+	const std::string _target;
+
 public:
 	/* Canonical form */
 	PresidentialPardonForm();
@@ -12,6 +15,7 @@ public:
 	~PresidentialPardonForm();
 
 	/* Subject */
-	PresidentialPardonForm(std::string name);
+	PresidentialPardonForm(std::string target);
+	std::string getTarget() const ;
 	void execute(Bureaucrat const & executor) const;
 };

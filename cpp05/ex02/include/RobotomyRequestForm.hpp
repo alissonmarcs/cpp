@@ -4,6 +4,9 @@
 
 class RobotomyRequestForm : public AForm
 {
+private:
+	const std::string _target;
+
 public:
 	/* Canonical form */
 	RobotomyRequestForm();
@@ -12,6 +15,7 @@ public:
 	~RobotomyRequestForm();
 
 	/* Subject */
-	RobotomyRequestForm(std::string name);
+	RobotomyRequestForm(std::string target);
+	std::string getTarget() const ;
 	void execute(Bureaucrat const & executor) const;
 };

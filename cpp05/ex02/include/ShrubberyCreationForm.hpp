@@ -4,6 +4,9 @@
 
 class ShrubberyCreationForm: public AForm
 {
+private:
+	const std::string _target;
+
 public:
 	/* Canonical form */
 	ShrubberyCreationForm();
@@ -12,6 +15,7 @@ public:
 	~ShrubberyCreationForm();
 
 	/* Subject */
-	ShrubberyCreationForm(std::string name);
+	ShrubberyCreationForm(std::string target);
+	std::string getTarget() const ;
 	void execute(Bureaucrat const & executor) const;
 };

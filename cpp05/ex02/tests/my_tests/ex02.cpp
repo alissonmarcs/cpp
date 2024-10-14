@@ -12,6 +12,14 @@ TEST (PresidentialPardonFormTest, noSignedTryExecute)
   EXPECT_THROW (form.execute (to_sign), PresidentialPardonForm::FormNotSignedException);
 }
 
+TEST (PresidentialPardonFormTest, checkGrads)
+{
+  PresidentialPardonForm form ("TestForm");
+
+  EXPECT_EQ(form.getSignGrade(), 25);
+  EXPECT_EQ(form.getExecGrade(), 5);
+}
+
 TEST (PresidentialPardonFormTest, lowGradeTryExecute)
 {
   Bureaucrat to_sign ("John", 24);
@@ -19,5 +27,5 @@ TEST (PresidentialPardonFormTest, lowGradeTryExecute)
   PresidentialPardonForm form ("TestForm");
 
   form.beSigned (to_sign);
-  EXPECT_THROW (form.execute (to_execute), PresidentialPardonForm::GradeTooLowException);
+  EXPECT_THROW (form.execute (to_execute), Bureaucrat::GradeTooLowException);
 }
