@@ -66,5 +66,5 @@ ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 	".................................%@@.................................\n"
 	"................................@@@@@................................\n";
 	file.close();
-	print (getName() << " has been shrubberized successfully.");
+	print (_target << " has been shrubberized successfully.");
 }

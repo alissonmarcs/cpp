@@ -16,14 +16,20 @@ namespace Tests
    print (CYAN SUB_TITTLE "Shrubbery\n" RESET); 
    print ("Sign grade: " << tree.getSignGrade());
    print ("Exec grade: " << tree.getExecGrade());
+   print ("Target: " << tree.getTarget());
+   print ("Name: " << tree.getName());
 
    print (CYAN SUB_TITTLE "Robotomy\n" RESET); 
    print ("Sign grade: " << robot.getSignGrade());
    print ("Exec grade: " << robot.getExecGrade());
+   print ("Target: " << robot.getTarget());
+   print ("Name: " << robot.getName());
 
    print (CYAN SUB_TITTLE "Presidential\n" RESET); 
    print ("Sign grade: " << pardon.getSignGrade());
    print ("Exec grade: " << pardon.getExecGrade());
+   print ("Target: " << pardon.getTarget());
+   print ("Name: " << pardon.getName());
   }
 
   void form_actions()

@@ -52,7 +52,7 @@ void
 AForm::beSigned (const Bureaucrat &bureaucrat)
 {
   if (bureaucrat.getGrade () > _signGrade)
-    throw GradeTooLowException ();
+    throw Bureaucrat::GradeTooLowException ();
   _isSigned = true;
 }
 
@@ -71,9 +71,9 @@ AForm::AForm (int signGrade, int execGrade, std::string name)
       _isSigned (false)
 {
   if (signGrade < 1 || execGrade < 1)
-    throw GradeTooHighException ();
+    throw AForm::GradeTooHighException ();
   else if (signGrade > 150 || execGrade > 150)
-    throw GradeTooLowException ();
+    throw AForm::GradeTooLowException ();
 }
 
 const char *

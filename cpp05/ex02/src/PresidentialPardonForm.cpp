@@ -40,5 +40,5 @@ PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		throw AForm::FormNotSignedException();
 	else if (executor.getGrade() > getExecGrade())
 		throw Bureaucrat::GradeTooLowException();
-	print (getName() << " has been pardoned by Zafod Beeblebrox.");
+	print (_target << " has been pardoned by Zafod Beeblebrox.");
 }

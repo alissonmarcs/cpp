@@ -44,8 +44,8 @@ RobotomyRequestForm::execute(const Bureaucrat & executor) const
 		throw Bureaucrat::GradeTooLowException();
 	print ("Bzzzzzzzzzz");
 	if (calls_number % 2)
-		print (getName() << " has been robotomized successfully.");
+		print (_target << " has been robotomized successfully.");
 	else
-		print (getName() << " robotomization failed.");
+		print (_target << " robotomization failed.");
 	calls_number++;
 }
