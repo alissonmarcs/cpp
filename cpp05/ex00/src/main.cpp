@@ -39,7 +39,7 @@ tooLow ()
 }
 
 void
-incrementGrade ()
+incrementGradeFail ()
 {
   Bureaucrat b ("Alisson", 1);
 
@@ -54,13 +54,45 @@ incrementGrade ()
 }
 
 void
-decrementGrade ()
+decrementGradeFail ()
 {
   Bureaucrat b ("Thor", 150);
 
   try
     {
       b.decrementGrade ();
+    }
+  catch (const std::exception &e)
+    {
+      print (e.what ());
+    }
+}
+
+void
+incrementGradeSucess ()
+{
+  Bureaucrat b ("Thor", 149);
+
+  try
+    {
+      b.incrementGrade ();
+      print ("Grade: " << b.getGrade ());
+    }
+  catch (const std::exception &e)
+    {
+      print (e.what ());
+    }
+}
+
+void
+decrementGradeSucess ()
+{
+  Bureaucrat b ("Thor", 149);
+
+  try
+    {
+      b.decrementGrade ();
+      print ("Grade: " << b.getGrade ());
     }
   catch (const std::exception &e)
     {
@@ -87,11 +119,14 @@ main (void)
   print (GREEN TITTLE "Low exception in constructor" RESET);
   Tests::tooLow ();
   print (GREEN TITTLE "High exception when increment" RESET);
-  Tests::incrementGrade ();
+  Tests::incrementGradeFail ();
   print (GREEN TITTLE "Low exception when decrement" RESET);
-  Tests::decrementGrade ();
+  Tests::decrementGradeFail ();
   print (GREEN TITTLE "Overload of print operator" RESET);
   Tests::printOperator ();
-
+  print (GREEN TITTLE "Increment Grade Success" RESET);
+  Tests::incrementGradeSucess ();
+  print (GREEN TITTLE "Decrement Grade Success" RESET);
+  Tests::decrementGradeSucess ();
   return 0;
 }
