@@ -24,3 +24,6 @@
 
 ## O formulario pode lançar excessoes que estão contidas dentro da propria classe Formulario quanto
 excessoes do burocrata.
+
+## Qual a diferença da `execute` da `Form` e da `executeForm` do `Bureaucrat` ?
+A `execute` apenas lança excessoes, enquanto que a `executeForm` manuseia excessoes lançadas pela `executeForm`.
