@@ -53,7 +53,9 @@ exceptions_tests ()
 int
 main (void)
 {
+  print (GREEN TITTLE "Basic Tests" RESET);
   Tests::basic_tests ();
+  print (GREEN TITTLE "Class not found exception" RESET);
   Tests::exceptions_tests ();
   return 0;
 }

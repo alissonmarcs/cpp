@@ -40,7 +40,7 @@ ShrubberyCreationForm::execute (const Bureaucrat &executor) const
     throw AForm::FormNotSignedException ();
   else if (executor.getGrade () > getExecGrade ())
     throw Bureaucrat::GradeTooLowException ();
-  std::string filename = getName () + "_shrubbery";
+  std::string filename = getTarget () + "_shrubbery";
   std::ofstream file (filename.c_str ());
 
   file << "..................................................................."
