@@ -34,9 +34,9 @@ Bureaucrat::Bureaucrat (std::string name, short grade)
     : _name (name), _grade (grade)
 {
   if (grade < 1)
-    throw GradeTooHighException ();
+    throw Bureaucrat::GradeTooHighException ();
   else if (grade > 150)
-    throw GradeTooLowException ();
+    throw Bureaucrat::GradeTooLowException ();
 }
 
 void
