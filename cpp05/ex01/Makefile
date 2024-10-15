@@ -31,7 +31,7 @@ all: ./objs/ $(NAME)
 $(NAME): $(OBJECTS)
 	@echo "$(CYAN)Compiling...$(RESET)" 
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) $(OBJECTS) -o $(NAME)
-	@echo "$(CYAN)Done$(RESET)" 
+	@echo "$(CYAN)Target ./$(NAME) done$(RESET)" 
 
 ./objs/%.o: ./src/%.cpp $(HEADERS)
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) -c $< -o $@
