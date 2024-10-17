@@ -3,9 +3,18 @@
 
 bool validade_string (std::string str)
 {
-	if (!std::isdigit(str[0]) && str.size() > 1)
+	int i = 0;
+	int dot = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!std::isdigit(str[i]) && str.size() > 1)
 		return false;
 	else if (str.empty())
+		return false;
+	for (std::string::iterator it = str.begin(); it != str.end(); it++)
+		if (*it == '.')
+			dot++;
+	if (str[str.size() - 1] == 'f' && dot != 1)
 		return false;
 	return true;
 }

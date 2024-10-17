@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include "defines.hpp"
 
 ScalarConverter::ScalarConverter()
 {
@@ -61,6 +62,8 @@ ScalarConverter::isInt(std::string str)
 	{
 		if (*it == '.')
 			dot++;
+		if (*it == '-' || *it == '+')
+			++it;
 		if (!std::isdigit(*it))
 			return false;
 	}
