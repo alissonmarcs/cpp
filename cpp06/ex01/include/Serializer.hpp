@@ -1,0 +1,18 @@
+#pragma once
+
+#include "defines.hpp"
+#include "Data.hpp"
+
+class Serializer
+{
+private:
+	/* Canonical form */
+	Serializer ();
+	Serializer (const Serializer &other);
+	Serializer &operator= (const Serializer &other);
+	~Serializer();
+
+public:
+	static uintptr_t serialize (Data* ptr);
+	static Data* deserialize (uintptr_t raw);
+};
