@@ -18,4 +18,12 @@ public:
 	static bool isDouble(std::string str);
 	static bool isChar (std::string str);
 	static bool isInt(std::string str);
+	static bool validade_string (std::string str);
+	static bool isPseudoLiteral (std::string str);
+	static void convert (std::string str);
+	static void convertChar(std::string str);
+	static void convertInt(std::string str);
+	static void convertFloat(std::string str);
+	static void convertDouble(std::string str);
+
 };
