@@ -29,9 +29,9 @@ all: ./objs/ $(NAME)
 	@mkdir ./objs/
 
 $(NAME): $(OBJECTS)
-	@echo "$(CYAN)Compiling...$(RESET)" 
+	@echo -e "$(CYAN)Compiling...$(RESET)" 
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) $(OBJECTS) -o $(NAME)
-	@echo "$(CYAN)Target ./$(NAME) done$(RESET)" 
+	@echo -e "$(CYAN)Target ./$(NAME) done$(RESET)" 
 
 ./objs/%.o: ./src/%.cpp $(HEADERS)
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) -c $< -o $@
