@@ -6,6 +6,8 @@
 
 ## como será a tratativa de números negativos ?
 
+## float e double aceitam pseudo literais ?
+
 # ex01
 
 ## o que é `uintptr_t` e dê um exemplo de uso pratico.
