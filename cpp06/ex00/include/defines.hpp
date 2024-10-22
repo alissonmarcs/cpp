@@ -29,5 +29,6 @@ enum
 	CHAR,
 	INT,
 	FLOAT,
-	DOUBLE
+	DOUBLE,
+    PSEUDO_LITERAL
 };
