@@ -24,4 +24,11 @@
 #define TITTLE "\n\t\t"
 #define SUB_TITTLE "\n\t"
 
-typedef unsigned long long uintptr_t;
+enum
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+    PSEUDO_LITERAL
+};

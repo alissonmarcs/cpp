@@ -20,8 +20,8 @@ ifdef REMOVE_STD
 		CPPFLAGS := $(subst -std=c++98,,$(CPPFLAGS))
 endif
 
-CYAN = \033[36m
-RESET = \033[0m
+CYAN = \e[36m
+RESET = \e[0m
 
 all: ./objs/ $(NAME)
 
@@ -29,9 +29,9 @@ all: ./objs/ $(NAME)
 	@mkdir ./objs/
 
 $(NAME): $(OBJECTS)
-	@echo -e "$(CYAN)Compiling...$(RESET)" 
+	@printf "$(CYAN)Compiling...$(RESET)\n" 
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) $(OBJECTS) -o $(NAME)
-	@echo -e "$(CYAN)Target ./$(NAME) done$(RESET)" 
+	@printf "$(CYAN)Target ./$(NAME) done$(RESET)\n" 
 
 ./objs/%.o: ./src/%.cpp $(HEADERS)
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) -c $< -o $@

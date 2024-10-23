@@ -1,4 +1,6 @@
 #include "ScalarConverter.hpp"
+#include "Helpers.hpp"
+#include "defines.hpp"
 
 ScalarConverter::ScalarConverter() {}
 
@@ -14,23 +16,47 @@ const char *ScalarConverter::NonDisplayableException::what() const throw() { ret
 
 namespace Helpers
 {
-	bool isPseudoLiteral (std::string const str)
-	{
-		std::string pseudoLiterals[] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+}
 
-		for (int i = 0; i < 6; i++)
-		{
-			if (str == pseudoLiterals[i])
-				return true;
-		}
-		return false;
-	}
+ScalarConverter::ScalarConverter(const ScalarConverter &other) 
+{
+	(void)other;
+}
 
-	char toChar (std::string const str)
+ScalarConverter &
+ScalarConverter::operator=(const ScalarConverter &other)
+{
+	(void)other;
+	return (*this);
+}
+
+ScalarConverter::~ScalarConverter()
+{
+}
+
+
+
+void 
+ScalarConverter::convert (std::string str)
+{
+	int type = Helpers::getType(str);
+
+	switch (type)
 	{
-		if (isPseudoLiteral(str))
-			throw ScalarConverter::ImpossibleException();
-		double result = std::strtod(str.c_str(), NULL);
-		return ('a');
+		case CHAR:
+			Helpers::convertFromChar(str);
+			break;
+		case INT:
+			Helpers::convertFromInt(str);
+			break;
+		case FLOAT:
+			Helpers::convertFromFloat(str);
+			break;
+		case DOUBLE:
+			Helpers::convertFromDouble(str);
+			break;
+		case PSEUDO_LITERAL:
+			Helpers::printPseudoLiteral(str);
+			break;
 	}
 }
