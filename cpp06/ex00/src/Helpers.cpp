@@ -3,6 +3,8 @@
 
 #include <cstdlib>
 #include <cctype>
+#include <iomanip>
+#include <limits>
 
 namespace Helpers
 {
@@ -145,14 +147,29 @@ convertFromChar (std::string str)
         print (PURPLE << "char: " << RESET << c);
     else
         print (PURPLE << "char: " << RESET << "Non displayable");
-    print (PURPLE << "int: "<< RESET << i);
-    print (PURPLE << "float: " << RESET << f);
-    print (PURPLE << "double: " << RESET << d);
+    print (PURPLE << "int: " << RESET << i);
+    print (PURPLE << "float: " << RESET << std::fixed << std::setprecision(1) << f << "f");
+    print (PURPLE << "double: " << RESET << std::fixed << std::setprecision(1) << d);
+}
+
+void
+printAllImpossible()
+{
+    print (PURPLE << "char: " << RESET << "impossible");
+    print (PURPLE << "int: " << RESET << "impossible");
+    print (PURPLE << "float: " << RESET << "impossible");
+    print (PURPLE << "double: " << RESET << "impossible");
 }
 
 void
 convertFromInt (std::string str)
 {
+    double toCheck = std::strtod(str.c_str(), NULL);
+    if (toCheck > std::numeric_limits<int>::max() || toCheck < std::numeric_limits<int>::min())
+    {
+        printAllImpossible();
+        return;
+    }
     int i = std::atoi(str.c_str());
     char c = static_cast<char>(i);
     float f = static_cast<float>(i);
@@ -162,28 +179,57 @@ convertFromInt (std::string str)
         print (PURPLE << "char: " << RESET << c);
     else
         print (PURPLE << "char: " << RESET << "Non displayable");
-    print (PURPLE << "int: "<< RESET << i);
-    print (PURPLE << "float: " << RESET << f << ".0f");
-    print (PURPLE << "double: " << RESET << d);
-}
-
-std::string
-handleFloatDecimal (std::string str)
-{
-    size_t pos = str.find('.');
-    if (pos == std::string::npos)
-        return "";
-    return str.substr(pos + 1);
+    print (PURPLE << "int: " << RESET << i);
+    print (PURPLE << "float: " << RESET << std::fixed << std::setprecision(1) << f << "f");
+    print (PURPLE << "double: " << RESET << std::fixed << std::setprecision(1) << d);
 }
 
 void
 convertFromFloat (std::string str)
 {
+    double toCheck = std::strtod(str.c_str(), NULL);
+    if (toCheck > std::numeric_limits<float>::max() || toCheck < std::numeric_limits<float>::min())
+    {
+        printAllImpossible();
+        return;
+    }
+  
+    float f = strtof(str.c_str(), NULL);
+    double d = static_cast<double>(f);
+    int i = static_cast<int>(d);
+    char c = static_cast<char>(i);
+
+    if (std::isprint(c))
+        print (PURPLE << "char: " << RESET << c);
+    else
+        print (PURPLE << "char: " << RESET << "Non displayable");
+    print (PURPLE << "int: " << RESET << i);
+    print (PURPLE << "float: " << RESET << std::fixed << std::setprecision(1) << f << "f");
+    print (PURPLE << "double: " << RESET << std::fixed << std::setprecision(1) << d);
 }
 
 void
 convertFromDouble (std::string str)
 {
+    double toCheck = std::strtod(str.c_str(), NULL);
+    if (toCheck > std::numeric_limits<float>::max() || toCheck < std::numeric_limits<float>::min())
+    {
+        printAllImpossible();
+        return;
+    }
+    
+    double d = strtof(str.c_str(), NULL);
+    float f = static_cast<float>(d);
+    int i = static_cast<int>(f);
+    char c = static_cast<char>(i);
+
+    if (std::isprint(c))
+        print (PURPLE << "char: " << RESET << std::setw(6) << c);
+    else
+        print (PURPLE << "char: " << RESET << "Non displayable");
+    print (PURPLE << "int: " << RESET << i);
+    print (PURPLE << "float: " << RESET << std::fixed << std::setprecision(1) << f << "f");
+    print (PURPLE << "double: " << RESET << std::fixed << std::setprecision(1) << d);
 }
 
 }

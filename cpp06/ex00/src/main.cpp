@@ -2,6 +2,9 @@
 #include "ScalarConverter.hpp"
 #include "defines.hpp"
 
+#include <iomanip>
+#include <limits>
+
 int
 main (int argc, char **argv)
 {
@@ -15,11 +18,7 @@ main (int argc, char **argv)
       print (RED "Error: " RESET "Invalid string");
       return 1;
     }
-//   ScalarConverter::convert (argv[1]); 
+  ScalarConverter::convert (argv[1]); 
 
-	int input = 53;
-	float r = static_cast<float>(input);
-	std::cout << std::fixed << std::setprecision(3) << r << std::endl;
-  return 0;
 }
     

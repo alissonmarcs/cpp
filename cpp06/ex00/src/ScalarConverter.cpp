@@ -10,32 +10,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) { (voi
 
 ScalarConverter::~ScalarConverter() {}
 
-const char *ScalarConverter::ImpossibleException::what() const throw() { return "impossible"; }
-
-const char *ScalarConverter::NonDisplayableException::what() const throw() { return "Non displayable"; }
-
-namespace Helpers
-{
-}
-
-ScalarConverter::ScalarConverter(const ScalarConverter &other) 
-{
-	(void)other;
-}
-
-ScalarConverter &
-ScalarConverter::operator=(const ScalarConverter &other)
-{
-	(void)other;
-	return (*this);
-}
-
-ScalarConverter::~ScalarConverter()
-{
-}
-
-
-
 void 
 ScalarConverter::convert (std::string str)
 {

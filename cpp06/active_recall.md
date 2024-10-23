@@ -1,5 +1,11 @@
 # ex00
 
+## porque a validate_string() retorna falso quando o input é '(' ?
+
+## como tratar INT_MIN e INT_MAX ?
+
+## porque não é possivel converter de string para um tipo scalar usando static cast ?
+
 ## preciso lançar excessoes caso a string literal seja invalida ?
 
 ## e se o float/double tem dois pontos ?

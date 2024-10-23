@@ -19,4 +19,5 @@ void convertFromInt (std::string str);
 void convertFromFloat (std::string str);
 void convertFromDouble (std::string str);
 std::string handleFloatDecimal (std::string str);
+void printAllImpossible ();
 };

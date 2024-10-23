@@ -1,15 +1,17 @@
 #pragma once
 
+#include <cstdlib>
 #include <exception>
 #include <string>
-#include <cstdlib>
 
 class ScalarConverter
 {
-	private:
+private:
+  ScalarConverter ();
+  ScalarConverter (const ScalarConverter &other);
+  ScalarConverter &operator= (const ScalarConverter &other);
+  ~ScalarConverter ();
 
 public:
-	/* Subject */
-	static void convert (std::string str);
+  static void convert (std::string str);
 };
-
