@@ -15,9 +15,9 @@ validade_string (std::string str)
   int dot = 0;
   size_t i = 0;
 
-  if (isPseudoLiteral (str))
+  if (str.length () == 1)
     return true;
-  if ((std::isalpha (str[0]) && str.size () == 1))
+  if (isPseudoLiteral (str))
     return true;
   if (str[i] == '-' || str[i] == '+')
     i++;
@@ -135,6 +135,12 @@ printPseudoLiteral (std::string str)
         print (PURPLE << "float: " << RESET << str);
     else
         print (PURPLE << "float: " << RESET << (str + "f"));
+    if (str[str.size() - 1] == 'f' && str[str.size() - 2] == 'f')
+    {
+        str[str.size() - 1] = '\0';
+        print (PURPLE << "double: " << RESET << (str.substr(0, str.size() - 1)));
+    }
+    else
     print (PURPLE << "double: " << RESET << str);
 }
 
@@ -190,7 +196,7 @@ convertFromChar (std::string str)
 void
 convertFromFloat (std::string str)
 {
-  double toCheck = std::strtod(str.c_str(), NULL);
+    double toCheck = std::strtod(str.c_str(), NULL);
     if (toCheck > std::numeric_limits<float>::max() || toCheck < std::numeric_limits<float>::min())
     {
         printAllImpossible();
@@ -205,7 +211,10 @@ convertFromFloat (std::string str)
         print (PURPLE << "char: " << RESET << c);
     else
         print (PURPLE << "char: " << RESET << "Non displayable");
-    print (PURPLE << "int: " << RESET << i);
+    if (f < std::numeric_limits<int>::min() || f > std::numeric_limits<int>::max())
+        print (PURPLE << "int: " << RESET << "impossible");
+    else
+        print (PURPLE << "int: " << RESET << i);
     print (PURPLE << "float: " << RESET << std::fixed << std::setprecision(1) << f << "f");
     print (PURPLE << "double: " << RESET << std::fixed << std::setprecision(1) << d);
 }
@@ -213,14 +222,13 @@ convertFromFloat (std::string str)
 void
 convertFromDouble (std::string str)
 {
-    double toCheck = std::strtod(str.c_str(), NULL);
-    if (toCheck > std::numeric_limits<int>::max() || toCheck < std::numeric_limits<int>::min())
+    long double d = strtof(str.c_str(), NULL);
+    if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::min())
     {
         printAllImpossible();
         return;
     }
     
-    double d = strtof(str.c_str(), NULL);
     float f = static_cast<float>(d);
     int i = static_cast<int>(f);
     char c = static_cast<char>(i);
@@ -229,7 +237,10 @@ convertFromDouble (std::string str)
         print (PURPLE << "char: " << RESET << std::setw(6) << c);
     else
         print (PURPLE << "char: " << RESET << "Non displayable");
-    print (PURPLE << "int: " << RESET << i);
+    if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max())
+        print (PURPLE << "int: " << RESET << "impossible");
+    else
+        print (PURPLE << "int: " << RESET << i);
     print (PURPLE << "float: " << RESET << std::fixed << std::setprecision(1) << f << "f");
     print (PURPLE << "double: " << RESET << std::fixed << std::setprecision(1) << d);
 }
