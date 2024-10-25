@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <cctype>
+#include <cmath>
 #include <iomanip>
 #include <limits>
 
@@ -131,17 +132,21 @@ printPseudoLiteral (std::string str)
 {
     print (PURPLE << "char: " << RESET << "impossible");
     print (PURPLE << "int: " << RESET << "impossible");
-    if (str[str.size() - 1] == 'f')
-        print (PURPLE << "float: " << RESET << str);
-    else
-        print (PURPLE << "float: " << RESET << (str + "f"));
-    if (str[str.size() - 1] == 'f' && str[str.size() - 2] == 'f')
+    if (str.substr(str.size() - 2) == "ff")
     {
-        str[str.size() - 1] = '\0';
-        print (PURPLE << "double: " << RESET << (str.substr(0, str.size() - 1)));
+      print (PURPLE << "float: " << RESET << str);
+      print (PURPLE << "double: " << RESET << str.substr(0, str.size() - 1));
+    }
+    else if (str == "nan" || str == "nanf")
+    {
+      print (PURPLE << "float: " << RESET << "nanf");
+      print (PURPLE << "double: " << RESET << "nan");
     }
     else
-    print (PURPLE << "double: " << RESET << str);
+    {
+      print (PURPLE << "float: " << RESET << (str + "f"));
+      print (PURPLE << "double: " << RESET << str);
+    }
 }
 
 void
@@ -197,7 +202,7 @@ void
 convertFromFloat (std::string str)
 {
     double toCheck = std::strtod(str.c_str(), NULL);
-    if (toCheck > std::numeric_limits<float>::max() || toCheck < std::numeric_limits<float>::min())
+    if (toCheck > std::numeric_limits<float>::max() || toCheck < (-std::numeric_limits<float>::max()))
     {
         printAllImpossible();
         return;
@@ -223,7 +228,7 @@ void
 convertFromDouble (std::string str)
 {
     long double d = strtof(str.c_str(), NULL);
-    if (d > std::numeric_limits<double>::max() || d < std::numeric_limits<double>::min())
+    if (d > std::numeric_limits<double>::max() || d < (-std::numeric_limits<double>::max()))
     {
         printAllImpossible();
         return;
