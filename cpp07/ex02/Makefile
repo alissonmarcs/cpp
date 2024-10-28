@@ -2,10 +2,13 @@ NAME		= ex02
 WFLAGS 		= -Wall -Werror -Wextra
 CPPFLAGS	= -std=c++98 -O0 -I ./include/
 DEBUG_FLAGS =
+
 SOURCES		= $(wildcard ./src/*.cpp)
 SOURCES		:= $(patsubst ./src/%,%, $(SOURCES))
 OBJECTS		= $(addprefix ./.objs/,$(SOURCES:.cpp=.o))
+
 HEADERS 	= $(wildcard ./include/*.hpp)
+HEADERS 	+= src/Array.tpp
 
 ifdef REMOVE_W_FLAGS
 	WFLAGS =
