@@ -1,4 +1,4 @@
-NAME		= ex01
+NAME		= ex02
 WFLAGS 		= -Wall -Werror -Wextra
 CPPFLAGS	= -std=c++98 -O0 -I ./include/
 DEBUG_FLAGS =
