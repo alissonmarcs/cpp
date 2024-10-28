@@ -17,7 +17,7 @@ template <typename T>
 const char *
 Array<T>::InvalidArraySize::what () const throw ()
 {
-  return "Invalid array size";
+  return "Invalid array size in constructor";
 };
 
 template <typename T>
