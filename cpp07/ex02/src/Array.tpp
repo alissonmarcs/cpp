@@ -33,4 +33,8 @@ Array<T>::EmptyArray::what () const throw ()
 {
   return "Empty array";
 };
-template <typename T> Array<T>::~Array () {}
+template <typename T> Array<T>::~Array ()
+{
+    if (_array)
+        delete[] _array;
+}
