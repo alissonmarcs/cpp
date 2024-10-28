@@ -16,6 +16,8 @@ validade_string (std::string str)
   int dot = 0;
   size_t i = 0;
 
+  if (str.empty ())
+    return false;
   if (str.length () == 1)
     return true;
   if (isPseudoLiteral (str))
@@ -23,8 +25,6 @@ validade_string (std::string str)
   if (str[i] == '-' || str[i] == '+')
     i++;
   if (!std::isdigit (str[i]) && str.size () > 1)
-    return false;
-  if (str.empty ())
     return false;
   for (; i < str.size (); i++)
     {
@@ -117,9 +117,9 @@ bool
 isPseudoLiteral (std::string str)
 {
   std::string literals[]
-      = { "inf", "-inf", "+inf", "inff", "-inff", "+inff", "nan", "nanf" };
+      = {"-inf", "+inf", "-inff", "+inff", "nan", "nanf" };
 
-  for (size_t i = 0; i < 8; i++)
+  for (size_t i = 0; i < 6; i++)
     {
       if (str == literals[i])
         return true;
