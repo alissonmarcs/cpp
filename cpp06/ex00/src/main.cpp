@@ -2,9 +2,6 @@
 #include "ScalarConverter.hpp"
 #include "defines.hpp"
 
-#include <iomanip>
-#include <limits>
-
 int
 main (int argc, char **argv)
 {

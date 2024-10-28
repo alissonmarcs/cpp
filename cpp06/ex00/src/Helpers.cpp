@@ -2,8 +2,6 @@
 #include "defines.hpp"
 
 #include <cstdlib>
-#include <cctype>
-#include <cmath>
 #include <iomanip>
 #include <limits>
 
