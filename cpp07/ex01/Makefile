@@ -1,6 +1,6 @@
 NAME		= ex01
 WFLAGS 		= -Wall -Werror -Wextra
-CPPFLAGS	= -std=c++98 -O3 -I ./include/
+CPPFLAGS	= -std=c++98 -O0 -I ./include/
 DEBUG_FLAGS =
 SOURCES		= $(wildcard ./src/*.cpp)
 SOURCES		:= $(patsubst ./src/%,%, $(SOURCES))
@@ -12,8 +12,7 @@ ifdef REMOVE_W_FLAGS
 endif
 
 ifdef DEBUG
-		DEBUG_FLAGS := -g3 -O0
-		CPPFLAGS := $(subst -O3,,$(CPPFLAGS))
+		DEBUG_FLAGS := -g3
 endif
 
 ifdef REMOVE_STD
