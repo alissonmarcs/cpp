@@ -1,26 +1,22 @@
 NAME		= ex01
 WFLAGS 		= -Wall -Werror -Wextra
-CPPFLAGS	= -std=c++98 -O3 -I ./include/
+CPPFLAGS	= -std=c++98 -O0 -I ./include/
 DEBUG_FLAGS =
-SOURCES_CPP	= $(wildcard ./src/*.cpp)
-SOURCES_TPP	= $(wildcard ./src/*.tpp)
-SOURCES		= $(SOURCES_CPP) $(SOURCES_TPP)
+SOURCES		= $(wildcard ./src/*.cpp)
 SOURCES		:= $(patsubst ./src/%,%, $(SOURCES))
 OBJECTS		= $(addprefix ./.objs/,$(SOURCES:.cpp=.o))
-OBJECTS		+= $(addprefix ./.objs/,$(SOURCES:.tpp=.o))
 HEADERS 	= $(wildcard ./include/*.hpp)
 
 ifdef REMOVE_W_FLAGS
-    WFLAGS =
+	WFLAGS =
 endif
 
 ifdef DEBUG
-        DEBUG_FLAGS := -g3 -O0
-        CPPFLAGS := $(subst -O3,,$(CPPFLAGS))
+		DEBUG_FLAGS := -g3
 endif
 
 ifdef REMOVE_STD
-        CPPFLAGS := $(subst -std=c++98,,$(CPPFLAGS))
+		CPPFLAGS := $(subst -std=c++98,,$(CPPFLAGS))
 endif
 
 CYAN = \033[36m
@@ -38,9 +34,6 @@ $(NAME): $(OBJECTS)
 
 ./.objs/%.o: ./src/%.cpp $(HEADERS)
 	@c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) -c $< -o $@
-
-./.objs/%.o: ./src/%.tpp $(HEADERS)
-	@c++ -x c++ $(CPPFLAGS) $(DEBUG_FLAGS) $(WFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf ./.objs/
