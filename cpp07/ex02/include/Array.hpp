@@ -12,12 +12,14 @@ private:
 public:
   Array ();
   Array (const Array &other);
-  Array &operator= (const Array &other);
+  Array<T> &operator= (const Array<T> &rhs);
   ~Array ();
 
   Array (size_t n);
   size_t size () const;
-  T & operator[] (size_t i); ;
+  T &operator[] (size_t i);
+  const T &operator[] (size_t i) const;
+  ;
 
   class OutOfLimitsException : public std::exception
   {
@@ -34,5 +36,7 @@ public:
     virtual const char *what () const throw ();
   };
 };
+
+#define MAX_SIZE 1000
 
 #include "../src/Array.tpp"

@@ -1,55 +1,107 @@
-#include <iostream>
 #include <Array.hpp>
+#include <cstdlib>
+#include <iostream>
+#include <string.h>
 
-#define MAX_VAL 750
-int main(int, char**)
+#include "defines.hpp"
+
+int
+main (void)
 {
-    // Array<int> numbers(MAX_VAL);
-    // int* mirror = new int[MAX_VAL];
-    // srand(time(NULL));
-    // for (int i = 0; i < MAX_VAL; i++)
-    // {
-    //     const int value = rand();
-    //     numbers[i] = value;
-    //     mirror[i] = value;
-    // }
-    // //SCOPE
-    // {
-    //     Array<int> tmp = numbers;
-    //     Array<int> test(tmp);
-    // }
+  print (YELLOW_BOLD TITTLE "CPP Molule 07 - ex02" RESET);
 
-    // for (int i = 0; i < MAX_VAL; i++)
-    // {
-    //     if (mirror[i] != numbers[i])
-    //     {
-    //         std::cerr << "didn't save the same value!!" << std::endl;
-    //         return 1;
-    //     }
-    // }
-    // try
-    // {
-    //     numbers[-2] = 0;
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
-    // try
-    // {
-    //     numbers[MAX_VAL] = 0;
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
+  print (YELLOW SUB_TITTLE "Constructors\n" RESET);
+  {
+    Array<int> array1 (500);
+    Array<int> array2;
 
-    // for (int i = 0; i < MAX_VAL; i++)
-    // {
-    //     numbers[i] = rand();
-    // }
-    // delete [] mirror;//
+    print (PURPLE "Array1 size: " RESET << array1.size ());
+    print (PURPLE "Array2 size: " RESET << array2.size ());
 
-    Array<int> a;
-    return 0;
+    try
+      {
+        Array<int> array3 (-42);
+      }
+    catch (std::exception &e)
+      {
+        print (e.what ());
+      }
+  }
+
+  print (YELLOW SUB_TITTLE "Subscript operator\n" RESET);
+  {
+    const char *message = "Batman";
+    Array<std::string> array (strlen (message));
+
+    for (size_t i = 0; message[i]; i++)
+      array[i] = message[i];
+
+    for (size_t i = 0; i < array.size (); i++)
+      print (PURPLE "array[" << i << "] = " RESET << array[i]);
+
+    try
+      {
+        print (PURPLE "array[42] = " RESET << array[42]);
+      }
+    catch (std::exception &e)
+      {
+        print (e.what ());
+      }
+  }
+
+  print (YELLOW SUB_TITTLE "Copy constructor\n" RESET);
+  {
+    Array<std::string> array (3);
+    const char *messages[] = { "Hello", "World", "!" };
+
+    for (size_t i = 0; i < array.size (); i++)
+      array[i] = messages[i];
+
+    {
+      Array<std::string> copy (array);
+      for (size_t i = 0; i < array.size (); i++)
+        print (PURPLE "array[" << i << "] = " RESET << array[i]);
+
+      std::cout << std::endl;
+      for (size_t i = 0; i < copy.size (); i++)
+        print (PURPLE "copy[" << i << "] = " RESET << copy[i]);
+
+      std::cout << std::endl;
+      print ("copy[2] = \"Batman\"" << ";" << RESET);
+      std::cout << std::endl;
+
+      copy[2] = "Batman";
+      print (PURPLE "copy[2] = " RESET << copy[2]);
+      print (PURPLE "array[2] = " RESET << array[2]);
+    }
+  }
+
+  print (YELLOW SUB_TITTLE "Assigment operator\n" RESET);
+  {
+    Array<std::string> array (3);
+    const char *messages[] = { "Hello", "World", "!" };
+
+    for (size_t i = 0; i < array.size (); i++)
+      array[i] = messages[i];
+
+    {
+      Array<std::string> copy;
+      copy = array;
+      for (size_t i = 0; i < array.size (); i++)
+        print (PURPLE "array[" << i << "] = " RESET << array[i]);
+
+      std::cout << std::endl;
+
+      for (size_t i = 0; i < copy.size (); i++)
+        print (PURPLE "copy[" << i << "] = " RESET << copy[i]);
+
+      std::cout << std::endl;
+      print ("copy[2] = \"Batman\"" << ";" << RESET);
+      std::cout << std::endl;
+
+      copy[2] = "Batman";
+      print (PURPLE "copy[2] = " RESET << copy[2]);
+      print (PURPLE "array[2] = " RESET << array[2]);
+    }
+  }
 }
