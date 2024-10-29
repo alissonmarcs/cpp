@@ -16,6 +16,8 @@ public:
   ~Array ();
 
   Array (size_t n);
+  size_t size () const;
+  T & operator[] (size_t i); ;
 
   class OutOfLimitsException : public std::exception
   {

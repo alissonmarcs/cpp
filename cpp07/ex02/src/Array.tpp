@@ -14,6 +14,24 @@ template <typename T> Array<T>::Array (size_t n) : _array (NULL), _size (n)
 };
 
 template <typename T>
+size_t
+Array<T>::size () const
+{
+  return _size;
+};
+
+template <typename T>
+T &
+Array<T>::operator[] (size_t i)
+{
+  if (_array == NULL)
+    throw Array<T>::EmptyArray ();
+  if (i >= _size)
+    throw Array<T>::OutOfLimitsException ();
+  return _array[i];
+};
+
+template <typename T>
 const char *
 Array<T>::InvalidArraySize::what () const throw ()
 {
@@ -33,8 +51,9 @@ Array<T>::EmptyArray::what () const throw ()
 {
   return "Empty array";
 };
+
 template <typename T> Array<T>::~Array ()
 {
-    if (_array)
-        delete[] _array;
+  if (_array)
+    delete[] _array;
 }
