@@ -1,0 +1,62 @@
+#include "Defines.hpp"
+#include "MutantStack.hpp"
+
+#include <list>
+#include <vector>
+
+int
+main (void)
+{
+  print (TITTLE YELLOW_BOLD "CPP Module 08 - ex02" RESET);
+  print (SUB_TITTLE YELLOW
+         "Int stack with default underlying deque container" RESET);
+
+  MutantStack<int> mstack;
+
+  mstack.push (5);
+  mstack.push (17);
+  mstack.push (3);
+  mstack.push (5);
+  mstack.push (737);
+  mstack.push (0);
+
+  MutantStack<int>::iterator it, ite;
+  it = mstack.begin ();
+  ite = mstack.end ();
+  for (; it != ite; ++it)
+    print (*it);
+
+  print (SUB_TITTLE YELLOW
+         "String stack with verctor as underlying container" RESET);
+  MutantStack<std::string, std::vector<std::string> > mstack2;
+
+  mstack2.push ("Hello");
+  mstack2.push ("World");
+  mstack2.push ("!");
+  mstack2.push ("I'm");
+  mstack2.push ("a");
+  mstack2.push ("MutantStack");
+
+  MutantStack<std::string, std::vector<std::string> >::iterator it2, ite2;
+  it2 = mstack2.begin ();
+  ite2 = mstack2.end ();
+  for (; it2 != ite2; ++it2)
+    print (*it2);
+
+  MutantStack<float, std::list<float> > mstack3;
+
+  mstack3.push (5.5);
+  mstack3.push (17.17);
+  mstack3.push (3.3);
+  mstack3.push (5.5);
+  mstack3.push (737.737);
+  mstack3.push (0.0);
+
+  print (SUB_TITTLE YELLOW
+         "Float stack with list as underlying container" RESET);
+  MutantStack<float, std::list<float> >::iterator it3, ite3;
+  it3 = mstack3.begin ();
+  ite3 = mstack3.end ();
+  for (; it3 != ite3; ++it3)
+    print (*it3);
+}
