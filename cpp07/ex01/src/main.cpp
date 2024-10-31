@@ -1,6 +1,5 @@
 #include "defines.hpp"
 #include "iter.hpp"
-
 #include <iostream>
 
 template <typename T>
