@@ -27,7 +27,7 @@ main (void)
     print (*it);
 
   print (SUB_TITTLE YELLOW
-         "String stack with verctor as underlying container" RESET);
+         "String stack with vector as underlying container" RESET);
   MutantStack<std::string, std::vector<std::string> > mstack2;
 
   mstack2.push ("Hello");
