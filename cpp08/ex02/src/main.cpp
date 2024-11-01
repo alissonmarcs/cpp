@@ -69,7 +69,7 @@ main (void)
     print (*it4);
 
   print (SUB_TITTLE YELLOW "Assignment operator" RESET);
-  MutantStack<float, std::list<float> > assign; 
+  MutantStack<float, std::list<float> > assign;
   assign = mstack3;
   MutantStack<float, std::list<float> >::iterator it5, ite5;
   it5 = assign.begin ();
