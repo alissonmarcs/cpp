@@ -13,7 +13,7 @@ public:
   operator= (const MutantStack<T, C> &rhs)
   {
     if (this != &rhs)
-      this->c.operator= (rhs);
+      this->c.operator= (rhs.c);
     return (*this);
   };
   ~MutantStack<T, C> (){};

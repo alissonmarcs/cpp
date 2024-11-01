@@ -59,4 +59,21 @@ main (void)
   ite3 = mstack3.end ();
   for (; it3 != ite3; ++it3)
     print (*it3);
+
+  print (SUB_TITTLE YELLOW "Copy construcor" RESET);
+  MutantStack<float, std::list<float> > copy (mstack3);
+  MutantStack<float, std::list<float> >::iterator it4, ite4;
+  it4 = copy.begin ();
+  ite4 = copy.end ();
+  for (; it4 != ite4; ++it4)
+    print (*it4);
+
+  print (SUB_TITTLE YELLOW "Assignment operator" RESET);
+  MutantStack<float, std::list<float> > assign; 
+  assign = mstack3;
+  MutantStack<float, std::list<float> >::iterator it5, ite5;
+  it5 = assign.begin ();
+  ite5 = assign.end ();
+  for (; it5 != ite5; ++it5)
+    print (*it5);
 }
