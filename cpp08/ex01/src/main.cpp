@@ -1,32 +1,98 @@
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
+#include <numeric>
 #include <vector>
 
-template <typename T>
-void print_memory_information (std::vector<T> &vec) {
-    std::cout << "\n\t\tMemory memory information\n" << std::endl;
-    std::cout << "Size of the vector: " << vec.size() << std::endl;
-    std::cout << "Capacity of the vector: " << vec.capacity() << std::endl;
-}
+#include "Defines.hpp"
+#include "Span.hpp"
 
-template <typename T>
-void print_vector (std::vector<T> &vec) {
-    std::cout << "\n\t\tVector data\n" << std::endl;
-    typename std::vector<T>::iterator it = vec.begin(); 
-    for (; it != vec.end(); it++) {
-        std::cout << *it << std::endl;
-    }
-}
+int
+main ()
+{
+  print (TITTLE YELLOW_BOLD "CPP Module 08 - ex01" RESET);
+  {
+    print (SUB_TITTLE GREEN
+           "Exception when try to fill out of bounds - addNumber()\n" RESET);
+    Span sp = Span (5);
+    try
+      {
+        sp.addNumber (1);
+        sp.addNumber (2);
+        sp.addNumber (3);
+        sp.addNumber (4);
+        sp.addNumber (5);
+        sp.addNumber (6);
+      }
+    catch (std::exception &e)
+      {
+        print (e.what ());
+      }
+  }
+  {
 
-int main() {
-    std::vector<int> myVector(20);
-    // std::vector<int>::iterator it = myVector.begin();
+    print (SUB_TITTLE GREEN
+           "Exception when try to fill out of bounds - populate()\n" RESET);
+    Span sp = Span (5);
+    std::vector<int> v (6, 42);
+    try
+      {
+        sp.populate (v.begin (), v.end ());
+      }
+    catch (std::exception &e)
+      {
+        print (e.what ());
+      }
+  }
+  {
+    print (SUB_TITTLE GREEN "Exception when try to calculate shortestSpan() "
+                            "with less than 2 numbers\n" RESET);
+    Span sp = Span (5);
+    try
+      {
+        sp.shortestSpan ();
+      }
+    catch (std::exception &e)
+      {
+        print (e.what ());
+      }
+  }
+  {
+    print (SUB_TITTLE GREEN "Exception when try to calculate longestSpan() "
+                            "with less than 2 numbers\n" RESET);
+    Span sp = Span (5);
+    try
+      {
+        sp.longestSpan ();
+      }
+    catch (std::exception &e)
+      {
+        print (e.what ());
+      }
+  }
+  std::srand (std::time (0));
+  {
+    print (
+        SUB_TITTLE GREEN
+        "shortestSpan() and longestSpan() with a few random numbers\n" RESET);
+    Span sp (15);
 
-    print_vector(myVector);
-    print_memory_information(myVector);
-    myVector.push_back(42);
-    print_vector(myVector);
-    // std::advance(it, 5);
-    // myVector.insert(it, 3, 42);
-    // print_vector(myVector);
+    for (int i = 0; i < 15; i++)
+      sp.addNumber (std::rand () % 200);
+    print (YELLOW "shortestSpan(): " RESET << sp.shortestSpan ());
+    print (YELLOW "longestSpan(): " RESET << sp.longestSpan ());
+    sp.operator<< (std::cout);
+  }
+  {
+    print (
+        SUB_TITTLE GREEN
+        "shortestSpan() and longestSpan() with 20000 random numbers\n" RESET);
+    Span sp (20000);
 
+    for (int i = 0; i < 20000; i++)
+      sp.addNumber (std::rand ());
+    print (YELLOW "shortestSpan(): " RESET << sp.shortestSpan ());
+    print (YELLOW "longestSpan(): " RESET << sp.longestSpan ());
+  }
 }
