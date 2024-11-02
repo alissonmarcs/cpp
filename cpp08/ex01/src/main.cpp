@@ -31,7 +31,6 @@ main ()
       }
   }
   {
-
     print (SUB_TITTLE GREEN
            "Exception when try to fill out of bounds - populate()\n" RESET);
     Span sp = Span (5);
@@ -44,6 +43,14 @@ main ()
       {
         print (e.what ());
       }
+  }
+  {
+    print (SUB_TITTLE GREEN "populate() with a valid range\n" RESET);
+    Span sp = Span (10);
+    std::vector<int> v (10, -42);
+
+    sp.populate (v.begin (), v.end ());
+    sp.operator<< (std::cout);
   }
   {
     print (SUB_TITTLE GREEN "Exception when try to calculate shortestSpan() "
