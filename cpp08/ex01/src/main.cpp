@@ -1,9 +1,5 @@
-#include <algorithm>
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
-#include <numeric>
-#include <vector>
 
 #include "Defines.hpp"
 #include "Span.hpp"
