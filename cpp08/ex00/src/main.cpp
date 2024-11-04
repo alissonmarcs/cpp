@@ -16,12 +16,12 @@ main ()
     print (
         GREEN SUB_TITTLE
         "easyfind() must throw an exception if element is not found\n" RESET);
-    std::deque<int> vec;
+    std::deque<int> deq;
     for (int i = 0; i < 10; i++)
-      vec.push_back (i);
+      deq.push_back (i);
     try
       {
-        print (YELLOW "Element found: " RESET << *easyfind (vec, 500));
+        print (YELLOW "Element found: " RESET << *easyfind (deq, 500));
       }
     catch (std::exception &e)
       {
