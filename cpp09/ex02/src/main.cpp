@@ -97,10 +97,26 @@ bool haveNegativeNumbers(char **argv)
 	return false;
 }
 
+bool isSorted(char **argv)
+{
+	for (int i = 1; argv[i + 1]; i++)
+	{
+		if (std::atoi(argv[i]) > std::atoi(argv[i + 1]))
+			return false;
+	}
+	return true;
+}
+
 int main(int argc, char **argv)
 {
 	if (argc <= 1)
+	{
 		print (RED "Usage: ./pmergeMe [] [] [] ... [n]" RESET);
+	}
 	else if (haveNegativeNumbers(argv))
 		print (RED "Please provide only positive numbers" RESET);
+	else if (isSorted(argv))
+	{
+		print (RED "Please provide an unsorted array" RESET);
+	}
 }
