@@ -48,75 +48,41 @@ void print_array(int *arr, int n)
 
 void print_vector_pairs(std::vector<std::pair<int, int> > &vect)
 {
-	std::cout << YELLOW "Vector pairs: " RESET ;
+	std::cout << YELLOW "Vector pairs data: " RESET ;
 	for (std::vector<std::pair<int, int> >::iterator it = vect.begin(); it != vect.end(); it++)
 		std::cout << "[" << it->first << "--" << it->second << "]";
 	std::cout << std::endl;
 }
 
-void swapPairMembers(std::pair<int, int> &pair)
+void print_vector(std::vector<int> &vect)
 {
-	int tmp = pair.first;
-	pair.first = pair.second;
-	pair.second = tmp;
-}
-
-void sortInnerPairMembers(std::vector<std::pair<int, int> > &vect)
-{
-	std::vector<std::pair<int, int> >::iterator it = vect.begin();
-
-	for (; it != vect.end(); it++)
-	{
-		if (it->first > it->second)
-			swapPairMembers(*it);
-	}
-}
-
-void recursiveSortPairs(std::vector<std::pair<int, int> > &vect, int n)
-{
-	if (n <= 1)
-		return;
-	recursiveSortPairs(vect, n - 1);
-	std::pair<int, int> last = vect[n - 1];
-	int j = n - 2;
-	while (j >= 0 && vect[j].second > last.second)
-	{
-		vect[j + 1] = vect[j];
-		j--;
-	}
-	vect[j + 1] = last;
-}
-
-bool haveNegativeNumbers(char **argv)
-{
-	for (int i = 1; argv[i]; i++)
-	{
-		if (std::atoi(argv[i]) < 0)
-			return true;
-	}
-	return false;
-}
-
-bool isSorted(char **argv)
-{
-	for (int i = 1; argv[i + 1]; i++)
-	{
-		if (std::atoi(argv[i]) > std::atoi(argv[i + 1]))
-			return false;
-	}
-	return true;
+	std::cout << YELLOW "Vector data: " RESET ;
+	for (std::vector< int>::iterator it = vect.begin(); it != vect.end(); it++)
+		std::cout << "[" << *it << "]";
+	std::cout << std::endl;
 }
 
 int main(int argc, char **argv)
 {
-	if (argc <= 1)
+	if (argc == 1)
 	{
-		print (RED "Usage: ./pmergeMe [] [] [] ... [n]" RESET);
+		print (RED "Usage: ./pmergeMe [number1] [number2] [number3] ... [numberN]" RESET);
 	}
-	else if (haveNegativeNumbers(argv))
+	else if (PmergeMe::haveNegativeNumbers(argv))
 		print (RED "Please provide only positive numbers" RESET);
-	else if (isSorted(argv))
+	else if (PmergeMe::isSorted(argv))
 	{
 		print (RED "Please provide an unsorted array" RESET);
 	}
+	// srand(time(0));
+	PmergeMe pmergeMe;
+	// pmergeMe.getArgv(argv);
+	// pmergeMe.vectorSort();
+
+	print (YELLOW "10 jacobisthal numbers: " RESET);
+	for (int i = 0; i < 20; i++)	
+	{
+		std::cout << "[" << pmergeMe.getJacobisthal(i) << "]";
+	}
+	std::cout << std::endl;
 }
