@@ -2,6 +2,8 @@
 #include "PmergeMe.hpp"
 
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 
 void insertionSortRecursive(int *arr, int n)
 {
@@ -66,8 +68,34 @@ void recursiveSortPairs(std::vector<std::pair<int, int> > &vect, int n)
 	vect[j + 1] = last;
 }
 
+int binary_search(int *array, int size, int target)
+{
+	int left, right, mid;
+	left = 0;
+	right = size - 1;
+
+	while (left <= right)
+	{
+		mid = (right + left) / 2;
+		if (array[mid] == target)
+			return mid;
+		if (array[mid] < target)
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
+	return -1;
+}
+
 int main(int argc, char const *argv[])
 {
-    print ("Hello World");
+	std::srand(std::time(NULL));
+	int array[10];
+	for (int i = 0; i < 10; i++)
+		array[i] = std::rand() % 100;
+	print_array(array, 10);
+	insertionSortRecursive(array, 10);
+	print_array(array, 10);
+	std::cout << "element 50 is at index: " << binary_search(array, 10, 50) << std::endl;
     return 0;
 }
