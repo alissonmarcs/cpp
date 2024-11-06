@@ -100,7 +100,7 @@ bool haveNegativeNumbers(char **argv)
 int main(int argc, char **argv)
 {
 	if (argc <= 1)
-		print(RED "Usage: ./pmergeMe [] [] [] ... [n]" RESET);
+		print (RED "Usage: ./pmergeMe [] [] [] ... [n]" RESET);
 	else if (haveNegativeNumbers(argv))
-		print(RED "Please provide only positive numbers" RESET);
+		print (RED "Please provide only positive numbers" RESET);
 }
