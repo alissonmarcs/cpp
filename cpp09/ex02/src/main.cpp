@@ -20,6 +20,25 @@ void insertionSortRecursive(int *arr, int n)
 	arr[j + 1] = last;
 }
 
+int binary_search(int *array, int size, int target)
+{
+	int left, right, mid;
+	left = 0;
+	right = size - 1;
+
+	while (left <= right)
+	{
+		mid = (left + right ) / 2;
+		if (array[mid] == target)
+			return mid;
+		if (target < array[mid])
+			right = mid - 1;
+		else
+			left = mid + 1;
+	}
+	return -1;
+}
+
 void print_array(int *arr, int n)
 {
 	for (int i = 0; i < n; i++)
@@ -68,34 +87,20 @@ void recursiveSortPairs(std::vector<std::pair<int, int> > &vect, int n)
 	vect[j + 1] = last;
 }
 
-int binary_search(int *array, int size, int target)
+bool haveNegativeNumbers(char **argv)
 {
-	int left, right, mid;
-	left = 0;
-	right = size - 1;
-
-	while (left <= right)
+	for (int i = 1; argv[i]; i++)
 	{
-		mid = (right + left) / 2;
-		if (array[mid] == target)
-			return mid;
-		if (array[mid] < target)
-			left = mid + 1;
-		else
-			right = mid - 1;
+		if (std::atoi(argv[i]) < 0)
+			return true;
 	}
-	return -1;
+	return false;
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, char **argv)
 {
-	std::srand(std::time(NULL));
-	int array[10];
-	for (int i = 0; i < 10; i++)
-		array[i] = std::rand() % 100;
-	print_array(array, 10);
-	insertionSortRecursive(array, 10);
-	print_array(array, 10);
-	std::cout << "element 50 is at index: " << binary_search(array, 10, 50) << std::endl;
-    return 0;
+	if (argc <= 1)
+		print(RED "Usage: ./pmergeMe [] [] [] ... [n]" RESET);
+	else if (haveNegativeNumbers(argv))
+		print(RED "Please provide only positive numbers" RESET);
 }

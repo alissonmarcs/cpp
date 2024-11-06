@@ -2,8 +2,8 @@
 
 PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(const PmergeMe &other) {}
+PmergeMe::PmergeMe(const PmergeMe &other) {(void)other;}
 
-PmergeMe &PmergeMe::operator=(const PmergeMe &other) {return *this;}
+PmergeMe &PmergeMe::operator=(const PmergeMe &other) { (void)other; return *this;}
 
 PmergeMe::~PmergeMe() {}
