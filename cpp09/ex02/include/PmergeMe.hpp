@@ -31,6 +31,7 @@ class PmergeMe
 		int binaryInsertion (std::vector<int> &vect, int element);
 		void splitVectorIntoPairs();
 		int getJacobisthal(int index);
+		std::vector<int> generateJacobSequence(int pendingSize);
 };
 
 void print_vector(std::vector<int> &vect);

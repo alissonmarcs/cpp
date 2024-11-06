@@ -13,6 +13,19 @@ void PmergeMe::vectorSort()
    print_vector_pairs(_pairs);
 }
 
+std::vector<int> PmergeMe::generateJacobSequence(int pendingSize)
+{
+   std::vector<int> jacobSequence;
+   int index = 3;
+
+   while (getJacobisthal(index) < pendingSize - 1)
+   {
+      jacobSequence.push_back(getJacobisthal(index));
+      index++;
+   }
+    return jacobSequence;
+}
+
 int PmergeMe::getJacobisthal(int index)
 {
    if (index == 0)

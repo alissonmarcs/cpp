@@ -74,15 +74,11 @@ int main(int argc, char **argv)
 	{
 		print (RED "Please provide an unsorted array" RESET);
 	}
-	// srand(time(0));
 	PmergeMe pmergeMe;
 	// pmergeMe.getArgv(argv);
 	// pmergeMe.vectorSort();
 
-	print (YELLOW "10 jacobisthal numbers: " RESET);
-	for (int i = 0; i < 20; i++)	
-	{
-		std::cout << "[" << pmergeMe.getJacobisthal(i) << "]";
-	}
-	std::cout << std::endl;
+	print (YELLOW "jacob sequence for 83: " RESET);
+	std::vector<int> jacob = pmergeMe.generateJacobSequence(83);
+	print_vector(jacob);
 }
