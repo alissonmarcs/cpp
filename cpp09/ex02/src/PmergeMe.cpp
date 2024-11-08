@@ -2,145 +2,137 @@
 #include "Defines.hpp"
 
 #include <cstdlib>
+#include <ctime>
+#include <deque>
+#include <iomanip>
+#include <stdexcept>
+#include <vector>
+#include <algorithm>
 
-void PmergeMe::vectorSort()
+PmergeMe::PmergeMe () {}
+
+PmergeMe::PmergeMe (const PmergeMe &other) { (void)other; }
+
+PmergeMe &
+PmergeMe::operator= (const PmergeMe &other)
 {
-   splitVectorIntoPairs();
-   print_vector_pairs(_pairs);
-   sortInnerPairMembers(_pairs);
-   print_vector_pairs(_pairs);
-   recursiveSortPairs(_pairs, _pairs.size());
-   print_vector_pairs(_pairs);
+  (void)other;
+  return *this;
 }
 
-std::vector<int> PmergeMe::generateJacobSequence(int pendingSize)
-{
-   std::vector<int> jacobSequence;
-   int index = 3;
+PmergeMe::~PmergeMe () {}
 
-   while (getJacobisthal(index) < pendingSize - 1)
-   {
-      jacobSequence.push_back(getJacobisthal(index));
-      index++;
-   }
-    return jacobSequence;
-}
-
-int PmergeMe::getJacobisthal(int index)
+PmergeMe::PmergeMe (int argc, char **argv)
 {
-   if (index == 0)
-      return 0;
-   if (index == 1)
-      return 1;
-   return getJacobisthal(index - 1) + 2 * getJacobisthal(index - 2);
-}
+  if (argc < 2)
+    throw std::invalid_argument (
+        "Usage: ./PmergeMe [number1] [number2] ... [numberN]");
+  else if (haveNegativeNumbers (argv))
+    throw std::invalid_argument ("Negative numbers are not allowed");
 
-void PmergeMe::getArgv(char **argv)
-{
-   for (int i = 1; argv[i]; i++)
-   {
-      _unsortedVect.push_back(std::atoi(argv[i]));
-      _unsortedList.push_back(std::atoi(argv[i]));
-   }
-}
+  std::vector<int> vect;
+  std::deque<int> deq;
 
-void PmergeMe::splitVectorIntoPairs()
-{
-   _isOdd = _unsortedVect.size() % 2; 
-   if (_isOdd)
-   {
-      _removedElement = _unsortedVect.back();
-      _unsortedVect.pop_back();
-   }
-   std::vector<int>::iterator it = _unsortedVect.begin();
-   bool isSecond = false;
-    for (; it != _unsortedVect.end(); it++)
+  for (int i = 1; argv[i]; i++)
     {
-        if (isSecond)
-        {
-            _pairs.push_back(std::make_pair(*(it - 1), *it));
-            isSecond = false;
-        }
-        else
-            isSecond = true;
+      vect.push_back (std::atoi (argv[i]));
+      deq.push_back (std::atoi (argv[i]));
+    }
+
+  std::vector<int> vectCopy (vect);
+  std::deque<int> deqCopy (deq);
+
+  std::cout << YELLOW "Vector before: " RESET;
+  printContainer (vect);
+  clock_t start = clock ();
+  mergeSort<std::vector<int> > (vect, 0, vect.size () - 1);
+  clock_t end = clock ();
+  std::cout << GREEN "Vector after: " RESET;
+  printContainer (vect);
+  print ("Time for vector: " << std::fixed << std::setprecision (6)
+                             << (double)(end - start) / CLOCKS_PER_SEC << "s");
+  std::sort(vectCopy.begin(), vectCopy.end());
+  print ("Is vector sorted? " << (vect == vectCopy ? "Yes" : "No"));
+
+  std::cout << YELLOW "Deque before: " RESET;
+  printContainer (deq);
+  start = clock ();
+  mergeSort<std::deque<int> > (deq, 0, vect.size () - 1);
+  end = clock ();
+  std::cout << GREEN "Deque after: " RESET;
+  printContainer (deq);
+  print ("Time for deque: " << std::fixed << std::setprecision (6)
+                            << (double)(end - start) / CLOCKS_PER_SEC << "s");
+  std::sort(deqCopy.begin(), deqCopy.end());
+  print ("Is deque sorted? " << (deq == deqCopy ? "Yes" : "No"));
+}
+
+template <typename T>
+void
+PmergeMe::mergeSort (T &container, size_t left, size_t right)
+{
+  if (left < right)
+    {
+      size_t mid = left + (right - left) / 2;
+      mergeSort (container, left, mid);
+      mergeSort (container, mid + 1, right);
+      merge (container, left, mid, right);
     }
 }
 
-PmergeMe::PmergeMe() {}
-
-PmergeMe::PmergeMe(const PmergeMe &other) {(void)other;}
-
-PmergeMe &PmergeMe::operator=(const PmergeMe &other) { (void)other; return *this;}
-
-PmergeMe::~PmergeMe() {}
-
-bool PmergeMe::haveNegativeNumbers(char **argv)
+template <typename T>
+void
+PmergeMe::merge (T &container, size_t left, size_t mid, size_t right)
 {
-	for (int i = 1; argv[i]; i++)
-	{
-		if (std::atoi(argv[i]) < 0)
-			return true;
-	}
-	return false;
+  T L (container.begin () + left, container.begin () + mid + 1);
+  T R (container.begin () + mid + 1, container.begin () + right + 1);
+
+  size_t i = 0, j = 0, k = left;
+  while (i < L.size () && j < R.size ())
+    {
+      if (L[i] <= R[j])
+        {
+          container[k] = L[i];
+          i++;
+        }
+      else
+        {
+          container[k] = R[j];
+          j++;
+        }
+      k++;
+    }
+  while (i < L.size ())
+    {
+      container[k] = L[i];
+      i++;
+      k++;
+    }
+  while (j < R.size ())
+    {
+      container[k] = R[j];
+      j++;
+      k++;
+    }
 }
 
-bool PmergeMe::isSorted(char **argv)
+bool
+PmergeMe::haveNegativeNumbers (char **argv)
 {
-	for (int i = 1; argv[i + 1]; i++)
-	{
-		if (std::atoi(argv[i]) > std::atoi(argv[i + 1]))
-			return false;
-	}
-	return true;
+  for (int i = 1; argv[i]; i++)
+    {
+      if (std::atoi (argv[i]) < 0)
+        return true;
+    }
+  return false;
 }
 
-void PmergeMe::swapPairMembers(std::pair<int, int> &pair)
+template <typename T>
+void
+printContainer (T &container)
 {
-	int tmp = pair.first;
-	pair.first = pair.second;
-	pair.second = tmp;
-}
-
-void PmergeMe::sortInnerPairMembers(std::vector<std::pair<int, int> > &vect)
-{
-	std::vector<std::pair<int, int> >::iterator it = vect.begin();
-
-	for (; it != vect.end(); it++)
-	{
-		if (it->first > it->second)
-			swapPairMembers(*it);
-	}
-}
-
-void PmergeMe::recursiveSortPairs(std::vector<std::pair<int, int> > &vect, int n)
-{
-	if (n <= 1)
-		return;
-	recursiveSortPairs(vect, n - 1);
-	std::pair<int, int> last = vect[n - 1];
-	int j = n - 2;
-	while (j >= 0 && vect[j].second > last.second)
-	{
-		vect[j + 1] = vect[j];
-		j--;
-	}
-	vect[j + 1] = last;
-}
-
-int PmergeMe::binaryInsertion (std::vector<int> &vect, int element)
-{
-	int left, right, mid;
-	left = 0;
-	right = vect.size();
-
-	while (left < right)
-	{
-		mid = (left + right) / 2;
-		if (element < vect[mid])
-			right = mid;
-		else
-			left = mid + 1;
-	}
-	vect.insert(vect.begin() + left, element);
-	return left;
+  for (typename T::iterator it = container.begin (); it != container.end ();
+       ++it)
+    std::cout << "[" << *it << "]";
+  std::cout << std::endl;
 }
