@@ -14,5 +14,6 @@ main ()
     {
       std::cerr << e.what () << '\n';
     }
-    std::cout << "size(): " << data->size() << std::endl;
+  std::cout << "size(): " << data->size () << std::endl;
+  delete data;
 }

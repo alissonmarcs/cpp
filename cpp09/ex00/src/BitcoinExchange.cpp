@@ -1,8 +1,8 @@
 #include "BitcoinExchange.hpp"
 #include "Defines.hpp"
 
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
 
 BitcoinExchange::BitcoinExchange () {}
 
@@ -46,7 +46,7 @@ BitcoinExchange::loadDatabase (std::string filename)
   else
     {
       std::string error
-          = RED "Error:" RESET " unable to open \'" + filename + "\' file";
+          = RED "Error:" RESET " unable to open '" + filename + "' file";
       throw std::runtime_error (error.c_str ());
     }
   return data;
