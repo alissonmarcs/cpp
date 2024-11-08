@@ -84,33 +84,33 @@ template <typename T>
 void
 PmergeMe::merge (T &container, size_t left, size_t mid, size_t right)
 {
-  T L (container.begin () + left, container.begin () + mid + 1);
-  T R (container.begin () + mid + 1, container.begin () + right + 1);
+  T leftContainer (container.begin () + left, container.begin () + mid + 1);
+  T rightContainer (container.begin () + mid + 1, container.begin () + right + 1);
 
   size_t i = 0, j = 0, k = left;
-  while (i < L.size () && j < R.size ())
+  while (i < leftContainer.size () && j < rightContainer.size ())
     {
-      if (L[i] <= R[j])
+      if (leftContainer[i] <= rightContainer[j])
         {
-          container[k] = L[i];
+          container[k] = leftContainer[i];
           i++;
         }
       else
         {
-          container[k] = R[j];
+          container[k] = rightContainer[j];
           j++;
         }
       k++;
     }
-  while (i < L.size ())
+  while (i < leftContainer.size ())
     {
-      container[k] = L[i];
+      container[k] = leftContainer[i];
       i++;
       k++;
     }
-  while (j < R.size ())
+  while (j < rightContainer.size ())
     {
-      container[k] = R[j];
+      container[k] = rightContainer[j];
       j++;
       k++;
     }
