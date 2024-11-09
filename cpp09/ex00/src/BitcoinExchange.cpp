@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include <bits/stdc++.h>
 
 BitcoinExchange::BitcoinExchange () {}
 
@@ -32,6 +33,37 @@ BitcoinExchange::haveAplha (std::string str)
   return false;
 }
 
+bool
+BitcoinExchange::isDateValid(std::string date)
+{
+  const char *delimiter = "-";
+  int tokenCount = 0, hifenCount = 0;
+  char *token;
+
+  for (size_t i = 0; i < date.size(); i++)
+    {
+      if (date[i] == '-')
+        hifenCount++;
+    }
+  if (hifenCount != 2)
+    return false;
+  token = std::strtok(const_cast<char*>(date.c_str()), delimiter);
+  while (token != 0)
+    {
+      if (tokenCount == 0 && (std::atoi(token) < 0 || std::atoi(token) > 2024))
+        return false;
+      if (tokenCount == 1 && (std::atoi(token) < 1 || std::atoi(token) > 12))
+        return false;
+      if (tokenCount == 2 && (std::atoi(token) < 1 || std::atoi(token) > 31))
+        return false;
+      tokenCount++;
+      token = std::strtok(0, delimiter);
+    }
+  if (tokenCount != 3)
+    return false;
+  return true;
+}
+
 void
 BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
 {
@@ -55,6 +87,11 @@ BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
   if (haveAplha (line.substr (0, i)) && lineNumber != 1)
     {
       error += "expected only numbers";
+      throw std::runtime_error (error.c_str ());
+    }
+  if (isDateValid (line.substr (0, i)) == false)
+    {
+      error += "invalid date";
       throw std::runtime_error (error.c_str ());
     }
 }

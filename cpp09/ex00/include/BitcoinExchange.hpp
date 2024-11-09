@@ -15,5 +15,6 @@ public:
   loadDatabase (std::string filename);
 
   void validadeDatabaseLine(std::string line, size_t line_number);
+  bool isDateValid(std::string date);
   bool haveAplha (std::string str);
 };
