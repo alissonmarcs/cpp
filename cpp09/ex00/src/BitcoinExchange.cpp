@@ -22,6 +22,22 @@ BitcoinExchange::operator= (const BitcoinExchange &other)
 
 BitcoinExchange::~BitcoinExchange () {}
 
+std::map<std::string, float>::iterator
+BitcoinExchange::getNearestDate(std::string inputDate)
+{
+  std::map<std::string, float>::iterator it;
+
+  it = _Database.lower_bound(inputDate);
+  if (it->first == inputDate || it == _Database.begin() || it == _Database.end())
+    return it;
+
+  it--;
+  if (it != _Database.end())
+    return it;
+  it++;
+  return it;
+}
+
 bool
 BitcoinExchange::haveAplha (std::string str)
 {
