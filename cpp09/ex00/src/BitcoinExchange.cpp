@@ -89,7 +89,7 @@ BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
       error += "expected only numbers";
       throw std::runtime_error (error.c_str ());
     }
-  if (isDateValid (line.substr (0, i)) == false)
+  if (isDateValid (line.substr (0, i)) == false && lineNumber != 1)
     {
       error += "invalid date";
       throw std::runtime_error (error.c_str ());
