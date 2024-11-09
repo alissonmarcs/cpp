@@ -67,18 +67,18 @@ BitcoinExchange::isDateValid(std::string date)
 void
 BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
 {
-  size_t i;
+  size_t i = 0, commaCount = 0;
   std::string error = RED "Database error: " RESET "line: ";
   std::stringstream lineNumberStr;
 
   lineNumberStr << lineNumber;
   error += lineNumberStr.str() + ": ";
-  i = line.find (",");
   if (line.empty ())
     {
       error += "empty line";
       throw std::runtime_error (error.c_str ());
     }
+  i = line.find (",");
   if (i == std::string::npos)
     {
       error += "expected ','";
@@ -92,6 +92,16 @@ BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
   if (isDateValid (line.substr (0, i)) == false && lineNumber != 1)
     {
       error += "invalid date";
+      throw std::runtime_error (error.c_str ());
+    }
+  for (size_t j = 0; j < line.size(); j++)
+    {
+      if (line[j] == ',')
+        commaCount++;
+    }
+  if (commaCount != 1)
+    {
+      error += "expected only 1 comma";
       throw std::runtime_error (error.c_str ());
     }
 }

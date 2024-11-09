@@ -7,6 +7,7 @@ class BitcoinExchange
 {
 private:
   std::map<std::string, float> _Database;
+
 public:
   BitcoinExchange ();
   BitcoinExchange (const BitcoinExchange &other);
