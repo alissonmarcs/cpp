@@ -13,4 +13,7 @@ public:
 
   std::map<std::string, float> *
   loadDatabase (std::string filename);
+
+  void validadeDatabaseLine(std::string line, size_t line_number);
+  bool haveAplha (std::string str);
 };

@@ -1,6 +1,8 @@
 #include "BitcoinExchange.hpp"
 #include "Defines.hpp"
 
+#include <fstream>
+
 int
 main ()
 {
@@ -8,12 +10,12 @@ main ()
   std::map<std::string, float> *data;
   try
     {
-      data = exchange.loadDatabase ("data.csv");
+      data = exchange.loadDatabase ("cpp_09/data.csv");
+      delete data;
     }
   catch (const std::exception &e)
     {
       std::cerr << e.what () << '\n';
     }
-  std::cout << "size(): " << data->size () << std::endl;
-  delete data;
+
 }
