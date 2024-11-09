@@ -34,6 +34,16 @@ BitcoinExchange::haveAplha (std::string str)
 }
 
 bool
+BitcoinExchange::isValueValid (std::string value)
+{
+  if (value.empty ())
+    return false;
+  if (std::atof (value.c_str ()) < 0)
+    return false;
+  return true;
+}
+
+bool
 BitcoinExchange::isDateValid(std::string date)
 {
   const char *delimiter = "-";
@@ -102,6 +112,11 @@ BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
   if (commaCount != 1)
     {
       error += "expected only 1 comma";
+      throw std::runtime_error (error.c_str ());
+    }
+  if (isValueValid (line.substr (i + 1)) == false)
+    {
+      error += "invalid value";
       throw std::runtime_error (error.c_str ());
     }
 }
