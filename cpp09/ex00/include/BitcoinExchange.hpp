@@ -24,3 +24,5 @@ public:
   std::map<std::string, double>::iterator
   getNearestDate(std::string inputDate);
 };
+
+void trim(std::string &str);
