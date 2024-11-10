@@ -22,10 +22,10 @@ BitcoinExchange::operator= (const BitcoinExchange &other)
 
 BitcoinExchange::~BitcoinExchange () {}
 
-std::map<std::string, float>::iterator
+std::map<std::string, double>::iterator
 BitcoinExchange::getNearestDate (std::string inputDate)
 {
-  std::map<std::string, float>::iterator it;
+  std::map<std::string, double>::iterator it;
 
   it = _Database.find (inputDate);
   if (it != _Database.end ())
@@ -151,7 +151,7 @@ BitcoinExchange::loadDatabase (std::string filename)
           if (i != std::string::npos)
             {
               std::string key = line.substr (0, i);
-              float value = std::atof (line.substr (i + 1).c_str ());
+              double value = std::atof (line.substr (i + 1).c_str ());
               _Database[key] = value;
             }
           lineNumber++;

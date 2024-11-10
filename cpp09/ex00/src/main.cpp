@@ -2,6 +2,7 @@
 #include "Defines.hpp"
 
 #include <fstream>
+#include <iomanip>
 
 int
 main ()
@@ -16,9 +17,8 @@ main ()
       std::cerr << e.what () << '\n';
     }
 
-  std::map<std::string, float>::iterator it;
+    std::map<std::string, double>::iterator it;
 
-  it = exchange.getNearestDate ("2022-01-24");
-  print ((it == exchange._Database.end ()) );
-  // print (it->first << ":" << it->second);
+    it = exchange.getNearestDate("2022-03-24");
+    print (it->first << ":" << std::fixed << std::setprecision (2) << it->second);
 }

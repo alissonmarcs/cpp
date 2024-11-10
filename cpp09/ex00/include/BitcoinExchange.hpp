@@ -6,7 +6,7 @@
 class BitcoinExchange
 {
 public:
-  std::map<std::string, float> _Database;
+  std::map<std::string, double> _Database;
 
 public:
   BitcoinExchange ();
@@ -21,6 +21,6 @@ public:
   bool isValueValid(std::string date);
   bool haveAplha (std::string str);
 
-  std::map<std::string, float>::iterator
+  std::map<std::string, double>::iterator
   getNearestDate(std::string inputDate);
 };
