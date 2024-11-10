@@ -2,9 +2,6 @@
 #include "Defines.hpp"
 
 #include <bits/stdc++.h>
-#include <cstdlib>
-#include <fstream>
-#include <sstream>
 
 BitcoinExchange::BitcoinExchange (int argc, char **argv)
 {
@@ -29,6 +26,7 @@ BitcoinExchange::loadDatabase (std::string filename)
       while (std::getline (file, line))
         {
           lineNumber++;
+          trim (line);
           if (line == "date,exchange_rate")
             continue;
           validadeDatabaseLine (line, lineNumber);
@@ -36,7 +34,7 @@ BitcoinExchange::loadDatabase (std::string filename)
           if (i != std::string::npos)
             {
               std::string key = line.substr (0, i);
-              trim (key);
+              trim(key);
               double value = std::atof (line.substr (i + 1).c_str ());
               _Database[key] = value;
             }
@@ -108,6 +106,7 @@ BitcoinExchange::printData (std::ifstream &file)
     {
       try
         {
+          trim(line);
           if (line == "date | value")
             continue;
           validadeInputLine (line);
@@ -141,6 +140,8 @@ BitcoinExchange::validadeInputLine (std::string line)
 
   if (line.empty ())
     throw std::runtime_error ("empty line");
+  if (haveAplha(line))
+    throw std::runtime_error ("expected only numbers");
   i = line.find ("|");
   if (i == std::string::npos)
     throw std::runtime_error ("expected '|'");
@@ -225,8 +226,9 @@ BitcoinExchange::isDateValid (std::string date)
 void
 BitcoinExchange::trim (std::string &str)
 {
-  str.erase (str.find_last_not_of (" ") + 1);
-  str.erase (0, str.find_first_not_of (" "));
+  const char * whiteSpace = " \t\n\r\f\v";
+  str.erase (str.find_last_not_of (whiteSpace) + 1);
+  str.erase (0, str.find_first_not_of (whiteSpace));
 }
 
 BitcoinExchange::BitcoinExchange () {}

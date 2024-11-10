@@ -5,7 +5,7 @@
 
 class BitcoinExchange
 {
-public:
+private:
   std::map<std::string, double> _Database;
 
 public:
