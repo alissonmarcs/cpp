@@ -23,6 +23,7 @@ public:
 
   std::map<std::string, double>::iterator getNearestDate(std::string inputDate);
   static void validadeInputLine(std::string line);
+  void printData(std::ifstream &file);
 };
 
 void trim(std::string &str);

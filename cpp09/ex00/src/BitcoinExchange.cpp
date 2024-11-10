@@ -27,6 +27,39 @@ void BitcoinExchange::validadeInputLine(std::string line)
     throw std::runtime_error("invalid value");
 }
 
+void
+BitcoinExchange::printData(std::ifstream &file)
+{
+  std::map<std::string, double>::iterator dataBaseElement;
+  std::string line;
+
+  while (std::getline(file, line))
+  {
+    try
+    {
+      if (line == "date | value")
+        continue;
+      validadeInputLine(line);
+      std::string date, valueStr;
+      double value;
+      size_t i = line.find("|");
+      date = line.substr(0, i);
+      trim(date);
+      valueStr = line.substr(i + 1);
+      trim(valueStr);
+      value = std::atof(valueStr.c_str());
+      dataBaseElement = getNearestDate(date);
+      if (dataBaseElement == _Database.end())
+        throw std::runtime_error("date not found in database");
+      print (date << " => " << valueStr << " = " << std::fixed << std::setprecision(2) << dataBaseElement->second * value);
+    }
+    catch (std::exception &e)
+    {
+      std::cout << "Error: " << e.what() << ": '" << line << "'" << std::endl;
+    }
+  }
+}
+
 BitcoinExchange::BitcoinExchange (int argc, char **argv)
 {
   if (argc != 2)
@@ -35,6 +68,7 @@ BitcoinExchange::BitcoinExchange (int argc, char **argv)
   if (file.is_open () == false)
       throw std::runtime_error ("unable to open input file");
   loadDatabase ("cpp_09/data.csv");
+  printData(file);
 }
 
 BitcoinExchange::BitcoinExchange () {}
