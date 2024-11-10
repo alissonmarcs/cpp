@@ -36,7 +36,7 @@ BitcoinExchange::loadDatabase (std::string filename)
           if (i != std::string::npos)
             {
               std::string key = line.substr (0, i);
-              trim(key);
+              trim (key);
               double value = std::atof (line.substr (i + 1).c_str ());
               _Database[key] = value;
             }

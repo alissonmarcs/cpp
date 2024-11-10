@@ -16,15 +16,16 @@ public:
 
   BitcoinExchange (int argc, char **argv);
   void loadDatabase (std::string filename);
-  void validadeDatabaseLine(std::string line, size_t lineNumber);
-  bool isDateValid(std::string date);
-  bool isValueValid(std::string date);
+  void validadeDatabaseLine (std::string line, size_t lineNumber);
+  bool isDateValid (std::string date);
+  bool isValueValid (std::string date);
   bool haveAplha (std::string str);
 
-  std::map<std::string, double>::iterator getNearestDate(std::string inputDate);
-  void validadeInputLine(std::string line);
-  void printData(std::ifstream &file);
-  void trim(std::string &str); 
+  std::map<std::string, double>::iterator
+  getNearestDate (std::string inputDate);
+  void validadeInputLine (std::string line);
+  void printData (std::ifstream &file);
+  void trim (std::string &str);
 };
 
-void trim(std::string &str);
+void trim (std::string &str);
