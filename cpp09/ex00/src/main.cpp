@@ -18,7 +18,7 @@ main ()
 
   std::map<std::string, float>::iterator it;
 
-  it = exchange.getNearestDate ("2017-03-12");
-  std::cout << "end()" << (it == exchange._Database.end ()) << std::endl;
-  std::cout << "begin()" << (it == exchange._Database.begin ()) << std::endl;
+  it = exchange.getNearestDate ("2022-01-24");
+  print ((it == exchange._Database.end ()) );
+  // print (it->first << ":" << it->second);
 }

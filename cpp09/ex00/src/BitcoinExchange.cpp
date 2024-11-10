@@ -1,10 +1,10 @@
 #include "BitcoinExchange.hpp"
 #include "Defines.hpp"
 
+#include <bits/stdc++.h>
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
-#include <bits/stdc++.h>
 
 BitcoinExchange::BitcoinExchange () {}
 
@@ -23,18 +23,15 @@ BitcoinExchange::operator= (const BitcoinExchange &other)
 BitcoinExchange::~BitcoinExchange () {}
 
 std::map<std::string, float>::iterator
-BitcoinExchange::getNearestDate(std::string inputDate)
+BitcoinExchange::getNearestDate (std::string inputDate)
 {
   std::map<std::string, float>::iterator it;
 
-  it = _Database.lower_bound(inputDate);
-  if (it->first == inputDate || it == _Database.begin() || it == _Database.end())
+  it = _Database.find (inputDate);
+  if (it != _Database.end ())
     return it;
-
+  it = _Database.lower_bound (inputDate);
   it--;
-  if (it != _Database.end())
-    return it;
-  it++;
   return it;
 }
 
@@ -60,30 +57,31 @@ BitcoinExchange::isValueValid (std::string value)
 }
 
 bool
-BitcoinExchange::isDateValid(std::string date)
+BitcoinExchange::isDateValid (std::string date)
 {
   const char *delimiter = "-";
   int tokenCount = 0, hifenCount = 0;
   char *token;
 
-  for (size_t i = 0; i < date.size(); i++)
+  for (size_t i = 0; i < date.size (); i++)
     {
       if (date[i] == '-')
         hifenCount++;
     }
   if (hifenCount != 2)
     return false;
-  token = std::strtok(const_cast<char*>(date.c_str()), delimiter);
+  token = std::strtok (const_cast<char *> (date.c_str ()), delimiter);
   while (token != 0)
     {
-      if (tokenCount == 0 && (std::atoi(token) < 0 || std::atoi(token) > 2024))
+      if (tokenCount == 0
+          && (std::atoi (token) < 0 || std::atoi (token) > 2024))
         return false;
-      if (tokenCount == 1 && (std::atoi(token) < 1 || std::atoi(token) > 12))
+      if (tokenCount == 1 && (std::atoi (token) < 1 || std::atoi (token) > 12))
         return false;
-      if (tokenCount == 2 && (std::atoi(token) < 1 || std::atoi(token) > 31))
+      if (tokenCount == 2 && (std::atoi (token) < 1 || std::atoi (token) > 31))
         return false;
       tokenCount++;
-      token = std::strtok(0, delimiter);
+      token = std::strtok (0, delimiter);
     }
   if (tokenCount != 3)
     return false;
@@ -91,14 +89,14 @@ BitcoinExchange::isDateValid(std::string date)
 }
 
 void
-BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
+BitcoinExchange::validadeDatabaseLine (std::string line, size_t lineNumber)
 {
   size_t i = 0, commaCount = 0;
   std::string error = RED "Database error: " RESET "line: ";
   std::stringstream lineNumberStr;
 
   lineNumberStr << lineNumber;
-  error += lineNumberStr.str() + ": ";
+  error += lineNumberStr.str () + ": ";
   if (line.empty ())
     {
       error += "empty line";
@@ -120,7 +118,7 @@ BitcoinExchange::validadeDatabaseLine(std::string line, size_t lineNumber)
       error += "invalid date";
       throw std::runtime_error (error.c_str ());
     }
-  for (size_t j = 0; j < line.size(); j++)
+  for (size_t j = 0; j < line.size (); j++)
     {
       if (line[j] == ',')
         commaCount++;
@@ -148,15 +146,15 @@ BitcoinExchange::loadDatabase (std::string filename)
       size_t i, lineNumber = 1;
       while (std::getline (file, line))
         {
-          validadeDatabaseLine(line, lineNumber);
+          validadeDatabaseLine (line, lineNumber);
           i = line.find (",");
           if (i != std::string::npos)
             {
               std::string key = line.substr (0, i);
               float value = std::atof (line.substr (i + 1).c_str ());
-             _Database[key] = value;
+              _Database[key] = value;
             }
-            lineNumber++;
+          lineNumber++;
         }
       file.close ();
     }
