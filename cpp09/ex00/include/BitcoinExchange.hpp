@@ -27,5 +27,3 @@ public:
   void printData (std::ifstream &file);
   void trim (std::string &str);
 };
-
-void trim (std::string &str);
