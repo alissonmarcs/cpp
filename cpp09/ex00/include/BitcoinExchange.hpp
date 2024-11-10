@@ -14,8 +14,8 @@ public:
   BitcoinExchange &operator= (const BitcoinExchange &other);
   ~BitcoinExchange ();
 
+  BitcoinExchange (int argc, char **argv);
   void loadDatabase (std::string filename);
-
   void validadeDatabaseLine(std::string line, size_t line_number);
   bool isDateValid(std::string date);
   bool isValueValid(std::string date);

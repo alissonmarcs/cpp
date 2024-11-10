@@ -6,6 +6,25 @@
 #include <fstream>
 #include <sstream>
 
+BitcoinExchange::BitcoinExchange (int argc, char **argv)
+{
+  std::string error = RED "Error:" RESET;
+
+  if (argc != 2)
+    {
+      error += " invalid number of arguments";
+      throw std::runtime_error (error.c_str ());
+    }
+  std::ifstream file (argv[1]);
+  if (file.is_open () == false)
+    {
+      error += " unable to open '" + std::string (argv[1]) + "' file";
+      throw std::runtime_error (error.c_str ());
+    }
+  loadDatabase (argv[1]);
+  std::string line;
+}
+
 BitcoinExchange::BitcoinExchange () {}
 
 BitcoinExchange::BitcoinExchange (const BitcoinExchange &other)
