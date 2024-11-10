@@ -7,12 +7,20 @@
 int
 main (int argc, char **argv)
 {
-  try
+  std::ifstream file (argv[1]);
+  std::string line;
+
+  while (std::getline (file, line))
     {
-      BitcoinExchange exchange (argc, argv);
-    }
-  catch (const std::exception &e)
-    {
-      std::cerr << e.what () << '\n';
+      try
+        {
+          BitcoinExchange::validadeInputLine (line);
+          print (line << " => " << "OK");
+
+        }
+      catch (std::runtime_error &e)
+        {
+          print ("Error: " << e.what() << " => '" << line << "'");
+        }
     }
 }

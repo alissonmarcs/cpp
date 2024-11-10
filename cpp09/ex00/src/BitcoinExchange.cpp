@@ -6,23 +6,35 @@
 #include <fstream>
 #include <sstream>
 
+void BitcoinExchange::validadeInputLine(std::string line)
+{
+  size_t i;
+
+  if (line.empty())
+    throw std::runtime_error("empty line"); 
+  i = line.find("|");
+  if (i == std::string::npos)
+    throw std::runtime_error("expected '|'");
+  std::string date = line.substr(0, i);
+  trim (date);
+  if (date.empty() || isDateValid(date) == false)
+    throw std::runtime_error("invalid date");
+  std::string value = line.substr(i + 1);
+  trim (value);
+  if (value.empty())
+    throw std::runtime_error("empty value");
+  if (std::atof(value.c_str()) < 0 || std::atof(value.c_str()) > 1000)
+    throw std::runtime_error("invalid value");
+}
+
 BitcoinExchange::BitcoinExchange (int argc, char **argv)
 {
-  std::string error = RED "Error:" RESET;
-
   if (argc != 2)
-    {
-      error += " invalid number of arguments";
-      throw std::runtime_error (error.c_str ());
-    }
+      throw std::runtime_error ("invalid number of arguments");
   std::ifstream file (argv[1]);
   if (file.is_open () == false)
-    {
-      error += " unable to open '" + std::string (argv[1]) + "' file";
-      throw std::runtime_error (error.c_str ());
-    }
-  loadDatabase (argv[1]);
-  std::string line;
+      throw std::runtime_error ("unable to open input file");
+  loadDatabase ("cpp_09/data.csv");
 }
 
 BitcoinExchange::BitcoinExchange () {}
