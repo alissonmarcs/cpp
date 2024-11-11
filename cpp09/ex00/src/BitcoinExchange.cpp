@@ -10,7 +10,7 @@ BitcoinExchange::BitcoinExchange (int argc, char **argv)
   std::ifstream file (argv[1]);
   if (file.is_open () == false)
     throw std::runtime_error ("unable to open input file");
-  loadDatabase ("cpp_09/data.csv");
+  loadDatabase ("data.csv");
   printData (file);
 }
 
