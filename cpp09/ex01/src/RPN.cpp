@@ -1,25 +1,57 @@
 #include "RPN.hpp"
+#include "Defines.hpp"
 
 #include <cstdlib>
 #include <stdexcept>
+#include <sstream>
+#include <stack>
 
-void validadeExpression(std::string expression)
+bool isOperator(std::string str)
 {
-	size_t i = 0;
-
-	while (i < expression.size())
-	{
-		if (!std::isdigit(expression[i]) && expression[i] != '+' && expression[i] != '-' && expression[i] != '*' && expression[i] != '/' && expression[i] != ' ')
-			throw std::invalid_argument("Invalid character in expression");
-		if (std::atoi (&expression[i]) < 0 || std::atoi(&expression[i]) > 9)
-			throw std::invalid_argument("Numbers must be between 0 and 9");
-		i++;
-	}	
+	if (str == "+" || str == "-" || str == "*" || str == "/")
+		return true;
+	return false;
 }
 
 RPN::RPN(std::string expression)
 {
-	validadeExpression(expression);
+	std::stack<int> stk;
+	int first, second;
+	std::string token;
+	std::istringstream iss(expression);
+
+	while (iss >> token)
+	{
+		if (isOperator(token))
+		{
+			if (stk.size() < 2)
+				throw std::invalid_argument("Not enough numbers for operation");
+			first = stk.top();
+			stk.pop();
+			second = stk.top();
+			stk.pop();
+			if (token == "+")
+				stk.push(second + first);
+			else if (token == "-")
+				stk.push(second - first);
+			else if (token == "*")
+				stk.push(second * first);
+			else if (token == "/")
+				stk.push(second / first);
+		}
+		else if (std::isdigit(token[0]))
+		{
+			int number = std::atoi(token.c_str());
+			if (number < 0 || number > 9)
+				throw std::invalid_argument("Numbers must be between 0 and 9");
+			stk.push(number);
+		}
+		else
+			throw std::invalid_argument("Invalid character in expression");
+	}
+	if (stk.size() != 1)
+		throw std::invalid_argument("One number were left");
+	print (stk.top());
 }
 
 RPN::RPN()
