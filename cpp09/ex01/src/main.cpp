@@ -1,8 +1,6 @@
 #include "Defines.hpp"
 #include "RPN.hpp"
 
-#include <stack>
-
 int
 main (int argc, char **argv)
 {
@@ -14,7 +12,7 @@ main (int argc, char **argv)
     }
   catch (const std::exception &e)
     {
-      std::cerr << e.what () << std::endl;
+      std::cerr << RED "Error: " RESET << e.what () << std::endl;
       return 1;
     }
   return 0;

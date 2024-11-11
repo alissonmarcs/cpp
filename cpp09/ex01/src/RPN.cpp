@@ -6,7 +6,7 @@
 #include <stdexcept>
 
 bool
-isOperator (std::string str)
+RPN::isOperator (std::string str)
 {
   if (str == "+" || str == "-" || str == "*" || str == "/")
     return true;
@@ -14,7 +14,7 @@ isOperator (std::string str)
 }
 
 void
-executeOperator (std::stack<int> &stk, int first, std::string token,
+RPN::executeOperator (std::stack<int> &stk, int first, std::string token,
                  int second)
 {
   if (token == "+")
