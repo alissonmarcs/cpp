@@ -37,7 +37,11 @@ RPN::RPN(std::string expression)
 			else if (token == "*")
 				stk.push(second * first);
 			else if (token == "/")
+			{
+				if (first == 0)
+					throw std::invalid_argument("Division by zero");
 				stk.push(second / first);
+			}
 		}
 		else if (std::isdigit(token[0]))
 		{
@@ -50,7 +54,7 @@ RPN::RPN(std::string expression)
 			throw std::invalid_argument("Invalid character in expression");
 	}
 	if (stk.size() != 1)
-		throw std::invalid_argument("One number were left");
+		throw std::invalid_argument("Number were left in the stack");
 	print (stk.top());
 }
 
