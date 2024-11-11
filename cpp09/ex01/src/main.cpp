@@ -3,18 +3,19 @@
 
 #include <stack>
 
-int main(int argc, char **argv)
+int
+main (int argc, char **argv)
 {
-    try
+  try
     {
-        if (argc != 2 || (argv[1][0] == '\0'))
-            throw std::invalid_argument("Usage: ./RPN \"expression\"");
-        RPN rpn(argv[1]);
+      if (argc != 2 || (argv[1][0] == '\0'))
+        throw std::invalid_argument ("Usage: ./RPN \"expression\"");
+      RPN rpn (argv[1]);
     }
-    catch (const std::exception &e)
+  catch (const std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
-        return 1;
+      std::cerr << e.what () << std::endl;
+      return 1;
     }
-    return 0;
+  return 0;
 }
