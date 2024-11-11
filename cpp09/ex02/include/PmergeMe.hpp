@@ -15,11 +15,11 @@ public:
 
   /* Vector */
   void merge (std::vector<int> & container, size_t left, size_t mid, size_t right);
-  void mergeSort (std::vector<int> & container, size_t left, size_t right);
+  void mergeInsertionSort (std::vector<int> & container, size_t left, size_t right);
 
   /* Deque */
   void merge (std::deque<int> & container, size_t left, size_t mid, size_t right);
-  void mergeSort (std::deque<int> & container, size_t left, size_t right);
+  void mergeInsertionSort (std::deque<int> & container, size_t left, size_t right);
 };
 
 bool haveNegativeNumbers (char **argv);

@@ -6,13 +6,13 @@
 
 /* Vector */
 void
-PmergeMe::mergeSort (std::vector<int> & container, size_t left, size_t right)
+PmergeMe::mergeInsertionSort (std::vector<int> & container, size_t left, size_t right)
 {
   if (left < right)
     {
       size_t mid = left + (right - left) / 2;
-      mergeSort (container, left, mid);
-      mergeSort (container, mid + 1, right);
+      mergeInsertionSort (container, left, mid);
+      mergeInsertionSort (container, mid + 1, right);
       merge (container, left, mid, right);
     }
 }
@@ -54,13 +54,13 @@ PmergeMe::merge (std::vector<int> & container, size_t left, size_t mid, size_t r
 
 /* Deque */
 void
-PmergeMe::mergeSort (std::deque<int> & container, size_t left, size_t right)
+PmergeMe::mergeInsertionSort (std::deque<int> & container, size_t left, size_t right)
 {
   if (left < right)
     {
       size_t mid = left + (right - left) / 2;
-      mergeSort (container, left, mid);
-      mergeSort (container, mid + 1, right);
+      mergeInsertionSort (container, left, mid);
+      mergeInsertionSort (container, mid + 1, right);
       merge (container, left, mid, right);
     }
 }

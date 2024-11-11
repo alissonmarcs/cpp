@@ -36,7 +36,7 @@ main (int argc, char **argv)
   printContainer (deq);
   
   clock_t start = clock ();
-  pmergeMe.mergeSort (deq, 0, deq.size () - 1);
+  pmergeMe.mergeInsertionSort (deq, 0, deq.size () - 1);
   clock_t end = clock ();
   
   std::cout << "After: ";
@@ -44,13 +44,13 @@ main (int argc, char **argv)
   print ("Time for deque: " << std::fixed << std::setprecision (6) << (double) (end - start) / CLOCKS_PER_SEC << " seconds");
 
   start = clock ();
-  pmergeMe.mergeSort (vect, 0, vect.size () - 1);
+  pmergeMe.mergeInsertionSort (vect, 0, vect.size () - 1);
   end = clock ();
   print ("Time for vector: " << std::fixed << std::setprecision (6) << (double) (end - start) / CLOCKS_PER_SEC << " seconds");
 
   std::sort(vectCopy.begin(), vectCopy.end());
   std::sort(deqCopy.begin(), deqCopy.end());
 
-  std::cout << "System sort are equal to insertion sort for deques: " << ((deqCopy == deq) ? "Yes" : "No") << std::endl;
-  std::cout << "System sort are equal to insertion sort for vectors: " << ((vectCopy == vect) ? "Yes" : "No") << std::endl;
+  std::cout << "System sort are equal to insertion merge sort for deques: " << ((deqCopy == deq) ? "Yes" : "No") << std::endl;
+  std::cout << "System sort are equal to insertion merge sort for vectors: " << ((vectCopy == vect) ? "Yes" : "No") << std::endl;
 }
