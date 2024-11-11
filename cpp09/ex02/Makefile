@@ -14,7 +14,7 @@ ifdef REMOVE_W_FLAGS
 endif
 
 ifdef DEBUG
-		DEBUG_FLAGS := -g3
+		DEBUG_FLAGS := -g3 -fno-limit-debug-info
 endif
 
 ifdef REMOVE_STD
