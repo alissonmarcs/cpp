@@ -1,12 +1,9 @@
 #include "PmergeMe.hpp"
 #include "Defines.hpp"
 
-#include <cstdlib>
-#include <ctime>
 #include <deque>
-#include <iomanip>
-#include <stdexcept>
 #include <vector>
+#include <iomanip>
 #include <algorithm>
 
 PmergeMe::PmergeMe () {}
