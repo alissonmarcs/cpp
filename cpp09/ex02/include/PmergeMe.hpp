@@ -1,6 +1,8 @@
 #pragma once
 
-#include <cstdlib>
+#include <vector>
+#include <deque>
+#include <iostream>
 
 class PmergeMe
 {
@@ -10,12 +12,24 @@ public:
   PmergeMe &operator= (const PmergeMe &other);
   ~PmergeMe ();
 
-  PmergeMe (int argc, char **argv);
-  template <typename T>
-  void merge (T &container, size_t left, size_t mid, size_t right);
-  template <typename T>
-  void mergeSort (T &container, size_t left, size_t right);
-  bool haveNegativeNumbers (char **argv);
+
+  /* Vector */
+  void merge (std::vector<int> & container, size_t left, size_t mid, size_t right);
+  void mergeSort (std::vector<int> & container, size_t left, size_t right);
+
+  /* Deque */
+  void merge (std::deque<int> & container, size_t left, size_t mid, size_t right);
+  void mergeSort (std::deque<int> & container, size_t left, size_t right);
 };
 
-template <typename T> void printContainer (T &container);
+bool haveNegativeNumbers (char **argv);
+
+template <typename T>
+void
+printContainer (T &container)
+{
+  for (typename T::iterator it = container.begin (); it != container.end ();
+       ++it)
+    std::cout << "[" << *it << "]";
+  std::cout << std::endl;
+};
