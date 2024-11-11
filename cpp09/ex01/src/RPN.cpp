@@ -13,6 +13,22 @@ bool isOperator(std::string str)
 	return false;
 }
 
+void executeOperator(std::stack<int> & stk, int first, std::string token, int second)
+{
+	if (token == "+")
+		stk.push(second + first);
+	else if (token == "-")
+		stk.push(second - first);
+	else if (token == "*")
+		stk.push(second * first);
+	else if (token == "/")
+	{
+		if (first == 0)
+			throw std::invalid_argument("Division by zero");
+		stk.push(second / first);
+	}
+}
+
 RPN::RPN(std::string expression)
 {
 	std::stack<int> stk;
@@ -30,18 +46,7 @@ RPN::RPN(std::string expression)
 			stk.pop();
 			second = stk.top();
 			stk.pop();
-			if (token == "+")
-				stk.push(second + first);
-			else if (token == "-")
-				stk.push(second - first);
-			else if (token == "*")
-				stk.push(second * first);
-			else if (token == "/")
-			{
-				if (first == 0)
-					throw std::invalid_argument("Division by zero");
-				stk.push(second / first);
-			}
+			executeOperator(stk, first, token, second);
 		}
 		else if (std::isdigit(token[0]))
 		{
@@ -54,7 +59,7 @@ RPN::RPN(std::string expression)
 			throw std::invalid_argument("Invalid character in expression");
 	}
 	if (stk.size() != 1)
-		throw std::invalid_argument("Number were left in the stack");
+		throw std::invalid_argument("Numbers were left in the stack");
 	print (stk.top());
 }
 

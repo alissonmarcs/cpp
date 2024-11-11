@@ -10,6 +10,5 @@ public:
 	RPN &operator=(const RPN &other);
 	~RPN();
 
-
 	RPN(std::string expression);
 };
