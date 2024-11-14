@@ -16,4 +16,4 @@
 |[`cpp06`](https://github.com/alissonmarcs/cpp/tree/main/cpp06)| Type casting |
 |[`cpp07`](https://github.com/alissonmarcs/cpp/tree/main/cpp07)| Templating functions |
 |[`cpp08`](https://github.com/alissonmarcs/cpp/tree/main/cpp08)| Templated containers, extending `std::stack` to turn it iterable, algorithms |
-|[`cpp09`](https://github.com/alissonmarcs/cpp/tree/main/cpp09)| Standard Template Library, iterators, implementation of merge insertion sort algorithm |
+|[`cpp09`](https://github.com/alissonmarcs/cpp/tree/main/cpp09)| Standard Template Library, iterators, implementation of merge sort algorithm |
